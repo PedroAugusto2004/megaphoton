@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="min-h-screen flex items-center bg-hero-gradient relative overflow-hidden">
+    <section id="inicio" className="min-h-screen flex items-center bg-hero-gradient relative overflow-hidden pt-20">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 animate-float">
