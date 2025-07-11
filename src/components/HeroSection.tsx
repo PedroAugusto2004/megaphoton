@@ -20,7 +20,7 @@ const HeroSection = () => {
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="space-y-8 animate-fade-in-left mt-16 lg:mt-24">
+          <div className="space-y-8 animate-fade-in-left pt-24 lg:pt-32">
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
                 SUA USINA EM{' '}
