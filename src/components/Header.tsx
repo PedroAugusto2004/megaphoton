@@ -86,30 +86,33 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border">
-            <div className="flex flex-col space-y-4 pt-4">
-              {menuItems.map((item) => (
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <div className="mt-4 pb-4 border-t border-border/50 bg-background/95 backdrop-blur-md rounded-b-lg shadow-lg">
+            <div className="flex flex-col space-y-3 pt-4 px-2">
+              {menuItems.map((item, index) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-foreground font-medium hover:text-primary transition-smooth"
+                  className="text-foreground font-medium hover:text-primary transition-all duration-200 p-3 rounded-lg hover:bg-accent/50 transform hover:translate-x-2"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="flex flex-col space-y-2 pt-4 border-t border-border">
+              <div className="flex flex-col space-y-3 pt-4 border-t border-border/30">
                 <a 
                   href="tel:+5534992320853" 
-                  className="flex items-center space-x-2 text-solar-green"
+                  className="flex items-center space-x-3 text-solar-green p-3 rounded-lg hover:bg-accent/30 transition-all duration-200"
                 >
                   <Phone className="h-4 w-4" />
                   <span className="text-sm font-medium">(34) 99232-0853</span>
                 </a>
                 <a 
                   href="tel:+5534998705215" 
-                  className="flex items-center space-x-2 text-solar-green"
+                  className="flex items-center space-x-3 text-solar-green p-3 rounded-lg hover:bg-accent/30 transition-all duration-200"
                 >
                   <Phone className="h-4 w-4" />
                   <span className="text-sm font-medium">(34) 99870-5215</span>
@@ -118,7 +121,7 @@ const Header = () => {
                   href="https://instagram.com/megaphoton.ei" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 text-solar-green"
+                  className="flex items-center space-x-3 text-solar-green p-3 rounded-lg hover:bg-accent/30 transition-all duration-200"
                 >
                   <Instagram className="h-4 w-4" />
                   <span className="text-sm font-medium">@megaphoton.ei</span>
@@ -126,7 +129,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );
