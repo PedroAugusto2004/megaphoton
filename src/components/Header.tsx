@@ -88,11 +88,11 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        <div className={`lg:hidden absolute top-full right-0 z-50 transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
         }`}>
-          <div className="mt-4 pb-4 border-t border-border/50 bg-background/95 backdrop-blur-md rounded-b-lg shadow-lg">
-            <div className="flex flex-col space-y-3 pt-4 px-2">
+          <div className="w-64 bg-background/95 backdrop-blur-md border border-border/50 rounded-bl-lg shadow-xl">
+            <div className="flex flex-col space-y-2 p-4">
               {menuItems.map((item, index) => (
                 <a
                   key={item.href}
@@ -104,7 +104,7 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <div className="flex flex-col space-y-3 pt-4 border-t border-border/30">
+              <div className="flex flex-col space-y-2 pt-4 border-t border-border/30">
                 <a 
                   href="tel:+5534992320853" 
                   className="flex items-center space-x-3 text-solar-green p-3 rounded-lg hover:bg-accent/30 transition-all duration-200"
