@@ -92,7 +92,7 @@ const Header = () => {
           isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
         }`}>
           <div className="w-64 bg-background/95 backdrop-blur-md border border-border/50 rounded-bl-lg shadow-xl">
-            <div className="flex flex-col space-y-2 p-4">
+            <div className="flex flex-col">
               {menuItems.map((item, index) => (
                 <a
                   key={item.href}
