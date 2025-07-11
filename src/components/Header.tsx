@@ -35,7 +35,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/847320fd-3f48-4cea-abf4-76433ce9d189.png" 
+              src="/lovable-uploads/megaphoton.png" 
               alt="MEGAPHOTON Logo" 
               className="h-12 w-auto animate-glow"
             />
