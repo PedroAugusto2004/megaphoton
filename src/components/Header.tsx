@@ -87,77 +87,47 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        <div className={`lg:hidden fixed inset-0 z-50 transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        {/* Mobile Menu */}
+        <div className={`lg:hidden absolute top-full right-0 z-50 transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
         }`}>
-          {/* Dark backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-          
-          {/* Menu content */}
-          <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-          }`}>
-            <div className="w-full max-w-sm mx-6 bg-background/95 backdrop-blur-md rounded-2xl shadow-2xl border border-border/50 overflow-hidden">
-              {/* Close button */}
-              <div className="flex justify-end p-4">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="hover:bg-accent/50 rounded-full"
+          <div className="w-64 bg-background/95 backdrop-blur-md border border-border/50 rounded-bl-lg shadow-xl">
+            <div className="flex flex-col space-y-2 p-4">
+              {menuItems.map((item, index) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-foreground font-medium hover:text-primary transition-all duration-200 p-3 rounded-lg hover:bg-accent/50 transform hover:translate-x-2"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <X className="h-5 w-5" />
-                </Button>
-              </div>
-              
-              {/* Menu items */}
-              <div className="px-6 pb-6">
-                <div className="flex flex-col space-y-2">
-                  {menuItems.map((item, index) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="text-foreground text-lg font-medium hover:text-primary transition-all duration-200 p-4 rounded-xl hover:bg-accent/50 text-center"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
-                
-                {/* Contact section */}
-                <div className="mt-8 pt-6 border-t border-border/30">
-                  <div className="flex flex-col space-y-3">
-                    <a 
-                      href="tel:+5534992320853" 
-                      className="flex items-center justify-center space-x-3 text-solar-green p-3 rounded-xl hover:bg-accent/30 transition-all duration-200"
-                    >
-                      <Phone className="h-4 w-4" />
-                      <span className="font-medium">(34) 99232-0853</span>
-                    </a>
-                    <a 
-                      href="tel:+5534998705215" 
-                      className="flex items-center justify-center space-x-3 text-solar-green p-3 rounded-xl hover:bg-accent/30 transition-all duration-200"
-                    >
-                      <Phone className="h-4 w-4" />
-                      <span className="font-medium">(34) 99870-5215</span>
-                    </a>
-                    <a 
-                      href="https://instagram.com/megaphoton.ei" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center space-x-3 text-solar-green p-3 rounded-xl hover:bg-accent/30 transition-all duration-200"
-                    >
-                      <Instagram className="h-4 w-4" />
-                      <span className="font-medium">@megaphoton.ei</span>
-                    </a>
-                  </div>
-                </div>
+                  {item.label}
+                </a>
+              ))}
+              <div className="flex flex-col space-y-2 pt-4 border-t border-border/30">
+                <a 
+                  href="tel:+5534992320853" 
+                  className="flex items-center space-x-3 text-solar-green p-3 rounded-lg hover:bg-accent/30 transition-all duration-200"
+                >
+                  <Phone className="h-4 w-4" />
+                  <span className="text-sm font-medium">(34) 99232-0853</span>
+                </a>
+                <a 
+                  href="tel:+5534998705215" 
+                  className="flex items-center space-x-3 text-solar-green p-3 rounded-lg hover:bg-accent/30 transition-all duration-200"
+                >
+                  <Phone className="h-4 w-4" />
+                  <span className="text-sm font-medium">(34) 99870-5215</span>
+                </a>
+                <a 
+                  href="https://instagram.com/megaphoton.ei" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 text-solar-green p-3 rounded-lg hover:bg-accent/30 transition-all duration-200"
+                >
+                  <Instagram className="h-4 w-4" />
+                  <span className="text-sm font-medium">@megaphoton.ei</span>
+                </a>
               </div>
             </div>
           </div>
