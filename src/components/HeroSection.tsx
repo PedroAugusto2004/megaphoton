@@ -29,7 +29,7 @@ import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="min-h-screen flex items-center bg-hero-gradient relative overflow-hidden pt-20">
+    <section id="inicio" className="min-h-screen flex items-center bg-hero-gradient relative pt-20">
       {/* Background Pattern removed as requested */}
 
       <div className="container-custom relative z-10">
@@ -100,7 +100,7 @@ const HeroSection = () => {
           </div>
 
           {/* Image Placeholder */}
-          <div className="relative animate-fade-in-right">
+          <div className="relative animate-fade-in-right p-4">
             <div className="aspect-square bg-gradient-to-br from-primary-light to-secondary rounded-3xl p-8 shadow-solar">
               <div className="w-full h-full bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
                 <div className="relative w-full h-full">
