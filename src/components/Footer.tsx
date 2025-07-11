@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="lg:col-span-1 space-y-6">
             <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/megaphoton.png" 
+                src="/images/megaphoton.png" 
                 alt="MEGAPHOTON Logo" 
                 className="h-12 w-auto"
               />

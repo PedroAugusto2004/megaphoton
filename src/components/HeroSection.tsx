@@ -1,21 +1,36 @@
-import { ArrowRight, Sun, Zap, Shield } from 'lucide-react';
+        {/* Extra icons for denser background */}
+        <>
+          {/* Row 1.5 */}
+          <Sun className="absolute top-12 left-1/8 animate-float" style={{opacity:0.18, color:'#FFD600', animationDelay:'0.3s'}} width={56} height={56} />
+          <Zap className="absolute top-12 left-3/8 animate-float" style={{opacity:0.15, color:'#22c55e', animationDelay:'0.8s'}} width={48} height={48} />
+          <Sun className="absolute top-12 left-5/8 animate-float" style={{opacity:0.18, color:'#FFD600', animationDelay:'1.3s'}} width={56} height={56} />
+          <Zap className="absolute top-12 left-7/8 animate-float" style={{opacity:0.15, color:'#22c55e', animationDelay:'1.8s'}} width={48} height={48} />
+
+          {/* Row 2.5 */}
+          <Zap className="absolute top-1/3 left-1/8 animate-float" style={{opacity:0.13, color:'#22c55e', animationDelay:'1.1s'}} width={40} height={40} />
+          <Sun className="absolute top-1/3 left-3/8 animate-float" style={{opacity:0.16, color:'#FFD600', animationDelay:'1.6s'}} width={48} height={48} />
+          <Zap className="absolute top-1/3 left-5/8 animate-float" style={{opacity:0.13, color:'#22c55e', animationDelay:'2.1s'}} width={40} height={40} />
+          <Sun className="absolute top-1/3 left-7/8 animate-float" style={{opacity:0.16, color:'#FFD600', animationDelay:'2.6s'}} width={48} height={48} />
+
+          {/* Row 3.5 */}
+          <Sun className="absolute top-2/3 left-1/8 animate-float" style={{opacity:0.18, color:'#FFD600', animationDelay:'1.4s'}} width={56} height={56} />
+          <Zap className="absolute top-2/3 left-3/8 animate-float" style={{opacity:0.15, color:'#22c55e', animationDelay:'1.9s'}} width={48} height={48} />
+          <Sun className="absolute top-2/3 left-5/8 animate-float" style={{opacity:0.18, color:'#FFD600', animationDelay:'2.4s'}} width={56} height={56} />
+          <Zap className="absolute top-2/3 left-7/8 animate-float" style={{opacity:0.15, color:'#22c55e', animationDelay:'2.9s'}} width={48} height={48} />
+
+          {/* Row 4.5 */}
+          <Zap className="absolute bottom-1/3 left-1/8 animate-float" style={{opacity:0.13, color:'#22c55e', animationDelay:'1.7s'}} width={40} height={40} />
+          <Sun className="absolute bottom-1/3 left-3/8 animate-float" style={{opacity:0.16, color:'#FFD600', animationDelay:'2.2s'}} width={48} height={48} />
+          <Zap className="absolute bottom-1/3 left-5/8 animate-float" style={{opacity:0.13, color:'#22c55e', animationDelay:'2.7s'}} width={40} height={40} />
+          <Sun className="absolute bottom-1/3 left-7/8 animate-float" style={{opacity:0.16, color:'#FFD600', animationDelay:'3.2s'}} width={48} height={48} />
+        </>
+import { ArrowRight, Sun, Zap, Shield, Phone, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   return (
     <section id="inicio" className="min-h-screen flex items-center bg-hero-gradient relative overflow-hidden pt-20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 animate-float">
-          <Sun className="h-16 w-16 text-primary" />
-        </div>
-        <div className="absolute top-40 right-20 animate-float" style={{ animationDelay: '1s' }}>
-          <Zap className="h-12 w-12 text-secondary" />
-        </div>
-        <div className="absolute bottom-40 left-1/4 animate-float" style={{ animationDelay: '2s' }}>
-          <Shield className="h-14 w-14 text-primary" />
-        </div>
-      </div>
+      {/* Background Pattern removed as requested */}
 
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -79,8 +94,8 @@ const HeroSection = () => {
 
             {/* Contact Info */}
             <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
-              <span>📞 (34) 99232-0853 / 99870-5215</span>
-              <span>📱 @megaphoton.ei</span>
+              <span className="flex items-center gap-2"><Phone className="h-4 w-4" /> (34) 99232-0853 / 99870-5215</span>
+              <span className="flex items-center gap-2"><Instagram className="h-4 w-4" /> @megaphoton.ei</span>
             </div>
           </div>
 
@@ -88,10 +103,8 @@ const HeroSection = () => {
           <div className="relative animate-fade-in-right">
             <div className="aspect-square bg-gradient-to-br from-primary-light to-secondary rounded-3xl p-8 shadow-solar">
               <div className="w-full h-full bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                <div className="text-center text-white">
-                  <Sun className="h-24 w-24 mx-auto mb-4 animate-glow" />
-                  <p className="text-lg font-semibold">Espaço para imagem</p>
-                  <p className="text-sm opacity-80">Sistema Solar em Operação</p>
+                <div className="relative w-full h-full">
+                  <img src="/images/sobre.png" alt="Sistema Solar em Operação" className="absolute inset-0 w-full h-full object-cover rounded-2xl" style={{ objectPosition: '40% center' }} />
                 </div>
               </div>
             </div>
