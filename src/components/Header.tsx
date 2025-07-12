@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import './mobile-menu.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,7 +54,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <div className="lg:hidden ml-auto">
             <button
-              className="relative z-50 p-2 transition-transform duration-300 hover:scale-110 active:scale-95"
+              className="relative z-[10000] p-2 transition-transform duration-300 hover:scale-110 active:scale-95"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? 
@@ -65,45 +66,46 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden fixed top-0 right-0 h-screen w-80 z-40 transition-all duration-500 ease-in-out ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}>
-          <div className="h-full bg-white shadow-xl flex flex-col px-6 py-8">
-            <div className="flex-1 flex flex-col justify-center space-y-4">
-              {menuItems.map((item, index) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-gray-800 text-lg font-medium hover:text-primary transition-all duration-300 py-3 text-center"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-            <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
+        <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'mobile-menu-open' : 'mobile-menu-closed'}`}>
+          <div className="mobile-menu-container">
+            {menuItems.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="mobile-menu-item"
+                style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            
+            <div className="mobile-menu-contacts">
               <a 
                 href="tel:+5534992320853" 
-                className="flex items-center justify-center space-x-2 text-gray-600 hover:text-primary transition-all duration-300 py-2"
+                className="mobile-menu-contact-item"
+                style={{ animationDelay: '0.7s' }}
               >
-                <Phone className="h-4 w-4" />
-                <span className="text-sm">(34) 99232-0853</span>
+                <Phone style={{marginRight: '0.5rem'}} />
+                <span>(34) 99232-0853</span>
               </a>
               <a 
                 href="tel:+5534998705215" 
-                className="flex items-center justify-center space-x-2 text-gray-600 hover:text-primary transition-all duration-300 py-2"
+                className="mobile-menu-contact-item"
+                style={{ animationDelay: '0.8s' }}
               >
-                <Phone className="h-4 w-4" />
-                <span className="text-sm">(34) 99870-5215</span>
+                <Phone style={{marginRight: '0.5rem'}} />
+                <span>(34) 99870-5215</span>
               </a>
               <a 
                 href="https://instagram.com/megaphoton.ei" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center space-x-2 text-gray-600 hover:text-primary transition-all duration-300 py-2"
+                className="mobile-menu-contact-item"
+                style={{ animationDelay: '0.9s' }}
               >
-                <Instagram className="h-4 w-4" />
-                <span className="text-sm">@megaphoton.ei</span>
+                <Instagram style={{marginRight: '0.5rem'}} />
+                <span>@megaphoton.ei</span>
               </a>
             </div>
           </div>
