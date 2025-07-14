@@ -101,9 +101,9 @@ const ServicesSection = () => {
       <div className="relative w-full bg-gradient-to-br from-green-500 to-green-600 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
         
-        <div className="relative grid lg:grid-cols-2 min-h-screen">
+        <div className="relative flex flex-col lg:grid lg:grid-cols-2 lg:min-h-screen">
           {/* Content Side */}
-          <div className="flex items-center px-6 md:px-8 lg:px-16 py-12 md:py-16 lg:py-20">
+          <div className="flex items-center px-6 md:px-8 lg:px-16 py-8 md:py-16 lg:py-20 lg:order-1">
             <div className="space-y-6 md:space-y-8 text-white max-w-lg">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
                 INSTALAÇÕES &<br />MANUTENÇÕES
@@ -134,7 +134,7 @@ const ServicesSection = () => {
           </div>
           
           {/* Video Side */}
-          <div className="relative">
+          <div className="relative min-h-[300px] lg:min-h-full lg:order-2">
             <div className="absolute inset-0">
               {!videoError ? (
                 <video 
