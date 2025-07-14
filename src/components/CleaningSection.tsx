@@ -99,12 +99,12 @@ const CleaningSection = () => {
               return (
                 <Card 
                   key={care.title}
-                  className="hover-lift group cursor-pointer border-0 shadow-soft"
+                  className="border border-gray-100 hover:border-blue-200 transition-all duration-300 hover:shadow-lg bg-white"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <CardContent className="p-6 text-center">
-                    <div className="mb-4 mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                      <Icon className="h-8 w-8" />
+                  <CardContent className="p-8 text-center">
+                    <div className="mb-6 mx-auto w-18 h-18 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white shadow-md">
+                      <Icon className="h-9 w-9" />
                     </div>
                     <h4 className="text-lg font-semibold text-foreground mb-3">
                       {care.title}

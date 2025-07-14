@@ -103,11 +103,11 @@ const AgribusinessSection = () => {
             return (
               <Card 
                 key={system.title}
-                className="hover-lift group cursor-pointer border-0 shadow-soft"
+                className="border border-gray-100 hover:border-green-200 transition-all duration-300 hover:shadow-lg bg-white"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8 text-center">
-                  <div className="mb-6 mx-auto w-20 h-20 bg-gradient-to-br from-green-600 to-emerald-700 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                <CardContent className="p-10 text-center">
+                  <div className="mb-8 mx-auto w-20 h-20 bg-gradient-to-br from-green-600 to-emerald-700 rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <Icon className="h-10 w-10" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">

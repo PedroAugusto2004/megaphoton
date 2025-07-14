@@ -60,13 +60,13 @@ const ContactSection = () => {
                 return (
                   <Card 
                     key={method.title}
-                    className="hover-lift group cursor-pointer border-0 shadow-soft"
+                    className="border border-gray-100 hover:border-primary/20 transition-all duration-300 hover:shadow-lg bg-white group cursor-pointer"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className={`flex-shrink-0 w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-smooth`}>
-                          <Icon className={`h-6 w-6 ${method.color} group-hover:text-white`} />
+                    <CardContent className="p-8">
+                      <div className="flex items-center space-x-6">
+                        <div className={`flex-shrink-0 w-14 h-14 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex items-center justify-center border border-gray-200 group-hover:bg-primary group-hover:border-primary transition-all duration-300`}>
+                          <Icon className={`h-7 w-7 ${method.color} group-hover:text-white transition-colors duration-300`} />
                         </div>
                         <div className="flex-1">
                           <h4 className="font-semibold text-foreground">{method.title}</h4>

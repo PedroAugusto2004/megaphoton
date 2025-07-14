@@ -53,11 +53,11 @@ const CredibilitySection = () => {
             return (
               <Card 
                 key={feature.title}
-                className="hover-lift group cursor-pointer border-0 shadow-soft text-center"
+                className="border border-gray-100 hover:border-primary/20 transition-all duration-300 hover:shadow-lg bg-white text-center"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8">
-                  <div className="mb-6 mx-auto w-20 h-20 bg-solar-gradient rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                <CardContent className="p-10">
+                  <div className="mb-8 mx-auto w-20 h-20 bg-solar-gradient rounded-2xl flex items-center justify-center text-white shadow-lg">
                     <Icon className="h-10 w-10" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-1">
