@@ -1,7 +1,9 @@
-import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, TrendingUp } from 'lucide-react';
+import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, TrendingUp, Play } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useState } from 'react';
 
 const ServicesSection = () => {
+  const [videoError, setVideoError] = useState(false);
   const services = [
     {
       icon: Thermometer,
@@ -93,35 +95,78 @@ const ServicesSection = () => {
           })}
         </div>
 
-        {/* O&M Section */}
-        <div className="bg-gradient-to-r from-secondary to-secondary-light rounded-3xl p-8 lg:p-12 text-white animate-fade-in-up">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <Settings className="h-8 w-8" />
-                <h3 className="text-3xl font-bold">INSTALAÇÕES & MANUTENÇÕES</h3>
+      </div>
+      
+      {/* O&M Section - Full Width */}
+      <div className="relative w-full bg-gradient-to-br from-green-500 to-green-600 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+        
+        <div className="relative grid lg:grid-cols-2 min-h-screen">
+          {/* Content Side */}
+          <div className="flex items-center px-6 md:px-8 lg:px-16 py-12 md:py-16 lg:py-20">
+            <div className="space-y-6 md:space-y-8 text-white max-w-lg">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
+                INSTALAÇÕES &<br />MANUTENÇÕES
+              </h3>
+              
+              <div className="space-y-4 md:space-y-6">
+                <p className="text-base md:text-lg font-medium text-white/90">
+                  Serviços de O&M (Operação e Manutenção)
+                </p>
+                <p className="text-sm md:text-base text-white/80 leading-relaxed font-light">
+                  Garantimos o funcionamento otimizado da sua usina solar através de serviços 
+                  especializados, maximizando a vida útil e o desempenho do seu investimento.
+                </p>
               </div>
-              <p className="text-lg mb-6 text-white/90">
-                Serviços de O&M (Operação e Manutenção)
-              </p>
-              <p className="text-white/80">
-                Garantimos o funcionamento otimizado da sua usina solar através de serviços 
-                especializados de operação e manutenção, maximizando a vida útil e o desempenho 
-                do seu investimento.
-              </p>
+              
+              <div className="flex flex-wrap gap-2 md:gap-3">
+                <span className="px-3 md:px-4 py-1.5 md:py-2 bg-white/15 rounded-full text-xs md:text-sm font-light backdrop-blur-sm border border-white/20">
+                  Instalação Profissional
+                </span>
+                <span className="px-3 md:px-4 py-1.5 md:py-2 bg-white/15 rounded-full text-xs md:text-sm font-light backdrop-blur-sm border border-white/20">
+                  Manutenção Preventiva
+                </span>
+                <span className="px-3 md:px-4 py-1.5 md:py-2 bg-white/15 rounded-full text-xs md:text-sm font-light backdrop-blur-sm border border-white/20">
+                  Suporte Técnico
+                </span>
+              </div>
             </div>
-            
-            {/* Image Placeholder */}
-            <div className="aspect-video bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-              <div className="text-center">
-                <TrendingUp className="h-16 w-16 mx-auto mb-3 text-white/70" />
-                <p className="text-white/70 font-medium">Espaço para imagem</p>
-                <p className="text-sm text-white/50">Serviços O&M</p>
-              </div>
+          </div>
+          
+          {/* Video Side */}
+          <div className="relative">
+            <div className="absolute inset-0">
+              {!videoError ? (
+                <video 
+                  className="w-full h-full object-cover"
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                  onError={() => setVideoError(true)}
+                >
+                  <source src="/instalação.mp4" type="video/mp4" />
+                </video>
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
+                  <div className="text-center space-y-4">
+                    <div className="w-20 h-20 mx-auto bg-white/20 rounded-2xl flex items-center justify-center">
+                      <Wrench className="h-10 w-10 text-white/80" />
+                    </div>
+                    <p className="text-white/70 font-light">Instalação Profissional</p>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="absolute bottom-4 md:bottom-6 right-4 md:right-6 bg-white/90 backdrop-blur-sm text-green-600 px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-medium">
+              Instalação em Ação
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Subtle transition gradient */}
+      <div className="h-16 bg-gradient-to-b from-white to-gray-50/50"></div>
     </section>
   );
 };
