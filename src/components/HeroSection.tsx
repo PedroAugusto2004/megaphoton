@@ -46,7 +46,7 @@ const HeroSection = () => {
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 w-full h-full text-center">
         <h1 className="text-5xl lg:text-7xl font-light mb-6 text-white" style={{ fontFamily: 'Google Sans, sans-serif' }}>
-          Sua usina em boas mãos
+          SUA USINA EM BOAS MÃOS
         </h1>
         <p className="text-2xl lg:text-3xl mb-8 text-white font-light" style={{ fontFamily: 'Google Sans, sans-serif' }}>
           A MEGAPHOTON oferece serviços de qualidade em usinas solares, realizados por profissionais capacitados
