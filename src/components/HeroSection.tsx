@@ -34,7 +34,7 @@ const HeroSection = () => {
 
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <video
-          src="/solar-video.mp4"
+          src="videos/solar-video.mp4"
           className="w-full h-full object-cover"
           style={{ objectPosition: '40% center' }}
           autoPlay

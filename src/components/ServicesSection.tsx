@@ -145,7 +145,7 @@ const ServicesSection = () => {
                   playsInline
                   onError={() => setVideoError(true)}
                 >
-                  <source src="/instalação.mp4" type="video/mp4" />
+                  <source src="/videos/instalação.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
