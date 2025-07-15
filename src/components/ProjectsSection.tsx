@@ -114,7 +114,7 @@ const ProjectsSection = () => {
             </div>
           </div>
           
-          {/* Image Side */}
+          {/* video Side */}
           <div className="relative min-h-[400px] lg:min-h-full lg:order-2 overflow-hidden">
             <div className="absolute inset-0">
               <video 
