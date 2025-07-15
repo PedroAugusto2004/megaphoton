@@ -61,7 +61,7 @@ const ServicesSection = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Nossos <span className="bg-solar-gradient bg-clip-text text-transparent">Serviços</span>
+            Nossos <span className="text-foreground">Serviços</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A MEGAPHOTON oferece aos seus clientes serviços de qualidade em usinas solares, 
@@ -76,19 +76,20 @@ const ServicesSection = () => {
             return (
               <Card 
                 key={service.title}
-                className="border border-gray-100 hover:border-primary/20 transition-all duration-300 hover:shadow-lg bg-white"
+                className="group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-white rounded-3xl overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8 text-center">
-                  <div className="mb-6 mx-auto w-16 h-16 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex items-center justify-center border border-gray-200">
-                    <Icon className={`h-8 w-8 ${service.color}`} />
+                <CardContent className="p-8 text-center relative">
+                  <div className="mb-6 mx-auto w-20 h-20 bg-gradient-to-br from-white to-gray-50 rounded-3xl flex items-center justify-center shadow-md border border-gray-100 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className={`h-10 w-10 ${service.color} group-hover:scale-110 transition-transform duration-300`} />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
                 </CardContent>
               </Card>
             );
