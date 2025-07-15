@@ -32,19 +32,12 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projetos" className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
-      
-      <div className="container-custom relative">
+    <section id="projetos" className="section-padding">
+      <div className="container-custom">
         {/* Header */}
         <div className="text-center mb-20 animate-fade-in-up">
-          <div className="inline-flex items-center justify-center space-x-3 mb-6 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-gray-200">
-            <PenTool className="h-6 w-6 text-primary" />
-            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Nossos Projetos</span>
-          </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Nossos <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Projetos</span>
+            Nossos <span className="text-black">Projetos</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Desenvolvemos projetos e soluções de engenharia para a construção de usinas solares fotovoltaicas
@@ -63,7 +56,7 @@ const ProjectsSection = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardContent className="p-10 text-center relative z-10">
-                  <div className={`mb-8 mx-auto w-20 h-20 bg-gradient-to-br ${segment.gradient} rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                  <div className={`mb-8 mx-auto w-20 h-20 bg-gradient-to-br ${segment.gradient} rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500`}>
                     <Icon className="h-10 w-10 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
@@ -165,10 +158,7 @@ const ProjectsSection = () => {
         </div>
       </div>
       
-      {/* Enhanced transition gradient */}
-      <div className="h-20 bg-gradient-to-b from-white via-gray-50/30 to-transparent relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5"></div>
-      </div>
+
     </section>
   );
 };

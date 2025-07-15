@@ -177,9 +177,7 @@ const ServicesSection = () => {
           </div>
         </div>
       </div>
-      
-      {/* Subtle transition gradient */}
-      <div className="h-16 bg-gradient-to-b from-white to-gray-50/50"></div>
+
     </section>
   );
 };
