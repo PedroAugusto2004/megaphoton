@@ -1,7 +1,9 @@
 import { PenTool, Building, Factory, Tractor, MapPin, Zap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useState } from 'react';
 
 const ProjectsSection = () => {
+  const [videoError, setVideoError] = useState(false);
   const segments = [
     {
       icon: Building,
@@ -117,14 +119,27 @@ const ProjectsSection = () => {
           {/* video Side */}
           <div className="relative min-h-[400px] lg:min-h-full lg:order-2 overflow-hidden">
             <div className="absolute inset-0">
-              <video 
-                src="/public/project.mp4" 
-                autoPlay 
-                muted 
-                loop 
-                playsInline
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              />
+              {!videoError ? (
+                <video 
+                  className="w-full h-full object-cover"
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                  onError={() => setVideoError(true)}
+                >
+                  <source src="/Project.mp4" type="video/mp4" />
+                </video>
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
+                  <div className="text-center space-y-4">
+                    <div className="w-20 h-20 mx-auto bg-white/20 rounded-2xl flex items-center justify-center">
+                      <Zap className="h-10 w-10 text-white/80" />
+                    </div>
+                    <p className="text-white/70 font-light">Projeto em Desenvolvimento</p>
+                  </div>
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             </div>
             
