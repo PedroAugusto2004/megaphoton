@@ -162,7 +162,7 @@ const ServicesSection = () => {
             </div>
             
             {/* Enhanced Badge */}
-            <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md text-green-600 px-4 py-2 rounded-xl shadow-lg border border-white/20">
+            <div className="absolute bottom-6 right-6 bg-black/20 backdrop-blur-md text-white px-4 py-2 rounded-xl shadow-lg border border-white/20">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-sm font-semibold">Instalação em Ação</span>
@@ -170,11 +170,6 @@ const ServicesSection = () => {
             </div>
             
             
-            {/* Stats Overlay */}
-            <div className="absolute top-6 right-6 bg-black/20 backdrop-blur-md text-white px-3 py-2 rounded-lg border border-white/10">
-              <div className="text-xs font-light opacity-90">Qualidade</div>
-              <div className="text-lg font-bold">100%</div>
-            </div>
           </div>
         </div>
       </div>

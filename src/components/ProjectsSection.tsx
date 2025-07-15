@@ -137,7 +137,7 @@ const ProjectsSection = () => {
             </div>
             
             {/* Enhanced Badge */}
-            <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md text-orange-600 px-4 py-2 rounded-xl shadow-lg border border-white/20">
+            <div className="absolute bottom-6 right-6 bg-black/20 backdrop-blur-md text-white px-4 py-2 rounded-xl shadow-lg border border-white/20">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
                 <span className="text-sm font-semibold">Projeto em Desenvolvimento</span>
