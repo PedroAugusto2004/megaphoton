@@ -128,7 +128,7 @@ const ProjectsSection = () => {
                   playsInline
                   onError={() => setVideoError(true)}
                 >
-                  <source src="/public/Project.mp4" type="video/mp4" />
+                  <source src="/Project.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
