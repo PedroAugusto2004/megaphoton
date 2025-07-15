@@ -98,7 +98,7 @@ const ServicesSection = () => {
       </div>
       
       {/* O&M Section - Full Width */}
-      <div className="relative w-full bg-gradient-to-br from-green-500 to-green-600 overflow-hidden">
+      <div className="relative w-full bg-gradient-to-br from-green-500 to-green-600 overflow-hidden shadow-2xl">
         <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
         
         <div className="relative flex flex-col lg:grid lg:grid-cols-2 lg:min-h-screen">
