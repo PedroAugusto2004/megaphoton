@@ -13,6 +13,7 @@ import FutureTechSection from '@/components/FutureTechSection';
 import CredibilitySection from '@/components/CredibilitySection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 const Index = () => {
   useEffect(() => {
@@ -55,6 +56,7 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 };
