@@ -118,7 +118,7 @@ const ProjectsSection = () => {
           <div className="relative min-h-[400px] lg:min-h-full lg:order-2 overflow-hidden">
             <div className="absolute inset-0">
               <video 
-                src="public/project.mp4" 
+                src="/public/project.mp4" 
                 autoPlay 
                 muted 
                 loop 
