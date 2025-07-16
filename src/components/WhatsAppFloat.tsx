@@ -1,7 +1,7 @@
 const WhatsAppFloat = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "5511999999999";
-    const message = "Olá! Gostaria de saber mais sobre os serviços da MEGAPHOTON.";
+    const phoneNumber = "5534992320853";
+    const message = "Olá, quero fazer um orçamento";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
