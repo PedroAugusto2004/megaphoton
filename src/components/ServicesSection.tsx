@@ -1,4 +1,4 @@
-import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, TrendingUp, Play } from 'lucide-react';
+import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, TrendingUp, Play, CheckSquare } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useState } from 'react';
 
@@ -9,49 +9,49 @@ const ServicesSection = () => {
       icon: Thermometer,
       title: 'Termografia',
       description: 'Detecção precoce de falhas como hot spots, microfissuras e delaminações',
-      gradient: 'from-orange-500 to-orange-600'
+      gradient: 'bg-orange-500'
     },
     {
       icon: FileText,
       title: 'Laudo Técnico',
       description: 'Documentação técnica completa para garantias e conformidade',
-      gradient: 'from-blue-500 to-blue-600'
+      gradient: 'bg-blue-500'
     },
     {
       icon: Monitor,
       title: 'Monitoramento',
       description: 'Acompanhamento online em tempo real do desempenho da usina',
-      gradient: 'from-green-500 to-green-600'
+      gradient: 'bg-green-500'
     },
     {
-      icon: Settings,
+      icon: CheckSquare,
       title: 'Comissionamento',
       description: 'Verificação da conformidade e segurança elétrica da instalação',
-      gradient: 'from-purple-500 to-purple-600'
+      gradient: 'bg-purple-500'
     },
     {
       icon: Wrench,
       title: 'Instalação',
       description: 'Execução de projetos com excelência e precisão técnica',
-      gradient: 'from-primary to-primary/80'
+      gradient: 'bg-orange-500'
     },
     {
       icon: Settings,
       title: 'Reparos',
       description: 'Manutenção corretiva e preventiva especializada',
-      gradient: 'from-red-500 to-red-600'
+      gradient: 'bg-red-500'
     },
     {
       icon: Droplets,
       title: 'Higienização',
       description: 'Limpeza profissional para máxima eficiência energética',
-      gradient: 'from-blue-400 to-blue-500'
+      gradient: 'bg-blue-500'
     },
     {
       icon: PenTool,
       title: 'Projetos',
       description: 'Desenvolvimento de soluções completas em energia solar',
-      gradient: 'from-secondary to-secondary/80'
+      gradient: 'bg-green-500'
     }
   ];
 
@@ -59,37 +59,50 @@ const ServicesSection = () => {
     <section id="servicos" className="section-padding bg-white">
       <div className="container-custom">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div className="mb-16">
+          <div className="flex items-center mb-2">
+            <div className="h-px w-12 bg-primary mr-4"></div>
+            <span className="text-primary uppercase tracking-wider text-sm font-medium">Serviços</span>
+          </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Nossos <span className="text-foreground">Serviços</span>
+            Nossos Serviços
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl">
             A MEGAPHOTON oferece aos seus clientes serviços de qualidade em usinas solares, 
             realizados por profissionais capacitados
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <Card 
                 key={service.title}
-                className="group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-white rounded-3xl overflow-hidden"
+                className="group bg-white border border-gray-100 rounded-lg shadow-sm h-full flex flex-col"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8 text-center relative">
-                  <div className={`mb-6 mx-auto w-20 h-20 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-300" />
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="mb-4">
+                    <div className={`w-12 h-12 rounded-full ${service.gradient} flex items-center justify-center`}>
+                      <Icon className="h-5 w-5 text-white" strokeWidth={1.5} />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-lg font-medium text-gray-800 mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed flex-grow">
                     {service.description}
                   </p>
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+                  <div className="mt-4">
+                    <div className="flex items-center text-sm text-orange-500 font-medium">
+                      <span>Saiba mais</span>
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             );
