@@ -29,10 +29,10 @@ const InstallationSection = () => {
         </div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-24 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-32">
           {/* Image */}
           <div className="order-2 lg:order-1">
-            <div className="aspect-[5/4] bg-slate-50 rounded-3xl overflow-hidden border border-slate-100">
+            <div className="aspect-[4/3] sm:aspect-[5/4] bg-slate-50 rounded-2xl lg:rounded-3xl overflow-hidden border border-slate-100">
               <img 
                 src="/images/instalação.png" 
                 alt="Instalação de Painéis Solares" 
@@ -81,17 +81,17 @@ const InstallationSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center bg-slate-50 rounded-3xl p-16 border border-slate-100">
-          <h3 className="text-3xl font-light text-slate-900 mb-6">
+        <div className="text-center bg-slate-50 rounded-2xl lg:rounded-3xl p-8 sm:p-12 lg:p-16 border border-slate-100">
+          <h3 className="text-2xl sm:text-3xl font-light text-slate-900 mb-4 sm:mb-6">
             Acompanhamento Completo
           </h3>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4 sm:px-0">
             Atendimento personalizado em todas as etapas, do planejamento inicial 
             à manutenção pós-instalação.
           </p>
-          <button className="inline-flex items-center space-x-3 bg-emerald-600 text-white px-10 py-4 rounded-xl hover:bg-emerald-700 transition-colors font-medium">
+          <button className="inline-flex items-center space-x-3 bg-emerald-600 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-xl hover:bg-emerald-700 transition-colors font-medium text-sm sm:text-base">
             <span>Solicitar Orçamento</span>
-            <ArrowRight className="h-5 w-5" />
+            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
         </div>
       </div>
