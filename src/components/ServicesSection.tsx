@@ -9,49 +9,49 @@ const ServicesSection = () => {
       icon: Thermometer,
       title: 'Termografia',
       description: 'Detecção precoce de falhas como hot spots, microfissuras e delaminações',
-      color: 'text-orange-500'
+      gradient: 'from-orange-500 to-orange-600'
     },
     {
       icon: FileText,
       title: 'Laudo Técnico',
       description: 'Documentação técnica completa para garantias e conformidade',
-      color: 'text-blue-500'
+      gradient: 'from-blue-500 to-blue-600'
     },
     {
       icon: Monitor,
       title: 'Monitoramento',
       description: 'Acompanhamento online em tempo real do desempenho da usina',
-      color: 'text-green-500'
+      gradient: 'from-green-500 to-green-600'
     },
     {
       icon: Settings,
       title: 'Comissionamento',
       description: 'Verificação da conformidade e segurança elétrica da instalação',
-      color: 'text-purple-500'
+      gradient: 'from-purple-500 to-purple-600'
     },
     {
       icon: Wrench,
       title: 'Instalação',
       description: 'Execução de projetos com excelência e precisão técnica',
-      color: 'text-primary'
+      gradient: 'from-primary to-primary/80'
     },
     {
       icon: Settings,
       title: 'Reparos',
       description: 'Manutenção corretiva e preventiva especializada',
-      color: 'text-red-500'
+      gradient: 'from-red-500 to-red-600'
     },
     {
       icon: Droplets,
       title: 'Higienização',
       description: 'Limpeza profissional para máxima eficiência energética',
-      color: 'text-blue-400'
+      gradient: 'from-blue-400 to-blue-500'
     },
     {
       icon: PenTool,
       title: 'Projetos',
       description: 'Desenvolvimento de soluções completas em energia solar',
-      color: 'text-secondary'
+      gradient: 'from-secondary to-secondary/80'
     }
   ];
 
@@ -80,8 +80,8 @@ const ServicesSection = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-8 text-center relative">
-                  <div className="mb-6 mx-auto w-20 h-20 bg-gradient-to-br from-white to-gray-50 rounded-3xl flex items-center justify-center shadow-md border border-gray-100 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className={`h-10 w-10 ${service.color} group-hover:scale-110 transition-transform duration-300`} />
+                  <div className={`mb-6 mx-auto w-20 h-20 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {service.title}
