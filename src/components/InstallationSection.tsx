@@ -92,7 +92,7 @@ const InstallationSection = () => {
               return (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center bg-white/70 backdrop-blur-md border border-slate-100 rounded-2xl shadow-lg p-8 pt-12 transition-all duration-300 hover:-translate-y-2 hover:shadow-emerald-100/60 hover:border-emerald-200"
+                  className="group flex flex-col items-center text-center bg-white/70 backdrop-blur-md border border-slate-100 rounded-2xl shadow-[0_8px_32px_0_rgba(16,185,129,0.18),0_1.5px_6px_0_rgba(0,0,0,0.10)] p-8 pt-12 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_48px_0_rgba(16,185,129,0.28),0_3px_12px_0_rgba(0,0,0,0.13)] hover:border-emerald-200"
                   style={{ minHeight: 260 }}
                 >
                   <span className="flex items-center justify-center w-14 h-14 rounded-full bg-emerald-50 border border-emerald-100 shadow absolute -top-7 left-1/2 -translate-x-1/2 group-hover:bg-emerald-100 transition-colors">
