@@ -75,8 +75,8 @@ const ServicesSection = () => {
             <div className="h-px w-12 bg-primary mr-4"></div>
             <span className="text-primary uppercase tracking-wider text-sm font-medium">Serviços</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Nossos Serviços
+          <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            Nossos <span className="text-black">Serviços</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
             A MEGAPHOTON oferece aos seus clientes serviços de qualidade em usinas solares, 

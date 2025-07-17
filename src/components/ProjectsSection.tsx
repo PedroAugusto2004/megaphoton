@@ -35,11 +35,15 @@ const ProjectsSection = () => {
     <section id="projetos" className="section-padding">
       <div className="container-custom">
         {/* Header */}
-        <div className="text-center mb-20 animate-fade-in-up">
+        <div className="mb-16">
+          <div className="flex items-center mb-2">
+            <div className="h-px w-12 bg-primary mr-4"></div>
+            <span className="text-primary uppercase tracking-wider text-sm font-medium">Projetos</span>
+          </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Nossos <span className="text-black">Projetos</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-2xl">
             Desenvolvemos projetos e soluções de engenharia para a construção de usinas solares fotovoltaicas
           </p>
         </div>

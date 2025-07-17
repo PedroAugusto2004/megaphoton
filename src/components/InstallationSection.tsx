@@ -19,11 +19,15 @@ const InstallationSection = () => {
     <section id="instalacoes" className="py-32 bg-white">
       <div className="max-w-6xl mx-auto px-8">
         {/* Header */}
-        <div className="text-center mb-24">
+        <div className="mb-16">
+          <div className="flex items-center mb-2">
+            <div className="h-px w-12 bg-primary mr-4"></div>
+            <span className="text-primary uppercase tracking-wider text-sm font-medium">Instalações</span>
+          </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             <span className="text-black">Instalações</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-2xl">
             Soluções energéticas que combinam inovação, eficiência e sustentabilidade
           </p>
         </div>
