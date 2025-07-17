@@ -3,17 +3,17 @@ import { Droplets, AlertTriangle, TrendingDown, Shield, CheckCircle } from 'luci
 const CleaningSection = () => {
   const cleaningBenefits = [
     {
-      icon: <CheckCircle className="h-5 w-5 text-primary" />,
+      icon: <CheckCircle className="h-5 w-5 text-blue-500" />,
       title: 'Eficiência Máxima',
       description: 'Aumento de até 25% na produção energética'
     },
     {
-      icon: <CheckCircle className="h-5 w-5 text-primary" />,
+      icon: <CheckCircle className="h-5 w-5 text-blue-500" />,
       title: 'Vida Útil Prolongada',
       description: 'Prevenção de danos ao sistema fotovoltaico'
     },
     {
-      icon: <CheckCircle className="h-5 w-5 text-primary" />,
+      icon: <CheckCircle className="h-5 w-5 text-blue-500" />,
       title: 'Retorno Otimizado',
       description: 'Maximização do investimento realizado'
     }
@@ -21,17 +21,17 @@ const CleaningSection = () => {
 
   const cleaningRisks = [
     {
-      icon: <AlertTriangle className="h-5 w-5 text-amber-500" />,
+      icon: <AlertTriangle className="h-5 w-5 text-blue-500" />,
       title: 'Microfissuras',
       description: 'Causadas por limpeza inadequada'
     },
     {
-      icon: <AlertTriangle className="h-5 w-5 text-amber-500" />,
+      icon: <AlertTriangle className="h-5 w-5 text-blue-500" />,
       title: 'Hot Spots',
       description: 'Pontos de superaquecimento'
     },
     {
-      icon: <AlertTriangle className="h-5 w-5 text-amber-500" />,
+      icon: <AlertTriangle className="h-5 w-5 text-blue-500" />,
       title: 'Curtos-Circuitos',
       description: 'Risco de falhas elétricas'
     }
@@ -59,7 +59,7 @@ const CleaningSection = () => {
           {/* Left column - Image */}
           <div className="relative overflow-hidden rounded-lg shadow-md">
             <div className="aspect-[4/3] bg-gradient-to-b from-sky-50 to-sky-100 flex items-center justify-center">
-              <Droplets className="h-24 w-24 text-primary opacity-80" />
+              <Droplets className="h-24 w-24 text-blue-500 opacity-80" />
             </div>
           </div>
 
@@ -109,7 +109,7 @@ const CleaningSection = () => {
           ))}
         </div>
 
-        <div className="p-4 bg-amber-50 border-l-4 border-amber-400 rounded mb-16">
+        <div className="p-4 bg-blue-50 border-l-4 border-blue-400 rounded mb-16">
           <p className="text-sm text-gray-700">
             <strong>Importante:</strong> A limpeza profissional dos painéis solares deve ser realizada 
             por técnicos especializados, utilizando equipamentos e produtos adequados para evitar danos 
