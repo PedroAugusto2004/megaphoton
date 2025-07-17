@@ -91,7 +91,7 @@ const ServicesSection = () => {
             return (
               <Card 
                 key={service.title}
-                className="group bg-white border border-gray-100 rounded-lg shadow-sm h-full flex flex-col"
+                className="group bg-white rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.08),_0_6px_10px_rgba(0,0,0,0.05),_0_1px_4px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12),_0_10px_15px_rgba(0,0,0,0.06)] h-full flex flex-col transition-all duration-300 hover:translate-y-[-8px]"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-6 flex flex-col h-full">

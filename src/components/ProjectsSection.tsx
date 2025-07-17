@@ -62,21 +62,22 @@ const ProjectsSection = () => {
         </div>
 
         {/* Segments Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-20">
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           {segments.map((segment, index) => {
             const Icon = segment.icon;
             return (
               <div 
                 key={segment.title}
-                className="p-8 border border-gray-100 hover:border-gray-200 bg-white transition-all duration-300 overflow-hidden relative"
+                className="group rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.08),_0_6px_10px_rgba(0,0,0,0.05),_0_1px_4px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12),_0_10px_15px_rgba(0,0,0,0.06)] p-6 bg-white transition-all duration-300 overflow-hidden relative hover:translate-y-[-8px]"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className="flex items-center mb-4">
-                  <Icon className={`h-5 w-5 ${segment.color}`} />
-                  <h3 className="ml-3 text-lg font-medium text-gray-900">
-                    {segment.title}
-                  </h3>
+                <div className={`w-12 h-12 rounded-lg ${segment.bgColor} flex items-center justify-center mb-6 transition-transform group-hover:scale-110`}>
+                  <Icon className={`h-6 w-6 ${segment.color}`} />
                 </div>
+                
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {segment.title}
+                </h3>
                 
                 <p className="text-gray-600 mb-6">
                   {segment.description}
@@ -84,13 +85,13 @@ const ProjectsSection = () => {
                 
                 <button 
                   onClick={() => setActivePopup(segment.title)}
-                  className="text-sm text-gray-500 flex items-center hover:text-gray-700 transition-colors"
+                  className="text-sm font-medium text-primary flex items-center hover:text-primary/80 transition-colors group-hover:translate-x-1"
                 >
                   Saiba mais
-                  <svg className="w-3 h-3 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
                 </button>
+                
+                <div className="absolute top-0 right-0 h-1 w-0 bg-primary group-hover:w-full transition-all duration-500"></div>
               </div>
             );
           })}
