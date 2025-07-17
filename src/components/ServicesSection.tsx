@@ -225,6 +225,8 @@ const ServicesSection = () => {
                 <button 
                   onClick={() => setActiveService(null)}
                   className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+                  aria-label="Fechar modal"
+                  title="Fechar modal"
                 >
                   <X className="h-6 w-6" />
                 </button>
