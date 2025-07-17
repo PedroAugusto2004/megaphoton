@@ -111,19 +111,75 @@ const InstallationSection = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <div className="text-center bg-slate-50 rounded-2xl lg:rounded-3xl p-8 sm:p-12 lg:p-16 border border-slate-100">
-          <h3 className="text-2xl sm:text-3xl font-light text-slate-900 mb-4 sm:mb-6">
-            Acompanhamento Completo
-          </h3>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4 sm:px-0">
-            Atendimento personalizado em todas as etapas, do planejamento inicial 
-            à manutenção pós-instalação.
-          </p>
-          <button className="inline-flex items-center space-x-3 bg-emerald-600 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-xl hover:bg-emerald-700 transition-colors font-medium text-sm sm:text-base">
-            <span>Solicitar Orçamento</span>
-            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
-          </button>
+      </div>
+      
+      {/* CTA - Full Width Section */}
+      <div className="mt-20 sm:mt-32 -mx-4 sm:-mx-8 bg-gradient-to-br from-emerald-600 to-emerald-800 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:16px]" />
+        <div className="absolute h-full w-full bg-[radial-gradient(circle_at_30%_50%,rgba(0,0,0,0),rgba(0,0,0,0.4))]" />
+        
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-20 lg:py-28 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+                Transforme sua <span className="text-emerald-200">energia</span> <br className="hidden lg:block" />com nosso acompanhamento
+              </h3>
+              <p className="text-emerald-100/90 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed">
+                Atendimento personalizado em todas as etapas, do planejamento inicial 
+                à manutenção pós-instalação, garantindo máxima eficiência.  
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <button className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-emerald-800 px-5 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl hover:bg-emerald-50 transition-all duration-300 font-semibold text-sm sm:text-base shadow-lg shadow-emerald-900/30 hover:-translate-y-1">
+                  <span>Solicitar Orçamento</span>
+                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 animate-pulse" />
+                </button>
+                <button className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-transparent border border-emerald-200/30 text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl hover:bg-emerald-700/50 transition-all duration-300 font-medium text-sm sm:text-base">
+                  <span>Fale Conosco</span>
+                </button>
+              </div>
+            </div>
+            
+            {/* Mobile-friendly benefits card */}
+            <div className="relative mt-8 lg:mt-0">
+              <div className="absolute -top-16 -right-16 w-32 h-32 bg-emerald-400/20 rounded-full blur-3xl hidden lg:block" />
+              <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-emerald-200/20 rounded-full blur-3xl hidden lg:block" />
+              
+              {/* Desktop card */}
+              <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-2xl hidden lg:block">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="h-12 w-12 rounded-full bg-emerald-500 flex items-center justify-center">
+                    <CheckCircle className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium">Projeto Personalizado</h4>
+                    <p className="text-emerald-100/70 text-sm">Adaptado às suas necessidades</p>
+                  </div>
+                </div>
+                <ul className="space-y-3">
+                  {benefits.map((benefit, index) => (
+                    <li key={index} className="flex items-center gap-3 text-emerald-50">
+                      <CheckCircle className="h-5 w-5 text-emerald-300 flex-shrink-0" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              {/* Mobile benefits list */}
+              <div className="lg:hidden">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                  <ul className="space-y-2.5">
+                    {benefits.map((benefit, index) => (
+                      <li key={index} className="flex items-center gap-3 text-emerald-50">
+                        <CheckCircle className="h-5 w-5 text-emerald-300 flex-shrink-0" />
+                        <span className="text-sm sm:text-base">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
