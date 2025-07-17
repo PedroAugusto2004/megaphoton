@@ -1,4 +1,4 @@
-import { CheckCircle, ArrowRight, Award, Gem, Wrench, LifeBuoy } from 'lucide-react';
+import { CheckCircle, ArrowRight, Award, Gem, Wrench, Headset } from 'lucide-react';
 
 const InstallationSection = () => {
   const benefits = [
@@ -27,7 +27,7 @@ const InstallationSection = () => {
     {
       title: 'Suporte Completo',
       description: 'Do projeto à manutenção',
-      icon: LifeBuoy
+      icon: Headset
     }
   ];
 
