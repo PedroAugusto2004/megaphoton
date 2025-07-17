@@ -84,26 +84,27 @@ const InstallationSection = () => {
           </div>
         </div>
 
-        {/* Features */}
+        {/* Features - Timeline/Stepper Redesign */}
         <section className="mb-24">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-col lg:flex-row items-stretch justify-between gap-10 lg:gap-6 relative">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center bg-white/70 backdrop-blur-md border border-slate-100 rounded-2xl shadow-[0_8px_32px_0_rgba(16,185,129,0.18),0_1.5px_6px_0_rgba(0,0,0,0.10)] p-8 pt-12 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_48px_0_rgba(16,185,129,0.28),0_3px_12px_0_rgba(0,0,0,0.13)] hover:border-emerald-200"
-                  style={{ minHeight: 260 }}
+                  className="flex-1 flex flex-col items-center justify-start text-center px-2 lg:px-4 z-10"
                 >
-                  <span className="flex items-center justify-center w-14 h-14 rounded-full bg-emerald-50 border border-emerald-100 shadow absolute -top-7 left-1/2 -translate-x-1/2 group-hover:bg-emerald-100 transition-colors">
-                    <Icon className="w-7 h-7 text-emerald-600" />
+                  <span className="flex items-center justify-center w-16 h-16 rounded-full bg-white border-2 border-emerald-200 shadow-lg mb-4 transition-transform duration-300 group-hover:scale-105" style={{zIndex: 2}}>
+                    <Icon className="w-8 h-8 text-emerald-600" />
                   </span>
-                  <h4 className="mt-8 mb-2 text-xl font-semibold text-slate-900 tracking-tight group-hover:text-emerald-700 transition-colors">
-                    {feature.title}
-                  </h4>
-                  <p className="text-slate-600 leading-relaxed text-base">
-                    {feature.description}
-                  </p>
+                  <div className="flex flex-col justify-center bg-white/90 backdrop-blur-md border border-slate-100 rounded-xl shadow p-6 lg:p-8 min-w-[220px] max-w-xs mx-auto">
+                    <h4 className="text-lg lg:text-xl font-bold text-slate-900 mb-2 tracking-tight">
+                      {feature.title}
+                    </h4>
+                    <p className="text-slate-600 leading-relaxed text-base">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
