@@ -3,17 +3,17 @@ import { Droplets, AlertTriangle, TrendingDown, Shield, CheckCircle } from 'luci
 const CleaningSection = () => {
   const cleaningBenefits = [
     {
-      icon: <CheckCircle className="h-5 w-5 text-blue-500" />,
+      icon: <CheckCircle className="h-8 w-8 sm:h-5 sm:w-5 text-blue-500" />,
       title: 'Eficiência Máxima',
       description: 'Aumento de até 25% na produção energética'
     },
     {
-      icon: <CheckCircle className="h-5 w-5 text-blue-500" />,
+      icon: <CheckCircle className="h-8 w-8 sm:h-5 sm:w-5 text-blue-500" />,
       title: 'Vida Útil Prolongada',
       description: 'Prevenção de danos ao sistema fotovoltaico'
     },
     {
-      icon: <CheckCircle className="h-5 w-5 text-blue-500" />,
+      icon: <CheckCircle className="h-8 w-8 sm:h-5 sm:w-5 text-blue-500" />,
       title: 'Retorno Otimizado',
       description: 'Maximização do investimento realizado'
     }
