@@ -1,135 +1,121 @@
 import { Droplets, AlertTriangle, TrendingDown, Shield, CheckCircle } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
 
 const CleaningSection = () => {
-  const importantCares = [
+  const cleaningBenefits = [
     {
-      icon: Shield,
-      title: 'Limpeza Correta',
-      description: 'Essencial para segurança e durabilidade do sistema'
+      icon: <CheckCircle className="h-5 w-5 text-primary" />,
+      title: 'Eficiência Máxima',
+      description: 'Aumento de até 25% na produção energética'
     },
     {
-      icon: AlertTriangle,
-      title: 'Riscos da Limpeza Inadequada',
-      description: 'Pode causar microfissuras, hot spots, curtos-circuitos e até incêndios'
+      icon: <CheckCircle className="h-5 w-5 text-primary" />,
+      title: 'Vida Útil Prolongada',
+      description: 'Prevenção de danos ao sistema fotovoltaico'
     },
     {
-      icon: TrendingDown,
-      title: 'Impacto da Sujeira',
-      description: 'Estudo da Universidade de Duke (2016): redução de até 25% na eficiência'
+      icon: <CheckCircle className="h-5 w-5 text-primary" />,
+      title: 'Retorno Otimizado',
+      description: 'Maximização do investimento realizado'
+    }
+  ];
+
+  const cleaningRisks = [
+    {
+      icon: <AlertTriangle className="h-5 w-5 text-amber-500" />,
+      title: 'Microfissuras',
+      description: 'Causadas por limpeza inadequada'
+    },
+    {
+      icon: <AlertTriangle className="h-5 w-5 text-amber-500" />,
+      title: 'Hot Spots',
+      description: 'Pontos de superaquecimento'
+    },
+    {
+      icon: <AlertTriangle className="h-5 w-5 text-amber-500" />,
+      title: 'Curtos-Circuitos',
+      description: 'Risco de falhas elétricas'
     }
   ];
 
   return (
-    <section className="section-padding bg-muted">
-      <div className="container-custom">
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <Droplets className="h-8 w-8 text-blue-500" />
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">HIGIENIZAÇÃO</h2>
+        <div className="mb-16">
+          <div className="flex items-center mb-2">
+            <div className="h-px w-12 bg-primary mr-4"></div>
+            <span className="text-primary uppercase tracking-wider text-sm font-medium">Higienização</span>
           </div>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+          <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            <span className="text-black">Higienização</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl">
             A higienização periódica dos módulos solares é fundamental para manter a eficiência do sistema fotovoltaico
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Content */}
-          <div className="space-y-6 animate-fade-in-left">
-            <h3 className="text-3xl font-bold text-foreground">
-              Maximizando a <span className="text-blue-500">Eficiência Energética</span>
-            </h3>
-            
-            <p className="text-lg text-muted-foreground">
-              Poeira, sujeira, poluição e outros resíduos podem se acumular nos painéis, bloqueando a incidência 
-              da luz solar e comprometendo a geração de energia.
-            </p>
-
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-foreground">Pleno Funcionamento</h4>
-                  <p className="text-muted-foreground">A limpeza regular garante o funcionamento otimizado</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-foreground">Vida Útil Prolongada</h4>
-                  <p className="text-muted-foreground">Manutenção preventiva aumenta a durabilidade</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-foreground">ROI Maximizado</h4>
-                  <p className="text-muted-foreground">Máximo retorno sobre o investimento</p>
-                </div>
-              </div>
+        {/* Main content */}
+        <div className="grid md:grid-cols-2 gap-16 mb-16">
+          {/* Left column - Image */}
+          <div className="relative overflow-hidden rounded-lg shadow-md">
+            <div className="aspect-[4/3] bg-gradient-to-b from-sky-50 to-sky-100 flex items-center justify-center">
+              <Droplets className="h-24 w-24 text-primary opacity-80" />
             </div>
           </div>
 
-          {/* Image Placeholder */}
-          <div className="animate-fade-in-right">
-            <div className="aspect-[4/3] bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl p-8 shadow-lg">
-              <div className="w-full h-full bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                <div className="text-center text-white">
-                  <Droplets className="h-20 w-20 mx-auto mb-4" />
-                  <p className="text-lg font-semibold">Espaço para imagem</p>
-                  <p className="text-sm opacity-80">Limpeza de Painéis Solares</p>
+          {/* Right column - Content */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-semibold text-gray-900">
+              Por que a limpeza profissional é essencial
+            </h3>
+            
+            <p className="text-gray-600">
+              A acumulação de poeira, poluição e resíduos nos painéis solares pode reduzir 
+              significativamente a eficiência do sistema. Um estudo da Universidade de Duke (2016) 
+              demonstrou que painéis não higienizados podem perder até 25% de eficiência anualmente.
+            </p>
+
+            <div className="space-y-4">
+              {cleaningBenefits.map((benefit) => (
+                <div key={benefit.title} className="flex items-center space-x-3">
+                  {benefit.icon}
+                  <div>
+                    <span className="font-medium text-gray-900">{benefit.title}:</span>
+                    <span className="text-gray-600 ml-1">{benefit.description}</span>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Important Cares Section */}
-        <div className="bg-white rounded-3xl p-8 lg:p-12">
-          <h3 className="text-3xl font-bold text-foreground text-center mb-12">
-            📌 Cuidados Importantes
+        {/* Risks section */}
+        <div className="bg-gray-50 rounded-lg p-8">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            Riscos da limpeza inadequada
           </h3>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {importantCares.map((care, index) => {
-              const Icon = care.icon;
-              return (
-                <Card 
-                  key={care.title}
-                  className="border border-gray-100 hover:border-blue-200 transition-all duration-300 hover:shadow-lg bg-white"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <CardContent className="p-8 text-center">
-                    <div className="mb-6 mx-auto w-18 h-18 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white shadow-md">
-                      <Icon className="h-9 w-9" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-foreground mb-3">
-                      {care.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {care.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="grid md:grid-cols-3 gap-6">
+            {cleaningRisks.map((risk) => (
+              <div 
+                key={risk.title}
+                className="bg-white p-5 rounded-md shadow-sm border border-gray-100"
+              >
+                <div className="flex items-center space-x-3 mb-2">
+                  {risk.icon}
+                  <h4 className="font-medium text-gray-900">{risk.title}</h4>
+                </div>
+                <p className="text-sm text-gray-600">{risk.description}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Study Highlight */}
-          <div className="mt-12 bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 border-l-4 border-orange-500">
-            <div className="flex items-start space-x-3">
-              <AlertTriangle className="h-6 w-6 text-orange-500 mt-1 flex-shrink-0" />
-              <div>
-                <h4 className="font-bold text-foreground mb-2">Estudo Científico</h4>
-                <p className="text-muted-foreground">
-                  <strong>Universidade de Duke (2016)</strong> revelou que o acúmulo de sujeira pode 
-                  <strong className="text-orange-600"> reduzir a eficiência em até 25% ao ano</strong>.
-                </p>
-              </div>
-            </div>
+          <div className="mt-8 p-4 bg-amber-50 border-l-4 border-amber-400 rounded">
+            <p className="text-sm text-gray-700">
+              <strong>Importante:</strong> A limpeza profissional dos painéis solares deve ser realizada 
+              por técnicos especializados, utilizando equipamentos e produtos adequados para evitar danos 
+              ao sistema e garantir a segurança.
+            </p>
           </div>
         </div>
       </div>
