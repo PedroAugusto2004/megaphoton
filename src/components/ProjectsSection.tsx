@@ -1,33 +1,46 @@
-import { PenTool, Building, Factory, Tractor, MapPin, Zap } from 'lucide-react';
+import { PenTool, Building, Factory, Tractor, MapPin, Zap, X, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import './popup-animation.css';
 
 const ProjectsSection = () => {
   const [videoError, setVideoError] = useState(false);
+  const [activePopup, setActivePopup] = useState<string | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
+  
+  const closePopup = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setActivePopup(null);
+      setIsClosing(false);
+    }, 300);
+  };
+  
   const segments = [
     {
       icon: Building,
       title: 'Comercial',
       description: 'Soluções para empresas e estabelecimentos comerciais',
-      gradient: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200'
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-100',
+      details: 'Projetos fotovoltaicos comerciais são ideais para empresas que buscam reduzir custos operacionais e demonstrar compromisso com sustentabilidade. Instalações em telhados ou áreas disponíveis podem gerar economia significativa na conta de energia.'
     },
     {
       icon: Factory,
       title: 'Industrial', 
       description: 'Projetos de grande escala para indústrias',
-      gradient: 'from-purple-500 to-purple-600',
-      bgColor: 'bg-purple-50',
-      borderColor: 'border-purple-200'
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-100',
+      details: 'Sistemas fotovoltaicos industriais são projetados para atender grandes demandas energéticas. Com capacidade para gerar volumes expressivos de energia limpa, estas instalações oferecem retorno sobre investimento acelerado e redução significativa nos custos operacionais.'
     },
     {
       icon: Tractor,
       title: 'Rural',
       description: 'Sistemas para propriedades rurais e agronegócio',
-      gradient: 'from-green-500 to-green-600',
-      bgColor: 'bg-green-50',
-      borderColor: 'border-green-200'
+      color: 'text-green-600',
+      bgColor: 'bg-green-100',
+      details: 'Soluções fotovoltaicas para o agronegócio permitem que propriedades rurais alcancem independência energética. Ideais para bombeamento de água, sistemas de irrigação e outras aplicações agrícolas, reduzindo custos operacionais e aumentando a sustentabilidade.'
     }
   ];
 
@@ -49,32 +62,95 @@ const ProjectsSection = () => {
         </div>
 
         {/* Segments Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-6 mb-20">
           {segments.map((segment, index) => {
             const Icon = segment.icon;
             return (
-              <Card 
+              <div 
                 key={segment.title}
-                className={`group hover-lift cursor-pointer border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ${segment.bgColor} backdrop-blur-sm overflow-hidden relative`}
+                className="p-8 border border-gray-100 hover:border-gray-200 bg-white transition-all duration-300 overflow-hidden relative"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <CardContent className="p-10 text-center relative z-10">
-                  <div className={`mb-8 mx-auto w-20 h-20 bg-gradient-to-br ${segment.gradient} rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-500`}>
-                    <Icon className="h-10 w-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                <div className="flex items-center mb-4">
+                  <Icon className={`h-5 w-5 ${segment.color}`} />
+                  <h3 className="ml-3 text-lg font-medium text-gray-900">
                     {segment.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
-                    {segment.description}
-                  </p>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </CardContent>
-              </Card>
+                </div>
+                
+                <p className="text-gray-600 mb-6">
+                  {segment.description}
+                </p>
+                
+                <button 
+                  onClick={() => setActivePopup(segment.title)}
+                  className="text-sm text-gray-500 flex items-center hover:text-gray-700 transition-colors"
+                >
+                  Saiba mais
+                  <svg className="w-3 h-3 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
             );
           })}
         </div>
+        
+        {/* Popup */}
+        {activePopup && (
+          <div 
+            className={`fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
+            onClick={(e) => e.target === e.currentTarget && closePopup()}
+          >
+            <div 
+              className={`bg-white rounded-xl shadow-2xl max-w-md w-full relative transition-all duration-300 ${isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100 animate-popup'}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={closePopup}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-full p-1.5 transition-colors"
+                aria-label="Fechar"
+              >
+                <X className="h-4 w-4" />
+              </button>
+              
+              {segments.map(segment => {
+                if (segment.title === activePopup) {
+                  return (
+                    <div key={segment.title} className="p-8">
+                      <div className="flex items-center mb-6">
+                        <div className={`w-12 h-12 rounded-lg ${segment.bgColor} flex items-center justify-center mr-4 shadow-sm`}>
+                          <segment.icon className={`h-6 w-6 ${segment.color}`} />
+                        </div>
+                        <h3 className="text-2xl font-semibold text-gray-900">
+                          {segment.title}
+                        </h3>
+                      </div>
+                      
+                      <p className="text-gray-700 mb-8 leading-relaxed">
+                        {segment.details}
+                      </p>
+                      
+                      <Button 
+                        onClick={() => {
+                          closePopup();
+                          setTimeout(() => {
+                            document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+                          }, 300);
+                        }}
+                        className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
+                      >
+                        <span>Faça seu orçamento</span>
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </div>
+                  );
+                }
+                return null;
+              })}
+            </div>
+          </div>
+        )}
       </div>
       
       {/* Project Details Section - Full Width */}
