@@ -57,8 +57,7 @@ const WhatsAppFloat = () => {
             <span>Abrir bate-papo</span>
           </button>
         </div>
-        </div>
-      )}
+      </div>
     </>
   );
 };
