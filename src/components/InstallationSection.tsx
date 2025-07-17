@@ -85,9 +85,8 @@ const InstallationSection = () => {
         </div>
 
         {/* Features */}
-        <section className="relative mb-24">
-          <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-emerald-50 via-white to-slate-100 border border-slate-100/60" aria-hidden="true" />
-          <div className="relative grid md:grid-cols-2 lg:grid-cols-4 gap-8 z-10">
+        <section className="mb-24">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
