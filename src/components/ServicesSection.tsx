@@ -1,57 +1,68 @@
-import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, TrendingUp, Play, CheckSquare } from 'lucide-react';
+import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, TrendingUp, Play, CheckSquare, X } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const ServicesSection = () => {
   const [videoError, setVideoError] = useState(false);
+  const [activeService, setActiveService] = useState<number | null>(null);
   const services = [
     {
       icon: Thermometer,
       title: 'Termografia',
       description: 'Detecção precoce de falhas como hot spots, microfissuras e delaminações',
-      gradient: 'bg-orange-500'
+      gradient: 'bg-orange-500',
+      details: 'A termografia é essencial para a manutenção preventiva de sistemas fotovoltaicos, permitindo identificar problemas antes que causem falhas graves. Utilizando câmeras térmicas de alta precisão, detectamos anomalias invisíveis a olho nu, garantindo a máxima eficiência e vida útil do seu sistema.'
     },
     {
       icon: FileText,
       title: 'Laudo Técnico',
       description: 'Documentação técnica completa para garantias e conformidade',
-      gradient: 'bg-blue-500'
+      gradient: 'bg-blue-500',
+      details: 'Nossos laudos técnicos são documentos essenciais que atestam a conformidade da sua instalação com as normas vigentes. Elaborados por engenheiros especializados, garantem segurança jurídica para garantias, seguros e financiamentos, além de identificar oportunidades de otimização do seu sistema.'
     },
     {
       icon: Monitor,
       title: 'Monitoramento',
       description: 'Acompanhamento online em tempo real do desempenho da usina',
-      gradient: 'bg-green-500'
+      gradient: 'bg-green-500',
+      details: 'Nosso sistema de monitoramento permite acompanhar em tempo real a produção da sua usina solar, identificando rapidamente qualquer queda de desempenho. Com alertas automáticos e relatórios periódicos, garantimos que seu investimento esteja sempre operando com máxima eficiência.'
     },
     {
       icon: CheckSquare,
       title: 'Comissionamento',
       description: 'Verificação da conformidade e segurança elétrica da instalação',
-      gradient: 'bg-purple-500'
+      gradient: 'bg-purple-500',
+      details: 'O comissionamento é um processo rigoroso de verificação que garante que sua usina solar foi instalada corretamente e está operando conforme as especificações do projeto. Este serviço é fundamental para validar a segurança e eficiência do sistema antes da sua operação comercial.'
     },
     {
       icon: Wrench,
       title: 'Instalação',
       description: 'Execução de projetos com excelência e precisão técnica',
-      gradient: 'bg-orange-500'
+      gradient: 'bg-orange-500',
+      details: 'Nossa equipe de instalação é composta por profissionais certificados e experientes, garantindo que seu sistema fotovoltaico seja instalado com a máxima qualidade e segurança. Seguimos rigorosamente as normas técnicas e utilizamos materiais de primeira linha para assegurar o melhor desempenho.'
     },
     {
       icon: Settings,
       title: 'Reparos',
       description: 'Manutenção corretiva e preventiva especializada',
-      gradient: 'bg-red-500'
+      gradient: 'bg-red-500',
+      details: 'Nosso serviço de reparos atende com agilidade qualquer problema em seu sistema fotovoltaico. Com diagnóstico preciso e soluções eficientes, minimizamos o tempo de inatividade e restauramos rapidamente a produção de energia, evitando perdas financeiras prolongadas.'
     },
     {
       icon: Droplets,
       title: 'Higienização',
       description: 'Limpeza profissional para máxima eficiência energética',
-      gradient: 'bg-blue-500'
+      gradient: 'bg-blue-500',
+      details: 'A higienização regular dos módulos fotovoltaicos é essencial para manter a eficiência do sistema. Nosso processo de limpeza especializado remove sujeira, poeira e outros resíduos que podem reduzir significativamente a produção de energia, garantindo o máximo retorno do seu investimento.'
     },
     {
       icon: PenTool,
       title: 'Projetos',
       description: 'Desenvolvimento de soluções completas em energia solar',
-      gradient: 'bg-green-500'
+      gradient: 'bg-green-500',
+      details: 'Desenvolvemos projetos personalizados que atendem às necessidades específicas de cada cliente. Nossa equipe de engenharia analisa cuidadosamente o local, consumo e objetivos para criar a solução mais eficiente e rentável, maximizando o retorno do seu investimento em energia solar.'
     }
   ];
 
@@ -96,12 +107,15 @@ const ServicesSection = () => {
                     {service.description}
                   </p>
                   <div className="mt-4">
-                    <div className="flex items-center text-sm text-orange-500 font-medium">
+                    <button 
+                      onClick={() => setActiveService(index)} 
+                      className="flex items-center text-sm text-orange-500 font-medium hover:text-orange-600 transition-colors"
+                    >
                       <span>Saiba mais</span>
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                       </svg>
-                    </div>
+                    </button>
                   </div>
                 </CardContent>
               </Card>
@@ -186,6 +200,64 @@ const ServicesSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal Popup */}
+      <AnimatePresence>
+        {activeService !== null && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setActiveService(null)}
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10 overflow-hidden"
+            >
+              {/* Header with gradient */}
+              <div className={`${services[activeService].gradient} p-6 relative`}>
+                <button 
+                  onClick={() => setActiveService(null)}
+                  className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+                
+                <div className="flex items-center space-x-4">
+                  <div className="bg-white/20 p-3 rounded-xl backdrop-blur-sm">
+                    {React.createElement(services[activeService].icon, { className: "h-8 w-8 text-white" })}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">{services[activeService].title}</h3>
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="p-6">
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  {services[activeService].details}
+                </p>
+                
+                <Button 
+                  className="w-full py-6 text-base font-medium bg-orange-500 hover:bg-orange-600 text-white rounded-xl transition-all shadow-lg hover:shadow-xl hover:shadow-orange-200"
+                  onClick={() => {
+                    // Handle quote request
+                    window.location.href = "#contato";
+                    setActiveService(null);
+                  }}
+                >
+                  Solicitar um orçamento
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
     </section>
   );
