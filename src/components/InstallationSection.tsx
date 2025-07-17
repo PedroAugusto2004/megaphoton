@@ -1,4 +1,4 @@
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, Award, Gem, Wrench, LifeBuoy } from 'lucide-react';
 
 const InstallationSection = () => {
   const benefits = [
@@ -9,10 +9,26 @@ const InstallationSection = () => {
   ];
 
   const features = [
-    { title: 'Excelência', description: 'Padrões de qualidade superiores' },
-    { title: 'Materiais Premium', description: 'Componentes selecionados' },
-    { title: 'Precisão Técnica', description: 'Instalação especializada' },
-    { title: 'Suporte Completo', description: 'Do projeto à manutenção' }
+    {
+      title: 'Excelência',
+      description: 'Padrões de qualidade superiores',
+      icon: Award
+    },
+    {
+      title: 'Materiais Premium',
+      description: 'Componentes selecionados',
+      icon: Gem
+    },
+    {
+      title: 'Precisão Técnica',
+      description: 'Instalação especializada',
+      icon: Wrench
+    },
+    {
+      title: 'Suporte Completo',
+      description: 'Do projeto à manutenção',
+      icon: LifeBuoy
+    }
   ];
 
   return (
@@ -69,20 +85,31 @@ const InstallationSection = () => {
         </div>
 
         {/* Features */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-          {features.map((feature, index) => (
-            <div key={index} className="group">
-              <div className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 hover:shadow-lg transition-all duration-300">
-                <h4 className="text-xl font-medium text-slate-900 mb-3">
-                  {feature.title}
-                </h4>
-                <p className="text-slate-600 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <section className="relative mb-24">
+          <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-br from-emerald-50 via-white to-slate-100 border border-slate-100/60" aria-hidden="true" />
+          <div className="relative grid md:grid-cols-2 lg:grid-cols-4 gap-8 z-10">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className="group flex flex-col items-center text-center bg-white/70 backdrop-blur-md border border-slate-100 rounded-2xl shadow-lg p-8 pt-12 transition-all duration-300 hover:-translate-y-2 hover:shadow-emerald-100/60 hover:border-emerald-200"
+                  style={{ minHeight: 260 }}
+                >
+                  <span className="flex items-center justify-center w-14 h-14 rounded-full bg-emerald-50 border border-emerald-100 shadow absolute -top-7 left-1/2 -translate-x-1/2 group-hover:bg-emerald-100 transition-colors">
+                    <Icon className="w-7 h-7 text-emerald-600" />
+                  </span>
+                  <h4 className="mt-8 mb-2 text-xl font-semibold text-slate-900 tracking-tight group-hover:text-emerald-700 transition-colors">
+                    {feature.title}
+                  </h4>
+                  <p className="text-slate-600 leading-relaxed text-base">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
 
         {/* CTA */}
         <div className="text-center bg-slate-50 rounded-2xl lg:rounded-3xl p-8 sm:p-12 lg:p-16 border border-slate-100">
