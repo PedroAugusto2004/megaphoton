@@ -90,33 +90,31 @@ const CleaningSection = () => {
         </div>
 
         {/* Risks section */}
-        <div className="bg-gray-50 rounded-lg p-8">
-          <h3 className="text-xl font-semibold text-gray-900 mb-6">
-            Riscos da limpeza inadequada
-          </h3>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {cleaningRisks.map((risk) => (
-              <div 
-                key={risk.title}
-                className="bg-white p-5 rounded-md shadow-sm border border-gray-100"
-              >
-                <div className="flex items-center space-x-3 mb-2">
-                  {risk.icon}
-                  <h4 className="font-medium text-gray-900">{risk.title}</h4>
-                </div>
-                <p className="text-sm text-gray-600">{risk.description}</p>
+        <h3 className="text-xl font-semibold text-gray-900 mb-6">
+          Riscos da limpeza inadequada
+        </h3>
+        
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          {cleaningRisks.map((risk) => (
+            <div 
+              key={risk.title}
+              className="bg-white p-5 rounded-md shadow-sm border border-gray-100"
+            >
+              <div className="flex items-center space-x-3 mb-2">
+                {risk.icon}
+                <h4 className="font-medium text-gray-900">{risk.title}</h4>
               </div>
-            ))}
-          </div>
+              <p className="text-sm text-gray-600">{risk.description}</p>
+            </div>
+          ))}
+        </div>
 
-          <div className="mt-8 p-4 bg-amber-50 border-l-4 border-amber-400 rounded">
-            <p className="text-sm text-gray-700">
-              <strong>Importante:</strong> A limpeza profissional dos painéis solares deve ser realizada 
-              por técnicos especializados, utilizando equipamentos e produtos adequados para evitar danos 
-              ao sistema e garantir a segurança.
-            </p>
-          </div>
+        <div className="p-4 bg-amber-50 border-l-4 border-amber-400 rounded mb-16">
+          <p className="text-sm text-gray-700">
+            <strong>Importante:</strong> A limpeza profissional dos painéis solares deve ser realizada 
+            por técnicos especializados, utilizando equipamentos e produtos adequados para evitar danos 
+            ao sistema e garantir a segurança.
+          </p>
         </div>
       </div>
     </section>
