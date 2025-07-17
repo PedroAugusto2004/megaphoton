@@ -51,7 +51,7 @@ const InstallationSection = () => {
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-32">
           {/* Image */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1">
             <div className="aspect-[4/3] sm:aspect-[5/4] bg-slate-50 rounded-2xl lg:rounded-3xl overflow-hidden border border-slate-100">
               <img 
                 src="/images/instalação.png" 
@@ -62,7 +62,7 @@ const InstallationSection = () => {
           </div>
 
           {/* Content */}
-          <div className="order-1 lg:order-2 space-y-10">
+          <div className="order-2 lg:order-2 space-y-10">
             <div>
               <h3 className="text-4xl font-light text-slate-900 mb-8 leading-tight">
                 Qualidade <span className="text-emerald-600 font-normal">Excepcional</span>
