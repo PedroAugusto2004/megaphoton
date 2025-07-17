@@ -35,7 +35,7 @@ const MonitoringSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="mb-16">
