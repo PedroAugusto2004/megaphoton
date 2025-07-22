@@ -58,8 +58,12 @@ const CleaningSection = () => {
         <div className="grid md:grid-cols-2 gap-16 mb-16">
           {/* Left column - Image */}
           <div className="relative overflow-hidden rounded-lg shadow-md">
-            <div className="aspect-[4/3] bg-gradient-to-b from-sky-50 to-sky-100 flex items-center justify-center">
-              <Droplets className="h-24 w-24 text-blue-500 opacity-80" />
+            <div className="aspect-[4/3] bg-white flex items-center justify-center">
+              <img 
+                src="/images/cleaning.png" 
+                alt="Limpeza de painéis solares" 
+                className="w-full h-full object-cover" 
+              />
             </div>
           </div>
 
