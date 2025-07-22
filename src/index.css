@@ -24,6 +24,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import custom styles */
+@import './styles/section-styles.css';
+
 /* MegaPhoton Design System - Solar Energy Theme */
 
 @layer base {

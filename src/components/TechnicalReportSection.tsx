@@ -1,134 +1,125 @@
-import { FileText, Settings, CheckCircle, Shield, Award, Zap } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { FileText, Settings, CheckCircle, Shield, Award } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 const TechnicalReportSection = () => {
   const applications = [
     {
-      icon: CheckCircle,
+      icon: <CheckCircle className="h-5 w-5 text-blue-500" />,
       title: 'Verificação de Conformidade',
       description: 'Confirmação de que o projeto foi executado conforme especificações'
     },
     {
-      icon: Shield,
+      icon: <Shield className="h-5 w-5 text-blue-500" />,
       title: 'Garantia de Segurança',
       description: 'Validação da segurança elétrica e operacional da instalação'
     },
     {
-      icon: Award,
+      icon: <Award className="h-5 w-5 text-blue-500" />,
       title: 'Documentação Técnica',
       description: 'Documentação completa para acionamento de garantias'
     }
   ];
 
   return (
-    <section className="section-padding bg-white">
-      <div className="container-custom">
+    <section id="laudos" className="py-16 bg-white section-highlight">
+      <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <FileText className="h-8 w-8 text-blue-600" />
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-              LAUDO TÉCNICO & COMISSIONAMENTO
+        <ScrollAnimation>
+          <div className="mb-16">
+            <div className="flex items-center mb-2">
+              <div className="h-px w-12 bg-primary mr-4"></div>
+              <span className="text-primary uppercase tracking-wider text-sm font-medium">Laudo Técnico</span>
+            </div>
+            <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+              <span className="text-black">Laudo Técnico & Comissionamento</span>
             </h2>
-          </div>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-            O comissionamento é essencial para assegurar o pleno funcionamento da instalação conforme o projeto
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Content */}
-          <div className="space-y-6 animate-fade-in-left">
-            <h3 className="text-3xl font-bold text-foreground">
-              Garantindo a <span className="text-blue-600">Excelência Técnica</span>
-            </h3>
-            
-            <p className="text-lg text-muted-foreground">
-              Nosso processo de comissionamento e elaboração de laudos técnicos garante que sua instalação 
-              solar opere com máxima eficiência e segurança desde o primeiro dia.
+            <p className="text-2xl text-muted-foreground max-w-6xl mx-auto font-medium">
+              Garantia de <span className="text-blue-600">conformidade</span> e segurança para sua instalação
             </p>
-
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border-l-4 border-blue-600">
-              <h4 className="font-bold text-foreground mb-3 flex items-center">
-                <Settings className="h-5 w-5 text-blue-600 mr-2" />
-                🔍 Aplicações práticas:
-              </h4>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span>Verificação da conformidade do projeto</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span>Garantia de segurança elétrica</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span>Documentação técnica para acionamento de garantias</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-l-4 border-green-500">
-              <h4 className="font-bold text-foreground mb-2">📌 Benefícios Concretos</h4>
-              <p className="text-muted-foreground">
-                Adotar o comissionamento como prática padrão oferece benefícios concretos: 
-                <strong> eficiência, durabilidade e proteção do investimento</strong>.
-              </p>
-            </div>
           </div>
+        </ScrollAnimation>
 
-          {/* Image Placeholder */}
-          <div className="animate-fade-in-right">
-            <div className="aspect-[4/3] bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl p-8 shadow-lg">
-              <div className="w-full h-full bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                <div className="text-center text-white">
-                  <FileText className="h-20 w-20 mx-auto mb-4" />
-                  <p className="text-lg font-semibold">Espaço para imagem</p>
-                  <p className="text-sm opacity-80">Documentação Técnica</p>
+        <div className="grid md:grid-cols-2 gap-16 mb-16">
+          {/* Left column - Content */}
+          <ScrollAnimation animationClass="reveal-fade-left" delay={200}>
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-gray-900">
+                Garantindo a <span className="text-blue-600">Excelência Técnica</span>
+              </h3>
+              
+              <p className="text-gray-600">
+                Nosso processo de comissionamento e elaboração de laudos técnicos garante que sua instalação 
+                solar opere com máxima eficiência e segurança desde o primeiro dia.
+              </p>
+
+              <div className="border-l-4 border-blue-600 pl-4 py-2">
+                <p className="text-gray-700">
+                  A documentação técnica adequada é fundamental para garantir a conformidade com normas 
+                  regulatórias e assegurar o acionamento de garantias quando necessário.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">Verificação Completa</h4>
+                    <p className="text-gray-600">Análise detalhada de todos os componentes do sistema</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-3">
+                  <Shield className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">Proteção do Investimento</h4>
+                    <p className="text-gray-600">Documentação que resguarda seus direitos e garantias</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollAnimation>
+
+          {/* Right column - Image */}
+          <ScrollAnimation animationClass="reveal-fade-right" delay={400}>
+            <div className="relative overflow-hidden rounded-lg shadow-md">
+              <div className="aspect-[4/3] bg-gradient-to-b from-blue-50 to-blue-100 flex items-center justify-center">
+                <FileText className="h-24 w-24 text-blue-600 opacity-70" />
+              </div>
+            </div>
+          </ScrollAnimation>
         </div>
 
         {/* Applications Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {applications.map((application, index) => {
-            const Icon = application.icon;
-            return (
-              <Card 
-                key={application.title}
-                className="hover-lift group cursor-pointer border-0 shadow-soft"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-8 text-center">
-                  <div className="mb-6 mx-auto w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                    <Icon className="h-10 w-10" />
+        <ScrollAnimation delay={600}>
+          <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            Aplicações do laudo técnico
+          </h3>
+        </ScrollAnimation>
+        
+        <div className="grid md:grid-cols-3 gap-6 mb-8 mt-12">
+          {applications.map((application, index) => (
+            <ScrollAnimation key={application.title} delay={700 + index * 100} animationClass="reveal-scale">
+              <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                <div className="flex items-center space-x-3 mb-2">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600">
+                    {application.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3">
-                    {application.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {application.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+                  <h4 className="font-medium text-gray-900">{application.title}</h4>
+                </div>
+                <p className="text-sm text-gray-600 pl-11">{application.description}</p>
+              </div>
+            </ScrollAnimation>
+          ))}
         </div>
 
-        {/* Quality Assurance Section */}
-        <div className="mt-16 bg-muted rounded-3xl p-8 lg:p-12 text-center">
-          <div className="flex items-center justify-center space-x-3 mb-6">
-            <Zap className="h-8 w-8 text-primary" />
-            <h3 className="text-3xl font-bold text-foreground">Garantia de Qualidade</h3>
+        <ScrollAnimation delay={1000} animationClass="reveal-fade-up">
+          <div className="p-6 bg-blue-50 border-l-4 border-blue-400 rounded-lg shadow-sm mb-16">
+            <p className="text-sm text-gray-700">
+              <strong>Importante:</strong> Nossos laudos técnicos e processos de comissionamento seguem os mais rigorosos padrões da indústria, 
+              garantindo que sua instalação solar atenda a todas as normas técnicas e de segurança.
+            </p>
           </div>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-            Nossos laudos técnicos e processos de comissionamento seguem os mais rigorosos padrões da indústria, 
-            garantindo que sua instalação solar atenda a todas as normas técnicas e de segurança.
-          </p>
-        </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

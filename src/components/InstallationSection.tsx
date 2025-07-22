@@ -32,7 +32,7 @@ const InstallationSection = () => {
   ];
 
   return (
-    <section id="instalacoes" className="py-32 bg-white">
+    <section id="instalacoes" className="py-32 bg-white section-highlight">
       <div className="max-w-6xl mx-auto px-8">
         {/* Header */}
         <div className="mb-16">
