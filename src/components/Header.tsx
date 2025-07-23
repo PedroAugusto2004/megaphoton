@@ -26,7 +26,7 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-smooth bg-black/40 backdrop-blur-md`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-smooth bg-black/80 backdrop-blur-md`}>
       <nav className="container-custom py-4">
         <div className="flex items-center w-full">
           {/* Logo */}
@@ -34,7 +34,7 @@ const Header = () => {
             <img 
               src="/images/megaphoton.png" 
               alt="MEGAPHOTON Logo" 
-              className="h-14 w-auto animate-glow -my-4"
+              className="h-12 w-auto animate-glow -my-3"
             />
           </div>
           {/* Desktop Menu */}
