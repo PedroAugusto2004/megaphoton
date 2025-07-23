@@ -35,7 +35,8 @@ const Header = () => {
             <img 
               src="/images/megaphoton.png" 
               alt="MEGAPHOTON Logo" 
-              className="h-12 w-auto animate-glow -my-3"
+              className="h-12 w-auto -my-3"
+              style={{ imageRendering: 'auto' }}
             />
           </div>
           {/* Desktop Menu */}
