@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { createSmoothScrollHandler } from '@/utils/scrollUtils';
 import './mobile-menu.css';
 
 const Header = () => {
@@ -44,6 +45,7 @@ const Header = () => {
                 key={item.href}
                 href={item.href}
                 className="text-white font-medium hover:text-primary transition-smooth relative group"
+                onClick={createSmoothScrollHandler(item.href)}
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -74,7 +76,7 @@ const Header = () => {
                 href={item.href}
                 className="mobile-menu-item"
                 style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={createSmoothScrollHandler(item.href, () => setIsMobileMenuOpen(false))}
               >
                 {item.label}
               </a>

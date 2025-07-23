@@ -1,4 +1,5 @@
 import { Sun, Phone, Instagram, Mail, MapPin } from 'lucide-react';
+import { createSmoothScrollHandler } from '@/utils/scrollUtils';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -54,6 +55,7 @@ const Footer = () => {
                   <a 
                     href="#servicos" 
                     className="text-gray-300 hover:text-primary transition-smooth flex items-center space-x-2"
+                    onClick={createSmoothScrollHandler('#servicos')}
                   >
                     <Sun className="h-4 w-4 text-primary flex-shrink-0" />
                     <span>{service}</span>
@@ -72,6 +74,7 @@ const Footer = () => {
                   <a 
                     href={link.href} 
                     className="text-gray-300 hover:text-primary transition-smooth"
+                    onClick={createSmoothScrollHandler(link.href)}
                   >
                     {link.label}
                   </a>

@@ -26,6 +26,7 @@
         </>
 import { ArrowRight, Sun, Zap, Shield, Phone, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { createSmoothScrollHandler } from '@/utils/scrollUtils';
 
 const HeroSection = () => {
   return (
@@ -57,7 +58,7 @@ const HeroSection = () => {
             className="bg-white text-black font-semibold group shadow-solar rounded-full px-8 py-3 hover:bg-gray-100 border border-white"
             asChild
           >
-            <a href="#servicos">
+            <a href="#servicos" onClick={createSmoothScrollHandler('#servicos')}>
               Nossos Serviços
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -68,7 +69,7 @@ const HeroSection = () => {
             className="bg-transparent text-white font-semibold rounded-full px-8 py-3 border border-white transition-colors duration-200 hover:bg-white hover:text-black"
             asChild
           >
-            <a href="#contato">Entre em Contato</a>
+            <a href="#contato" onClick={createSmoothScrollHandler('#contato')}>Entre em Contato</a>
           </Button>
         </div>
         {/* Contact info removed as requested */}

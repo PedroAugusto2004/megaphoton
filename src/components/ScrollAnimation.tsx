@@ -27,7 +27,7 @@ const ScrollAnimation = ({
           }
         });
       },
-      { threshold }
+      { threshold, rootMargin: '0px 0px -100px 0px' }
     );
 
     const currentRef = ref.current;
@@ -43,7 +43,11 @@ const ScrollAnimation = ({
   }, [threshold, delay]);
 
   return (
-    <div ref={ref} className={`reveal ${animationClass}`} style={{ transitionDelay: `${delay}ms` }}>
+    <div 
+      ref={ref} 
+      className={animationClass.includes('reveal') ? animationClass : `reveal ${animationClass}`} 
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {children}
     </div>
   );
