@@ -1,12 +1,22 @@
-import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, TrendingUp, Play, CheckSquare, X } from 'lucide-react';
+import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, TrendingUp, Play, CheckSquare, X, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import ReactDOM from 'react-dom';
 
 const ServicesSection = () => {
   const [videoError, setVideoError] = useState(false);
   const [activeService, setActiveService] = useState<number | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
+  
+  const closePopup = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setActiveService(null);
+      setIsClosing(false);
+    }, 300);
+  };
+  
   const services = [
     {
       icon: Thermometer,
@@ -195,93 +205,83 @@ const ServicesSection = () => {
                 <span className="text-sm font-semibold">Instalação em Ação</span>
               </div>
             </div>
-            
-            
           </div>
         </div>
       </div>
 
-      {/* Modal Popup */}
-      <AnimatePresence>
-        {activeService !== null && (
-          <div
-            className="fixed inset-0 z-[9999]"
+      {/* Popup rendered via portal to body for true fixed centering */}
+      {activeService !== null && ReactDOM.createPortal(
+        <div 
+          className="fixed inset-0 z-[9999]"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            backdropFilter: 'blur(4px)',
+            padding: '1rem'
+          }}
+          onClick={(e) => e.target === e.currentTarget && closePopup()}
+        >
+          <div 
+            className={`bg-white rounded-xl shadow-2xl max-w-md w-full relative ${isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'}`}
             style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '1rem'
+              transition: 'all 0.3s ease-in-out',
+              maxHeight: 'calc(100vh - 2rem)',
+              overflowY: 'auto',
+              marginTop: 'auto',
+              marginBottom: 'auto'
             }}
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-              onClick={() => setActiveService(null)}
-              style={{ position: 'fixed' }}
-            />
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10"
-              style={{
-                maxHeight: 'calc(100vh - 2rem)',
-                overflowY: 'auto',
-                marginTop: 'auto',
-                marginBottom: 'auto',
-                position: 'relative'
-              }}
+            <button 
+              onClick={closePopup}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-full p-1.5 transition-colors"
+              aria-label="Fechar"
             >
-              {/* Header with gradient */}
-              <div className={`${services[activeService].gradient} p-6 relative`}>
-                <button 
-                  onClick={() => setActiveService(null)}
-                  className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
-                  aria-label="Fechar modal"
-                  title="Fechar modal"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="bg-white/20 p-3 rounded-xl backdrop-blur-sm">
-                    {React.createElement(services[activeService].icon, { className: "h-8 w-8 text-white" })}
+              <X className="h-4 w-4" />
+            </button>
+            
+            {activeService !== null && (
+              <div>
+                <div className={`${services[activeService].gradient} p-6 relative rounded-t-xl`}>
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-white/20 p-3 rounded-xl backdrop-blur-sm">
+                      {React.createElement(services[activeService].icon, { className: "h-8 w-8 text-white" })}
+                    </div>
+                    <h3 className="text-2xl font-bold text-white">{services[activeService].title}</h3>
                   </div>
-                  <h3 className="text-2xl font-bold text-white">{services[activeService].title}</h3>
+                </div>
+                
+                <div className="p-8">
+                  <p className="text-gray-700 mb-8 leading-relaxed">
+                    {services[activeService].details}
+                  </p>
+                  
+                  <Button 
+                    onClick={() => {
+                      closePopup();
+                      setTimeout(() => {
+                        document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 300);
+                    }}
+                    className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
+                  >
+                    <span>Solicitar um orçamento</span>
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
                 </div>
               </div>
-              
-              {/* Content */}
-              <div className="p-6">
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  {services[activeService].details}
-                </p>
-                
-                <Button 
-                  className="w-full py-6 text-base font-medium bg-orange-500 hover:bg-orange-600 text-white rounded-xl transition-all shadow-lg hover:shadow-xl hover:shadow-orange-200"
-                  onClick={() => {
-                    // Handle quote request
-                    window.location.href = "#contato";
-                    setActiveService(null);
-                  }}
-                >
-                  Solicitar um orçamento
-                </Button>
-              </div>
-            </motion.div>
+            )}
           </div>
-        )}
-      </AnimatePresence>
-
+        </div>,
+        document.body
+      )}
     </section>
   );
 };
