@@ -181,7 +181,7 @@ const ProjectsSection = () => {
         {/* Popup rendered via portal to body for true fixed centering */}
         {activePopup && ReactDOM.createPortal(
           <div 
-            className="fixed inset-0 z-[9999]"
+            className={`fixed inset-0 z-[9999] popup-overlay ${isClosing ? 'closing' : ''}`}
             style={{
               position: 'fixed',
               top: 0,
@@ -198,9 +198,8 @@ const ProjectsSection = () => {
             onClick={(e) => e.target === e.currentTarget && closePopup()}
           >
             <div 
-              className={`bg-white rounded-xl shadow-2xl max-w-md w-full relative ${isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'}`}
+              className={`bg-white rounded-xl shadow-2xl max-w-md w-full relative popup-content ${isClosing ? 'closing' : ''}`}
               style={{
-                transition: 'all 0.3s ease-in-out',
                 maxHeight: 'calc(100vh - 2rem)',
                 overflowY: 'auto',
                 marginTop: 'auto',

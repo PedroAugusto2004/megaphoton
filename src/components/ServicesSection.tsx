@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import './popup-animation.css';
 
 const ServicesSection = () => {
   const [videoError, setVideoError] = useState(false);
@@ -212,7 +213,7 @@ const ServicesSection = () => {
       {/* Popup rendered via portal to body for true fixed centering */}
       {activeService !== null && ReactDOM.createPortal(
         <div 
-          className="fixed inset-0 z-[9999]"
+          className={`fixed inset-0 z-[9999] popup-overlay ${isClosing ? 'closing' : ''}`}
           style={{
             position: 'fixed',
             top: 0,
@@ -229,9 +230,8 @@ const ServicesSection = () => {
           onClick={(e) => e.target === e.currentTarget && closePopup()}
         >
           <div 
-            className={`bg-white rounded-xl shadow-2xl max-w-md w-full relative ${isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'}`}
+            className={`bg-white rounded-xl shadow-2xl max-w-md w-full relative popup-content ${isClosing ? 'closing' : ''}`}
             style={{
-              transition: 'all 0.3s ease-in-out',
               maxHeight: 'calc(100vh - 2rem)',
               overflowY: 'auto',
               marginTop: 'auto',
