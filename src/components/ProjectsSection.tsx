@@ -2,6 +2,7 @@ import { PenTool, Building, Factory, Tractor, MapPin, Zap, X, ArrowRight } from 
 import { Card, CardContent } from '@/components/ui/card';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import ReactDOM from 'react-dom';
 import './popup-animation.css';
 
 const ProjectsSection = () => {
@@ -96,68 +97,11 @@ const ProjectsSection = () => {
             );
           })}
         </div>
-        
-        {/* Popup */}
-        {activePopup && (
-          <div 
-            className={`fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
-            onClick={(e) => e.target === e.currentTarget && closePopup()}
-          >
-            <div 
-              className={`bg-white rounded-xl shadow-2xl max-w-md w-full relative transition-all duration-300 ${isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100 animate-popup'}`}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button 
-                onClick={closePopup}
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-full p-1.5 transition-colors"
-                aria-label="Fechar"
-              >
-                <X className="h-4 w-4" />
-              </button>
-              
-              {segments.map(segment => {
-                if (segment.title === activePopup) {
-                  return (
-                    <div key={segment.title} className="p-8">
-                      <div className="flex items-center mb-6">
-                        <div className={`w-12 h-12 rounded-lg ${segment.bgColor} flex items-center justify-center mr-4 shadow-sm`}>
-                          <segment.icon className={`h-6 w-6 ${segment.color}`} />
-                        </div>
-                        <h3 className="text-2xl font-semibold text-gray-900">
-                          {segment.title}
-                        </h3>
-                      </div>
-                      
-                      <p className="text-gray-700 mb-8 leading-relaxed">
-                        {segment.details}
-                      </p>
-                      
-                      <Button 
-                        onClick={() => {
-                          closePopup();
-                          setTimeout(() => {
-                            document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-                          }, 300);
-                        }}
-                        className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
-                      >
-                        <span>Faça seu orçamento</span>
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </Button>
-                    </div>
-                  );
-                }
-                return null;
-              })}
-            </div>
-          </div>
-        )}
       </div>
       
       {/* Project Details Section - Full Width */}
       <div className="relative w-full bg-orange-500 overflow-hidden shadow-2xl">
         <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
-        
         <div className="relative flex flex-col lg:grid lg:grid-cols-2 lg:min-h-[600px]">
           {/* Content Side */}
           <div className="flex items-center px-6 md:px-8 lg:px-16 py-8 md:py-16 lg:py-20 lg:order-1">
@@ -165,7 +109,6 @@ const ProjectsSection = () => {
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
                 PROJETOS ELABORADOS &<br />EXCELÊNCIA
               </h3>
-              
               <div className="space-y-4 md:space-y-6">
                 <p className="text-base md:text-lg font-medium text-white/90">
                   Modelo EPC (Engineering, Procurement and Construction)
@@ -175,7 +118,6 @@ const ProjectsSection = () => {
                   proporcionando o retorno esperado sobre o investimento.
                 </p>
               </div>
-              
               <div className="flex flex-wrap gap-2 md:gap-3">
                 <span className="px-3 md:px-4 py-1.5 md:py-2 bg-white/15 rounded-full text-xs md:text-sm font-light backdrop-blur-sm border border-white/20">
                   Análise de Localização
@@ -189,7 +131,6 @@ const ProjectsSection = () => {
               </div>
             </div>
           </div>
-          
           {/* video Side */}
           <div className="relative min-h-[400px] lg:min-h-full lg:order-2 overflow-hidden">
             <div className="absolute inset-0">
@@ -216,7 +157,6 @@ const ProjectsSection = () => {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             </div>
-            
             {/* Enhanced Badge */}
             <div className="absolute bottom-6 right-6 bg-black/20 backdrop-blur-md text-white px-4 py-2 rounded-xl shadow-lg border border-white/20">
               <div className="flex items-center space-x-2">
@@ -224,12 +164,10 @@ const ProjectsSection = () => {
                 <span className="text-sm font-semibold">Projeto em Desenvolvimento</span>
               </div>
             </div>
-            
             {/* Decorative Elements */}
             <div className="absolute top-6 left-6 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 flex items-center justify-center">
               <Zap className="h-6 w-6 text-white/80" />
             </div>
-            
             {/* Stats Overlay */}
             <div className="absolute top-6 right-6 bg-black/20 backdrop-blur-md text-white px-3 py-2 rounded-lg border border-white/10">
               <div className="text-xs font-light opacity-90">Eficiência</div>
@@ -239,7 +177,81 @@ const ProjectsSection = () => {
         </div>
       </div>
       
-
+      <div className="container-custom">
+        {/* Popup rendered via portal to body for true fixed centering */}
+        {activePopup && ReactDOM.createPortal(
+          <div 
+            className="fixed inset-0 z-[9999]"
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'rgba(0, 0, 0, 0.4)',
+              backdropFilter: 'blur(4px)',
+              padding: '1rem'
+            }}
+            onClick={(e) => e.target === e.currentTarget && closePopup()}
+          >
+            <div 
+              className={`bg-white rounded-xl shadow-2xl max-w-md w-full relative ${isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'}`}
+              style={{
+                transition: 'all 0.3s ease-in-out',
+                maxHeight: 'calc(100vh - 2rem)',
+                overflowY: 'auto',
+                marginTop: 'auto',
+                marginBottom: 'auto'
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={closePopup}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-full p-1.5 transition-colors"
+                aria-label="Fechar"
+              >
+                <X className="h-4 w-4" />
+              </button>
+              {segments.map(segment => {
+                if (segment.title === activePopup) {
+                  return (
+                    <div key={segment.title} className="p-8">
+                      <div className="flex items-center mb-6">
+                        <div className={`w-12 h-12 rounded-lg ${segment.bgColor} flex items-center justify-center mr-4 shadow-sm`}>
+                          <segment.icon className={`h-6 w-6 ${segment.color}`} />
+                        </div>
+                        <h3 className="text-2xl font-semibold text-gray-900">
+                          {segment.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-700 mb-8 leading-relaxed">
+                        {segment.details}
+                      </p>
+                      <Button 
+                        onClick={() => {
+                          closePopup();
+                          setTimeout(() => {
+                            document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+                          }, 300);
+                        }}
+                        className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
+                      >
+                        <span>Faça seu orçamento</span>
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </div>
+                  );
+                }
+                return null;
+              })}
+            </div>
+          </div>,
+          document.body
+        )}
+      </div>
     </section>
   );
 };

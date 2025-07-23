@@ -204,13 +204,27 @@ const ServicesSection = () => {
       {/* Modal Popup */}
       <AnimatePresence>
         {activeService !== null && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="fixed inset-0 z-[9999]"
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '1rem'
+            }}
+          >
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="absolute inset-0 bg-black/60 backdrop-blur-sm"
               onClick={() => setActiveService(null)}
+              style={{ position: 'fixed' }}
             />
             
             <motion.div 
@@ -218,7 +232,14 @@ const ServicesSection = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10 overflow-hidden"
+              className="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10"
+              style={{
+                maxHeight: 'calc(100vh - 2rem)',
+                overflowY: 'auto',
+                marginTop: 'auto',
+                marginBottom: 'auto',
+                position: 'relative'
+              }}
             >
               {/* Header with gradient */}
               <div className={`${services[activeService].gradient} p-6 relative`}>
