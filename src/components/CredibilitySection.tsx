@@ -1,4 +1,4 @@
-import { Shield, Award, Users, CheckCircle, TrendingUp, Heart } from 'lucide-react';
+import { Award, Users, CheckCircle, TrendingUp, Heart } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
 
 const CredibilitySection = () => {
@@ -10,7 +10,7 @@ const CredibilitySection = () => {
       description: 'Mais de 6 anos no mercado fotovoltaico brasileiro'
     },
     {
-      icon: <Shield className="h-5 w-5 text-primary" />,
+      icon: <CheckCircle className="h-5 w-5 text-primary" />,
       title: 'Qualidade',
       subtitle: 'Garantida',
       description: 'Serviços executados com os mais altos padrões'
@@ -86,52 +86,75 @@ const CredibilitySection = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 mb-16">
-          {/* Left column - Content */}
-          <ScrollAnimation animationClass="reveal-fade-left" delay={600}>
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Transformando o <span className="text-primary">Sonho</span> em Realidade
-              </h3>
-              
-              <p className="text-gray-600">
-                Nosso compromisso é transformar o sonho da energia solar em realidade: 
-                <strong> economia, conforto e sustentabilidade</strong>.
-              </p>
-
-              <div className="border-l-4 border-primary pl-4 py-2">
-                <p className="text-gray-700">
-                  Desde o fechamento da venda até a homologação, garantimos um acompanhamento 
-                  transparente em todas as etapas. <strong>CONFIANÇA: essa é a nossa marca.</strong>
+      </div>
+      
+      {/* Full Width Hero Image Section */}
+      <ScrollAnimation animationClass="reveal-fade-up" delay={600}>
+        <div className="relative overflow-hidden mb-16">
+          <div className="aspect-[2816/1536] w-full">
+            <img 
+              src="/images/sobre.png" 
+              alt="MegaPhoton - Energia Solar" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent">
+            <div className="flex items-start pt-6 md:pt-12 px-4 md:px-8 lg:px-16">
+              <div className="text-white max-w-3xl animate-fade-in-up">
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-6">
+                  Transformando o <span className="text-yellow-400">Sonho</span> em Realidade
+                </h3>
+                <p className="text-sm md:text-lg lg:text-xl text-gray-200 leading-relaxed md:block hidden">
+                  Nosso compromisso é transformar o sonho da energia solar em realidade: 
+                  <strong> economia, conforto e sustentabilidade</strong>.
                 </p>
-              </div>
-
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <ScrollAnimation key={benefit.title} delay={800 + index * 100} animationClass="reveal-fade-up">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                        {benefit.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-gray-900">{benefit.title}</h4>
-                        <p className="text-gray-600">{benefit.description}</p>
-                      </div>
-                    </div>
-                  </ScrollAnimation>
-                ))}
+                <div className="border-l-4 border-yellow-400 pl-4 md:pl-6 py-2 md:py-3 md:block hidden">
+                  <p className="text-base lg:text-lg text-gray-100 leading-relaxed">
+                    Desde o fechamento da venda até a homologação, garantimos um acompanhamento 
+                    transparente em todas as etapas. <strong>CONFIANÇA: essa é a nossa marca.</strong>
+                  </p>
+                </div>
               </div>
             </div>
-          </ScrollAnimation>
+          </div>
+        </div>
+      </ScrollAnimation>
+      
+      {/* Mobile Content Section */}
+      <div className="md:hidden bg-gray-50 py-8 px-4">
+        <div className="max-w-lg mx-auto text-center">
+          <p className="text-base text-gray-700 mb-6 leading-relaxed">
+            Nosso compromisso é transformar o sonho da energia solar em realidade: 
+            <strong> economia, conforto e sustentabilidade</strong>.
+          </p>
+          <div className="border-l-4 border-primary pl-4 py-3 text-left">
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Desde o fechamento da venda até a homologação, garantimos um acompanhamento 
+              transparente em todas as etapas. <strong>CONFIANÇA: essa é a nossa marca.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="container mx-auto px-4 max-w-6xl">
 
-          {/* Right column - Image */}
-          <ScrollAnimation animationClass="reveal-fade-right" delay={700}>
-            <div className="relative overflow-hidden rounded-lg shadow-md">
-              <div className="aspect-[4/3] bg-gradient-to-b from-primary/5 to-primary/10 flex items-center justify-center">
-                <Shield className="h-24 w-24 text-primary opacity-70" />
+        {/* Benefits Grid */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {benefits.map((benefit, index) => (
+            <ScrollAnimation key={benefit.title} delay={800 + index * 100} animationClass="reveal-fade-up">
+              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div className="flex items-start space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                    {benefit.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">{benefit.title}</h4>
+                    <p className="text-gray-600">{benefit.description}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </ScrollAnimation>
+            </ScrollAnimation>
+          ))}
         </div>
 
         <ScrollAnimation delay={1100} animationClass="reveal-fade-up">
