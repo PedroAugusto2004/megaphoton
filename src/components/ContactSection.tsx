@@ -242,15 +242,25 @@ const ContactSection = () => {
         </div>
 
         {/* Map/Location Section */}
-        <div className="bg-gray-50 rounded-xl p-8 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <MapPin className="h-5 w-5 text-primary" />
-            <h3 className="text-xl font-semibold">Área de Atuação</h3>
-          </div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Atendemos toda a região com equipe especializada e suporte técnico completo.
-            Entre em contato para conhecer nossa área de cobertura.
-          </p>
+        <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="relative w-full md:w-1/3 flex-shrink-0">
+                <img 
+                  src="/images/br.svg" 
+                  alt="Mapa do Brasil" 
+                  className="w-full h-auto object-contain"
+                  style={{ filter: 'hue-rotate(30deg) saturate(200%) brightness(105%)' }} 
+                />
+            </div>
+            <div className="w-full md:w-2/3 text-left">
+              <div className="flex items-center space-x-2 mb-4">
+                <MapPin className="h-5 w-5 text-primary" />
+                <h3 className="text-xl font-semibold">Área de Atuação</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Atendemos <span className="font-medium text-primary">todo o território nacional</span> com equipe especializada e suporte técnico completo.
+                Nossa infraestrutura permite atender projetos em qualquer região do Brasil.
+              </p>
+            </div>
         </div>
       </div>
     </section>
