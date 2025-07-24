@@ -43,57 +43,22 @@ const FutureTechSection = () => {
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Header */}
         <ScrollAnimation>
-          <div className="mb-16 text-center">
-            <span className="text-purple-600 uppercase tracking-wide text-sm font-medium">Tecnologias Futuras</span>
-            <h2 className="text-4xl lg:text-6xl font-bold mb-6 text-gray-900">
+          <div className="mb-16">
+            <div className="flex items-center mb-2">
+              <div className="h-px w-12 bg-purple-600 mr-4"></div>
+              <span className="text-purple-600 uppercase tracking-wider text-sm font-medium">Tecnologias Futuras</span>
+            </div>
+            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               O Futuro Chegou
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Armazenamento e <span className="text-purple-600 font-semibold">mobilidade elétrica</span> ao seu alcance
+            <p className="text-2xl text-gray-600 max-w-6xl font-medium">
+              Armazenamento e <span className="text-purple-600">mobilidade elétrica</span> ao seu alcance
             </p>
           </div>
         </ScrollAnimation>
 
         {/* Main Content */}
         <div className="mb-16">
-          {/* Content Section */}
-          <ScrollAnimation animationClass="reveal-fade-up" delay={200}>
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold mb-6 text-gray-900">
-                Sistemas de <span className="text-purple-600">Armazenamento ESS</span>
-              </h3>
-              
-              <p className="text-gray-600 text-lg max-w-3xl mx-auto mb-8">
-                Sistemas de armazenamento de energia (ESS) representam uma revolução na forma como 
-                utilizamos e gerenciamos energia renovável.
-              </p>
-
-              <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 max-w-3xl mx-auto">
-                <div className="flex items-center justify-center gap-3">
-                  <Lightbulb className="h-8 w-8 text-purple-600" />
-                  <p className="text-gray-700 text-lg">
-                    Imagine acordar com seu carro elétrico carregado todos os dias! 
-                    Nossa tecnologia torna isso possível com energia 100% solar.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ScrollAnimation>
-
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {features.map((feature, index) => (
-              <ScrollAnimation key={feature.title} delay={400 + index * 100} animationClass="reveal-scale">
-                <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
-                    {feature.icon}
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{feature.title}</h4>
-                  <p className="text-gray-600 text-sm">{feature.description}</p>
-                </div>
-              </ScrollAnimation>
-            ))}
-          </div>
 
           {/* Large Image */}
           <ScrollAnimation animationClass="reveal-fade-up" delay={700}>
@@ -101,7 +66,7 @@ const FutureTechSection = () => {
               <img 
                 src="/images/future.png" 
                 alt="Tecnologias do Futuro - ESS e Mobilidade Elétrica" 
-                className="w-full h-auto object-contain"
+                className="w-full h-[500px] md:h-auto object-cover md:object-contain"
               />
               
               {/* Text Overlay */}
@@ -114,7 +79,7 @@ const FutureTechSection = () => {
                     </p>
                   </div>
                   
-                  <div className="grid grid-cols-1 gap-2 md:gap-3">
+                  <div className="hidden md:grid grid-cols-1 gap-2 md:gap-3">
                     <div className="flex items-center gap-2">
                       <Battery className="h-3 w-3 md:h-4 md:w-4 text-white" />
                       <div>
