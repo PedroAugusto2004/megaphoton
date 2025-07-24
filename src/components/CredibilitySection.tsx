@@ -91,11 +91,11 @@ const CredibilitySection = () => {
       {/* Full Width Hero Image Section */}
       <ScrollAnimation animationClass="reveal-fade-up" delay={600}>
         <div className="relative overflow-hidden mb-16">
-          <div className="aspect-[2816/1536] w-full">
+          <div className="aspect-[3/4] md:aspect-[2816/1536] w-full">
             <img 
               src="/images/sobre.png" 
               alt="MegaPhoton - Energia Solar" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover" style={{objectPosition: '36% center'}}
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent">
