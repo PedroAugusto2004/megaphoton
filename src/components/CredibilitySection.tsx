@@ -102,14 +102,14 @@ const CredibilitySection = () => {
             <div className="flex items-start pt-6 md:pt-12 px-4 md:px-8 lg:px-16">
               <div className="text-white max-w-3xl animate-fade-in-up">
                 <h3 className="text-xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-6">
-                  Transformando o <span className="text-yellow-400">Sonho</span> em Realidade
+                  Transformando o <span className="text-orange-400">Sonho</span> em Realidade
                 </h3>
-                <p className="text-sm md:text-lg lg:text-xl text-gray-200 leading-relaxed md:block hidden">
+                <p className="text-sm md:text-lg lg:text-xl text-gray-200 leading-relaxed">
                   Nosso compromisso é transformar o sonho da energia solar em realidade: 
                   <strong> economia, conforto e sustentabilidade</strong>.
                 </p>
-                <div className="border-l-4 border-yellow-400 pl-4 md:pl-6 py-2 md:py-3 md:block hidden">
-                  <p className="text-base lg:text-lg text-gray-100 leading-relaxed">
+                <div className="hidden md:block border-l-4 border-orange-400 pl-4 md:pl-6 py-2 md:py-3 mt-4">
+                  <p className="text-sm md:text-base lg:text-lg text-gray-100 leading-relaxed">
                     Desde o fechamento da venda até a homologação, garantimos um acompanhamento 
                     transparente em todas as etapas. <strong>CONFIANÇA: essa é a nossa marca.</strong>
                   </p>
@@ -120,52 +120,45 @@ const CredibilitySection = () => {
         </div>
       </ScrollAnimation>
       
-      {/* Mobile Content Section */}
-      <div className="md:hidden bg-gray-50 py-8 px-4">
-        <div className="max-w-lg mx-auto text-center">
-          <p className="text-base text-gray-700 mb-6 leading-relaxed">
-            Nosso compromisso é transformar o sonho da energia solar em realidade: 
-            <strong> economia, conforto e sustentabilidade</strong>.
-          </p>
-          <div className="border-l-4 border-primary pl-4 py-3 text-left">
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Desde o fechamento da venda até a homologação, garantimos um acompanhamento 
-              transparente em todas as etapas. <strong>CONFIANÇA: essa é a nossa marca.</strong>
-            </p>
-          </div>
-        </div>
-      </div>
-      
       <div className="container mx-auto px-4 max-w-6xl">
 
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {benefits.map((benefit, index) => (
             <ScrollAnimation key={benefit.title} delay={800 + index * 100} animationClass="reveal-fade-up">
-              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-start space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                    {benefit.icon}
+              <div className="bg-gradient-to-br from-white to-gray-50 p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:scale-105 transition-all duration-300 group">
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <CheckCircle className="h-8 w-8 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">{benefit.title}</h4>
-                    <p className="text-gray-600">{benefit.description}</p>
+                    <h4 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">{benefit.title}</h4>
+                    <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
                   </div>
                 </div>
               </div>
             </ScrollAnimation>
           ))}
         </div>
-
-        <ScrollAnimation delay={1100} animationClass="reveal-fade-up">
-          <div className="p-6 bg-primary/5 border-l-4 border-primary rounded-lg shadow-sm mb-16">
-            <p className="text-sm text-gray-700">
-              <strong>Confiança é nossa marca:</strong> Escolher a MEGAPHOTON é escolher um parceiro comprometido com a sua satisfação, 
-              com a qualidade dos serviços e com o sucesso do seu projeto de energia solar.
+      </div>
+      
+      {/* Full-width Trust Section */}
+      <ScrollAnimation delay={200} animationClass="reveal-fade-up">
+        <div className="bg-gray-50 py-20">
+          <div className="container max-w-4xl mx-auto px-4 text-center">
+            <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-6">
+              <Heart className="h-8 w-8 text-primary" />
+            </div>
+            <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              <span className="text-primary">Confiança</span> é a nossa marca
+            </h4>
+            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+              Escolher a MEGAPHOTON é escolher um parceiro comprometido com a sua satisfação, 
+              com a qualidade dos serviços e com o <strong className="font-semibold text-gray-800">sucesso do seu projeto de energia solar</strong>.
             </p>
           </div>
-        </ScrollAnimation>
-      </div>
+        </div>
+      </ScrollAnimation>
     </section>
   );
 };
