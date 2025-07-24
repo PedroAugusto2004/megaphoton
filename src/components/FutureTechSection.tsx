@@ -79,26 +79,26 @@ const FutureTechSection = () => {
                     </p>
                   </div>
                   
-                  <div className="hidden md:grid grid-cols-1 gap-2 md:gap-3">
+                  <div className="grid grid-cols-1 gap-2 md:gap-3">
                     <div className="flex items-center gap-2">
                       <Battery className="h-3 w-3 md:h-4 md:w-4 text-white" />
                       <div>
                         <h4 className="font-semibold text-white text-xs">Backup de Energia</h4>
-                        <p className="text-gray-200 text-xs hidden md:block">Energia disponível mesmo durante interrupções</p>
+                        <p className="text-gray-200 text-xs">Energia disponível mesmo durante interrupções</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Car className="h-3 w-3 md:h-4 md:w-4 text-white" />
                       <div>
                         <h4 className="font-semibold text-white text-xs">Mobilidade Garantida</h4>
-                        <p className="text-gray-200 text-xs hidden md:block">Carregamento eficiente para veículos elétricos</p>
+                        <p className="text-gray-200 text-xs">Carregamento eficiente para veículos elétricos</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Plug className="h-3 w-3 md:h-4 md:w-4 text-white" />
                       <div>
                         <h4 className="font-semibold text-white text-xs">Integração Inteligente</h4>
-                        <p className="text-gray-200 text-xs hidden md:block">Sistema integrado para máxima eficiência</p>
+                        <p className="text-gray-200 text-xs">Sistema integrado para máxima eficiência</p>
                       </div>
                     </div>
                   </div>
@@ -132,11 +132,21 @@ const FutureTechSection = () => {
         </div>
 
         <ScrollAnimation delay={1200} animationClass="reveal-fade-up">
-          <div className="p-6 bg-gray-50 border border-gray-200 rounded-lg">
-            <p className="text-gray-700 text-center">
-              <span className="text-purple-600 font-semibold">Revolução Energética:</span> Os sistemas ESS não são apenas uma tecnologia do futuro - eles são a realidade presente 
-              que está transformando a maneira como consumimos energia. <span className="text-purple-600 font-semibold">Eficiência máxima, impacto mínimo.</span>
-            </p>
+          <div className="bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl p-8 text-white">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <Zap className="h-6 w-6 text-yellow-300" />
+                <h3 className="text-xl font-bold text-yellow-300">Revolução Energética</h3>
+              </div>
+              <p className="text-lg leading-relaxed mb-4">
+                Os sistemas ESS não são apenas uma tecnologia do futuro - eles são a <strong>realidade presente</strong> 
+                que está transformando a maneira como consumimos energia.
+              </p>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-yellow-300 rounded-full"></div>
+                <p className="text-yellow-100 font-medium">Eficiência máxima, impacto mínimo.</p>
+              </div>
+            </div>
           </div>
         </ScrollAnimation>
       </div>
