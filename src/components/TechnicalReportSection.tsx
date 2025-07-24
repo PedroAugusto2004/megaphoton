@@ -82,9 +82,11 @@ const TechnicalReportSection = () => {
           {/* Right column - Image */}
           <ScrollAnimation animationClass="reveal-fade-right" delay={400}>
             <div className="relative overflow-hidden rounded-lg shadow-md">
-              <div className="aspect-[4/3] bg-gradient-to-b from-blue-50 to-blue-100 flex items-center justify-center">
-                <FileText className="h-24 w-24 text-blue-600 opacity-70" />
-              </div>
+              <img 
+                src="/images/technical.png" 
+                alt="Laudo Técnico e Comissionamento" 
+                className="w-full h-full object-cover aspect-[4/3]"
+              />
             </div>
           </ScrollAnimation>
         </div>
