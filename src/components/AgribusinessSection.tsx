@@ -61,9 +61,11 @@ const AgribusinessSection = () => {
           {/* Left column - Image */}
           <ScrollAnimation animationClass="reveal-fade-left" delay={200}>
             <div className="relative overflow-hidden rounded-lg shadow-md">
-              <div className="aspect-[4/3] bg-gradient-to-b from-green-50 to-green-100 flex items-center justify-center">
-                <Tractor className="h-24 w-24 text-green-600 opacity-70" />
-              </div>
+              <img 
+                src="/images/agribusiness.png" 
+                alt="Agronegócio - Energia Solar para o Campo" 
+                className="w-full h-full object-cover aspect-[4/3]"
+              />
             </div>
           </ScrollAnimation>
 

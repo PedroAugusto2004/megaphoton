@@ -98,13 +98,11 @@ const FutureTechSection = () => {
           {/* Right column - Image */}
           <ScrollAnimation animationClass="reveal-fade-right" delay={400}>
             <div className="relative overflow-hidden rounded-lg shadow-md">
-              <div className="aspect-[4/3] bg-gradient-to-b from-purple-50 to-purple-100 flex items-center justify-center">
-                <div className="flex space-x-6">
-                  <Battery className="h-16 w-16 text-purple-600 opacity-70" />
-                  <Car className="h-16 w-16 text-purple-600 opacity-70" />
-                  <Smartphone className="h-16 w-16 text-purple-600 opacity-70" />
-                </div>
-              </div>
+              <img 
+                src="/images/future.png" 
+                alt="Tecnologias do Futuro - ESS e Mobilidade Elétrica" 
+                className="w-full h-full object-cover aspect-[4/3]"
+              />
             </div>
           </ScrollAnimation>
         </div>
