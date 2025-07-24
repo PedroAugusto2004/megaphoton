@@ -97,9 +97,13 @@ const MonitoringSection = () => {
 
           {/* Right column - Image */}
           <ScrollAnimation animationClass="reveal-fade-right" delay={300}>
-            <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="aspect-[4/3] bg-gradient-to-b from-green-50 to-green-100 flex items-center justify-center">
-                <BarChart3 className="h-24 w-24 text-green-500 opacity-70 hover:scale-110 transition-transform duration-300" />
+            <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="aspect-[1009/608]">
+                <img 
+                  src="/images/tracking.png" 
+                  alt="Sistema de monitoramento solar" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
           </ScrollAnimation>
@@ -127,13 +131,20 @@ const MonitoringSection = () => {
                 </div>
               </div>
 
-              {/* Chart Placeholder */}
+              {/* Monitoring Dashboard Preview */}
               <ScrollAnimation delay={1000} animationClass="reveal-fade-right">
-                <div className="bg-gradient-to-br from-green-50 to-green-100/50 rounded-lg p-8 flex items-center justify-center shadow-sm">
-                  <div className="text-center">
-                    <BarChart3 className="h-16 w-16 mx-auto mb-4 text-green-500 opacity-80" />
-                    <p className="text-sm font-medium text-gray-900 mb-1">Visualização de dados</p>
-                    <p className="text-xs text-gray-600 bg-white/80 py-1 px-3 rounded-full inline-block">Gráficos e relatórios personalizados</p>
+                <div className="relative overflow-hidden rounded-lg shadow-md">
+                  <div className="aspect-[2244/1096]">
+                    <img 
+                      src="/images/monitoring.png" 
+                      alt="Dashboard de monitoramento" 
+                      className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 text-white">
+                      <p className="text-xs sm:text-sm font-medium mb-1">Dashboard em tempo real</p>
+                      <p className="text-xs opacity-90 hidden sm:block">Monitoramento completo do sistema</p>
+                    </div>
                   </div>
                 </div>
               </ScrollAnimation>

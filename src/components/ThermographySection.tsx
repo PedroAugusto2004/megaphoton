@@ -48,9 +48,11 @@ const ThermographySection = () => {
           {/* Left column - Image */}
           <ScrollAnimation animationClass="reveal-fade-left" delay={200}>
             <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="aspect-[4/3] bg-gradient-to-b from-primary/5 to-primary/10 flex items-center justify-center">
-                <Thermometer className="h-24 w-24 text-primary opacity-70 hover:scale-110 transition-transform duration-300" />
-              </div>
+              <img 
+                src="/images/thermography.png" 
+                alt="Termografia de painel solar mostrando análise térmica" 
+                className="w-full h-full object-cover aspect-[4/3]"
+              />
             </div>
           </ScrollAnimation>
 
