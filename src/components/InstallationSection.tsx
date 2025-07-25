@@ -48,38 +48,37 @@ const InstallationSection = () => {
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-32">
-          {/* Image */}
-          <div className="order-1 lg:order-1">
-            <div className="aspect-[4/3] sm:aspect-[5/4] bg-slate-50 rounded-2xl lg:rounded-3xl overflow-hidden border border-slate-100">
-              <img 
-                src="/images/instalação.png" 
-                alt="Instalação de Painéis Solares" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="order-2 lg:order-2 space-y-10">
-            <div>
-              <h3 className="text-4xl font-light text-slate-900 mb-8 leading-tight">
-                Qualidade <span className="text-emerald-600 font-normal">Excepcional</span>
-              </h3>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Cada projeto é executado com excelência técnica, desde a seleção de materiais 
-                até a instalação final, garantindo máximo desempenho e durabilidade.
-              </p>
-            </div>
-
-            <div className="space-y-5">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-700 leading-relaxed">{benefit}</span>
+        {/* Full-width Image with Overlay */}
+        <div
+          className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-32 overflow-hidden"
+          style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/images/instalação.png"
+              alt="Instalação de Painéis Solares"
+              className="w-full object-cover h-[600px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px]"
+              style={{ maxHeight: '900px' }}
+            />
+            {/* Text Overlay */}
+            <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
+              <div className="bg-black/40 backdrop-blur-md rounded-xl p-3 md:p-8 w-[75%] max-w-[260px] sm:max-w-[280px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
+                <h3 className="text-base sm:text-lg md:text-3xl font-light text-white mb-2 md:mb-4 leading-tight text-left">
+                  Qualidade <span className="text-emerald-300 font-normal">Excepcional</span>
+                </h3>
+                <p className="text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
+                  Cada projeto é executado com excelência técnica, desde a seleção de materiais 
+                  até a instalação final, garantindo máximo desempenho e durabilidade.
+                </p>
+                <div className="space-y-1 md:space-y-3">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start space-x-2 md:space-x-3">
+                      <CheckCircle className="h-3 w-3 md:h-5 md:w-5 text-emerald-300 flex-shrink-0 mt-0.5" />
+                      <span className="text-white/90 text-[10px] sm:text-xs md:text-base leading-tight md:leading-normal">{benefit}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
