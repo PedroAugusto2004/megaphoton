@@ -44,38 +44,71 @@ const ThermographySection = () => {
           </div>
         </ScrollAnimation>
 
-        <div className="grid md:grid-cols-2 gap-16 mb-16">
-          {/* Left column - Image */}
-          <ScrollAnimation animationClass="reveal-fade-left" delay={200}>
-            <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <img 
-                src="/images/thermography.png" 
-                alt="Termografia de painel solar mostrando análise térmica" 
-                className="w-full h-full object-cover aspect-[4/3]"
-              />
-            </div>
-          </ScrollAnimation>
-
-          {/* Right column - Content */}
-          <ScrollAnimation animationClass="reveal-fade-right" delay={400}>
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Análise termográfica de precisão
-              </h3>
-              
-              <p className="text-gray-600">
-                Utilizamos tecnologia avançada para identificar problemas invisíveis a olho nu, 
-                garantindo a máxima eficiência e segurança da sua instalação fotovoltaica.
-              </p>
-
-              <div className="border-l-4 border-primary pl-4 py-2">
-                <p className="text-gray-700">
-                  A inspeção termográfica permite identificar problemas antes que se tornem falhas custosas, 
-                  prolongando a vida útil dos equipamentos e maximizando o retorno do investimento.
+        {/* Full-width Image with Overlay */}
+        <div
+          className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-16 overflow-hidden"
+          style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/images/thermography.png"
+              alt="Termografia de painel solar mostrando análise térmica"
+              className="w-full object-cover h-[600px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px]"
+              style={{ maxHeight: '900px' }}
+            />
+            {/* Text Overlay */}
+            <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
+              <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
+                <h3 className="text-sm sm:text-base md:text-3xl font-light text-white mb-1.5 md:mb-4 leading-tight text-left">
+                  Análise <span className="text-primary font-normal">Termográfica</span>
+                </h3>
+                <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
+                  Utilizamos tecnologia avançada para identificar problemas invisíveis a olho nu, 
+                  garantindo a máxima eficiência e segurança da sua instalação fotovoltaica.
                 </p>
+                <div className="space-y-0.5 md:space-y-3">
+                  <div className="flex items-start space-x-1.5 md:space-x-3">
+                    <Search className="h-2.5 w-2.5 md:h-5 md:w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">
+                      Identifica hot spots e falhas de interconexão
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-1.5 md:space-x-3">
+                    <Shield className="h-2.5 w-2.5 md:h-5 md:w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">
+                      Análise não invasiva do sistema
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-1.5 md:space-x-3">
+                    <TrendingUp className="h-2.5 w-2.5 md:h-5 md:w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">
+                      Monitoramento contínuo da qualidade
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </ScrollAnimation>
+          </div>
+        </div>
+
+        {/* Mobile Description - Under Image */}
+        <div className="relative md:hidden mb-24">
+          <div className="mx-auto max-w-[300px] bg-white/95 backdrop-blur-md rounded-xl p-6 shadow-lg border border-gray-100">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Thermometer className="h-5 w-5 text-primary" />
+              </div>
+              <h4 className="font-semibold text-gray-900">Análise Avançada</h4>
+            </div>
+            <div className="space-y-4">
+              <p className="text-sm text-gray-600 leading-relaxed">
+                A inspeção termográfica permite identificar <span className="text-primary font-medium">problemas ocultos</span> antes que se tornem falhas custosas.
+              </p>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Essa tecnologia é essencial para prolongar a <span className="text-primary font-medium">vida útil</span> dos equipamentos e maximizar o <span className="text-primary font-medium">retorno do investimento</span>.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Benefits Grid */}
