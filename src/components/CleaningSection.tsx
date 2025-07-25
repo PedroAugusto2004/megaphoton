@@ -1,4 +1,4 @@
-import { Droplets, AlertTriangle, TrendingDown, Shield, CheckCircle } from 'lucide-react';
+import { AlertTriangle, Shield, CheckCircle, Zap, Thermometer, Wrench } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
 
 const CleaningSection = () => {
@@ -22,17 +22,17 @@ const CleaningSection = () => {
 
   const cleaningRisks = [
     {
-      icon: <AlertTriangle className="h-5 w-5 text-blue-500" />,
+      icon: <Wrench className="h-5 w-5 text-blue-500" />,
       title: 'Microfissuras',
       description: 'Causadas por limpeza inadequada'
     },
     {
-      icon: <AlertTriangle className="h-5 w-5 text-blue-500" />,
+      icon: <Thermometer className="h-5 w-5 text-blue-500" />,
       title: 'Hot Spots',
       description: 'Pontos de superaquecimento'
     },
     {
-      icon: <AlertTriangle className="h-5 w-5 text-blue-500" />,
+      icon: <Zap className="h-5 w-5 text-blue-500" />,
       title: 'Curtos-Circuitos',
       description: 'Risco de falhas elétricas'
     }
@@ -105,37 +105,48 @@ const CleaningSection = () => {
         </div>
 
         {/* Risks section */}
-        <ScrollAnimation delay={800}>
-          <h3 className="text-xl font-semibold text-gray-900 mb-6">
-            Riscos da limpeza inadequada
-          </h3>
-        </ScrollAnimation>
-        
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          {cleaningRisks.map((risk, index) => (
-            <ScrollAnimation key={risk.title} delay={900 + index * 100} animationClass="reveal-scale">
-              <div className="bg-white p-5 rounded-lg shadow-sm border-l-2 border-blue-400 hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-center space-x-3 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
-                    {risk.icon}
+        <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-12 mb-16">
+          <ScrollAnimation delay={800}>
+            <div className="flex items-center gap-3 mb-6 sm:mb-8">
+              <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-blue-500" />
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900">
+                Riscos da limpeza inadequada
+              </h3>
+            </div>
+          </ScrollAnimation>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+            {cleaningRisks.map((risk, index) => (
+              <ScrollAnimation key={risk.title} delay={900 + index * 100} animationClass="reveal-scale">
+                <div className="group bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-1">
+                  <div className="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors duration-300">
+                      {risk.icon}
+                    </div>
+                    <h4 className="text-base sm:text-lg font-semibold text-gray-900">{risk.title}</h4>
                   </div>
-                  <h4 className="font-medium text-gray-900">{risk.title}</h4>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed pl-11 sm:pl-14">{risk.description}</p>
                 </div>
-                <p className="text-sm text-gray-600 ml-11">{risk.description}</p>
-              </div>
-            </ScrollAnimation>
-          ))}
-        </div>
-
-        <ScrollAnimation delay={1200} animationClass="reveal-fade-up">
-          <div className="p-6 bg-blue-50 border-l-4 border-blue-400 rounded-lg shadow-sm mb-16">
-            <p className="text-sm text-gray-700">
-              <strong>Importante:</strong> A limpeza profissional dos painéis solares deve ser realizada 
-              por técnicos especializados, utilizando equipamentos e produtos adequados para evitar danos 
-              ao sistema e garantir a segurança.
-            </p>
+              </ScrollAnimation>
+            ))}
           </div>
-        </ScrollAnimation>
+
+          <ScrollAnimation delay={1200} animationClass="reveal-fade-up">
+            <div className="bg-blue-50/50 backdrop-blur-sm border border-blue-100 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
+                <div className="flex items-center sm:items-start gap-3 sm:gap-4">
+                  <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-900">Importante:</h4>
+                </div>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  A limpeza profissional dos painéis solares deve ser realizada 
+                  por técnicos especializados, utilizando equipamentos e produtos adequados para evitar danos 
+                  ao sistema e garantir a segurança.
+                </p>
+              </div>
+            </div>
+          </ScrollAnimation>
+        </div>
       </div>
     </section>
   );

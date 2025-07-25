@@ -42,8 +42,8 @@ const MonitoringSection = () => {
         <ScrollAnimation>
           <div className="mb-16">
             <div className="flex items-center mb-2">
-              <div className="h-px w-12 bg-primary mr-4"></div>
-              <span className="text-primary uppercase tracking-wider text-sm font-medium"> MONITORAMENTO E RELATÓRIOS</span>
+              <div className="h-px w-12 bg-green-500 mr-4"></div>
+              <span className="text-green-500 uppercase tracking-wider text-sm font-medium"> MONITORAMENTO E RELATÓRIOS</span>
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               <span className="text-black"> Monitoramento e Relatórios</span>
