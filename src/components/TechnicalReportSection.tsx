@@ -39,56 +39,58 @@ const TechnicalReportSection = () => {
           </div>
         </ScrollAnimation>
 
-        <div className="grid md:grid-cols-2 gap-16 mb-16">
-          {/* Left column - Content */}
-          <ScrollAnimation animationClass="reveal-fade-left" delay={200}>
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Garantindo a <span className="text-blue-600">Excelência Técnica</span>
-              </h3>
-              
-              <p className="text-gray-600">
-                Nosso processo de comissionamento e elaboração de laudos técnicos garante que sua instalação 
-                solar opere com máxima eficiência e segurança desde o primeiro dia.
-              </p>
-
-              <div className="border-l-4 border-blue-600 pl-4 py-2">
-                <p className="text-gray-700">
-                  A documentação técnica adequada é fundamental para garantir a conformidade com normas 
-                  regulatórias e assegurar o acionamento de garantias quando necessário.
+        {/* Full-width Image with Overlay */}
+        <div
+          className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-32 overflow-hidden"
+          style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/images/technical.png"
+              alt="Laudo Técnico e Comissionamento"
+              className="w-full object-cover h-[600px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px]"
+              style={{ maxHeight: '900px' }}
+            />
+            {/* Text Overlay */}
+            <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
+              <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
+                <h3 className="text-sm sm:text-base md:text-3xl font-light text-white mb-1.5 md:mb-4 leading-tight text-left">
+                  Garantindo a <span className="text-blue-300 font-normal">Excelência Técnica</span>
+                </h3>
+                <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
+                  Nosso processo de comissionamento e elaboração de laudos técnicos garante que sua instalação 
+                  solar opere com máxima eficiência e segurança desde o primeiro dia.
                 </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium text-gray-900">Verificação Completa</h4>
-                    <p className="text-gray-600">Análise detalhada de todos os componentes do sistema</p>
+                <div className="space-y-0.5 md:space-y-3">
+                  <div className="flex items-start space-x-1.5 md:space-x-3">
+                    <CheckCircle className="h-2.5 w-2.5 md:h-5 md:w-5 text-blue-300 flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">Verificação completa dos componentes</span>
                   </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <Shield className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium text-gray-900">Proteção do Investimento</h4>
-                    <p className="text-gray-600">Documentação que resguarda seus direitos e garantias</p>
+                  <div className="flex items-start space-x-1.5 md:space-x-3">
+                    <Shield className="h-2.5 w-2.5 md:h-5 md:w-5 text-blue-300 flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">Proteção do seu investimento</span>
+                  </div>
+                  <div className="flex items-start space-x-1.5 md:space-x-3">
+                    <FileText className="h-2.5 w-2.5 md:h-5 md:w-5 text-blue-300 flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">Documentação técnica completa</span>
+                  </div>
+                  <div className="flex items-start space-x-1.5 md:space-x-3">
+                    <Settings className="h-2.5 w-2.5 md:h-5 md:w-5 text-blue-300 flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">Conformidade com normas técnicas</span>
                   </div>
                 </div>
               </div>
             </div>
-          </ScrollAnimation>
+          </div>
+        </div>
 
-          {/* Right column - Image */}
-          <ScrollAnimation animationClass="reveal-fade-right" delay={400}>
-            <div className="relative overflow-hidden rounded-lg shadow-md">
-              <img 
-                src="/images/technical.png" 
-                alt="Laudo Técnico e Comissionamento" 
-                className="w-full h-full object-cover aspect-[4/3]"
-              />
-            </div>
-          </ScrollAnimation>
+        {/* Mobile Description - Under Image */}
+        <div className="relative md:hidden -mt-24 mb-24">
+          <div className="mx-auto max-w-[280px] bg-white/95 backdrop-blur-sm rounded-none p-4 shadow-sm">
+            <p className="text-xs tracking-wide text-slate-600 leading-relaxed">
+              Nosso processo de <span className="text-blue-700">comissionamento</span> e elaboração de laudos técnicos garante <span className="text-blue-700">máxima eficiência e segurança</span> desde o primeiro dia.
+            </p>
+          </div>
         </div>
 
         {/* Applications Grid */}

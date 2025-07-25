@@ -57,49 +57,51 @@ const CleaningSection = () => {
           </div>
         </ScrollAnimation>
 
-        {/* Main content */}
-        <div className="grid md:grid-cols-2 gap-16 mb-16">
-          {/* Left column - Image */}
-          <ScrollAnimation animationClass="reveal-fade-left" delay={200}>
-            <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="aspect-[4/3] bg-white flex items-center justify-center">
-                <img 
-                  src="/images/cleaning.png" 
-                  alt="Limpeza de painéis solares" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
-                />
-              </div>
-            </div>
-          </ScrollAnimation>
-
-          {/* Right column - Content */}
-          <ScrollAnimation animationClass="reveal-fade-right" delay={400}>
-            <div className="space-y-8">
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Por que a limpeza profissional é essencial
-              </h3>
-              
-              <p className="text-gray-600">
-                A acumulação de poeira, poluição e resíduos nos painéis solares pode reduzir 
-                significativamente a eficiência do sistema. Um estudo da Universidade de Duke (2016) 
-                demonstrou que painéis não higienizados podem perder até 25% de eficiência anualmente.
-              </p>
-
-              <div className="space-y-4">
-                {cleaningBenefits.map((benefit, index) => (
-                  <ScrollAnimation key={benefit.title} delay={500 + index * 100} animationClass="reveal-fade-up">
-                    <div className="flex items-center space-x-3">
-                      {benefit.icon}
-                      <div>
-                        <span className="font-medium text-gray-900">{benefit.title}:</span>
-                        <span className="text-gray-600 ml-1">{benefit.description}</span>
-                      </div>
+        {/* Full-width Image with Overlay */}
+        <div
+          className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-32 overflow-hidden"
+          style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/images/cleaning.png"
+              alt="Limpeza de painéis solares"
+              className="w-full object-cover h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] xl:h-[600px]"
+              style={{ maxHeight: '700px', objectPosition: 'center 30%' }}
+            />
+            {/* Text Overlay */}
+            <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
+              <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-6 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-md border border-white/20 shadow-xl">
+                <h3 className="text-sm sm:text-base md:text-2xl font-light text-white mb-1.5 md:mb-3 leading-tight text-left">
+                  Por que a limpeza <span className="text-blue-300 font-normal">profissional</span> é essencial
+                </h3>
+                <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-sm mb-2 md:mb-4 text-left leading-relaxed">
+                  A acumulação de poeira, poluição e resíduos nos painéis solares pode reduzir 
+                  significativamente a eficiência do sistema. Um estudo da Universidade de Duke (2016) 
+                  demonstrou que painéis não higienizados podem perder até 25% de eficiência anualmente.
+                </p>
+                <div className="space-y-0.5 md:space-y-2">
+                  {cleaningBenefits.map((benefit, index) => (
+                    <div key={benefit.title} className="flex items-start space-x-1.5 md:space-x-3">
+                      <CheckCircle className="h-2.5 w-2.5 md:h-5 md:w-5 text-blue-300 flex-shrink-0 mt-0.5" />
+                      <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">
+                        {benefit.description}
+                      </span>
                     </div>
-                  </ScrollAnimation>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </ScrollAnimation>
+          </div>
+        </div>
+
+        {/* Mobile Description - Under Image */}
+        <div className="relative md:hidden -mt-24 mb-24">
+          <div className="mx-auto max-w-[280px] bg-white/95 backdrop-blur-sm rounded-none p-4 shadow-sm">
+            <p className="text-xs tracking-wide text-slate-600 leading-relaxed">
+              A limpeza profissional é <span className="text-blue-700">essencial</span> para manter a eficiência máxima do seu sistema fotovoltaico, garantindo <span className="text-blue-700">maior durabilidade e desempenho</span>.
+            </p>
+          </div>
         </div>
 
         {/* Risks section */}
