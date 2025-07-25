@@ -84,10 +84,10 @@ const InstallationSection = () => {
         </div>
 
         {/* Mobile Description - Under Image */}
-        <div className="relative md:hidden -mt-24 mb-24 px-6">
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow border border-slate-200/20">
-            <p className="text-sm text-slate-700 leading-relaxed text-center">
-              Cada projeto é executado com <span className="font-medium">excelência técnica</span>, desde a seleção de materiais até a instalação final, garantindo <span className="font-medium">máximo desempenho e durabilidade</span>.
+        <div className="relative md:hidden -mt-24 mb-24">
+          <div className="mx-auto max-w-[280px] bg-white/95 backdrop-blur-sm rounded-none p-4 shadow-sm">
+            <p className="text-xs tracking-wide text-slate-600 leading-relaxed">
+              Cada projeto é executado com <span className="text-emerald-700">excelência técnica</span>, desde a seleção de materiais até a instalação final, garantindo <span className="text-emerald-700">máximo desempenho e durabilidade</span>.
             </p>
           </div>
         </div>
