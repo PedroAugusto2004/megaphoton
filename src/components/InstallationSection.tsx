@@ -62,19 +62,19 @@ const InstallationSection = () => {
             />
             {/* Text Overlay */}
             <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
-              <div className="bg-black/40 backdrop-blur-md rounded-xl p-3 md:p-8 w-[75%] max-w-[260px] sm:max-w-[280px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
-                <h3 className="text-base sm:text-lg md:text-3xl font-light text-white mb-2 md:mb-4 leading-tight text-left">
+              <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
+                <h3 className="text-sm sm:text-base md:text-3xl font-light text-white mb-1.5 md:mb-4 leading-tight text-left">
                   Qualidade <span className="text-emerald-300 font-normal">Excepcional</span>
                 </h3>
                 <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
                   Cada projeto é executado com excelência técnica, desde a seleção de materiais 
                   até a instalação final, garantindo máximo desempenho e durabilidade.
                 </p>
-                <div className="space-y-1 md:space-y-3">
+                <div className="space-y-0.5 md:space-y-3">
                   {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start space-x-2 md:space-x-3">
-                      <CheckCircle className="h-3 w-3 md:h-5 md:w-5 text-emerald-300 flex-shrink-0 mt-0.5" />
-                      <span className="text-white/90 text-[10px] sm:text-xs md:text-base leading-tight md:leading-normal">{benefit}</span>
+                    <div key={index} className="flex items-start space-x-1.5 md:space-x-3">
+                      <CheckCircle className="h-2.5 w-2.5 md:h-5 md:w-5 text-emerald-300 flex-shrink-0 mt-0.5" />
+                      <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">{benefit}</span>
                     </div>
                   ))}
                 </div>
