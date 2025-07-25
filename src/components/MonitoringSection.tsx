@@ -54,59 +54,53 @@ const MonitoringSection = () => {
           </div>
         </ScrollAnimation>
 
-        {/* Main content */}
-        <div className="grid md:grid-cols-2 gap-16 mb-16">
-          {/* Left column - Content */}
-          <ScrollAnimation animationClass="reveal-fade-left" delay={200}>
-            <div className="space-y-8">
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Monitoramento inteligente do seu sistema
-              </h3>
-              
-              <p className="text-gray-600">
-                O monitoramento diário garante que cada raio de sol se transforme em máxima energia. 
-                Não é apenas acompanhar; é otimizar continuamente o desempenho do seu sistema.
-              </p>
-
-              <div className="space-y-6">
-                {monitoringFeatures.map((feature, index) => (
-                  <ScrollAnimation key={feature.title} delay={400 + index * 100} animationClass="reveal-fade-up">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+        {/* Full-width Image with Overlay */}
+        <div
+          className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-32 overflow-hidden"
+          style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/images/tracking.png"
+              alt="Sistema de monitoramento solar"
+              className="w-full object-cover h-[450px] sm:h-[550px] md:h-[700px] lg:h-[750px] xl:h-[800px]"
+              style={{ maxHeight: '900px' }}
+            />
+            {/* Text Overlay */}
+            <div className="absolute top-4 right-2 sm:right-4 md:top-8 md:right-16 flex items-end md:block">
+              <div className="bg-black/40 backdrop-blur-md rounded-lg p-3 sm:p-4 md:p-8 w-[80%] sm:w-[65%] max-w-[280px] sm:max-w-[320px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
+                <h3 className="text-base sm:text-lg md:text-3xl font-light text-white mb-2 md:mb-4 leading-tight text-left">
+                  Monitoramento <span className="text-green-300 font-normal">Inteligente</span>
+                </h3>
+                <p className="hidden md:block text-white/90 text-sm md:text-base mb-3 md:mb-6 text-left">
+                  O monitoramento diário garante que cada raio de sol se transforme em máxima energia.
+                  Não é apenas acompanhar; é otimizar continuamente o desempenho do seu sistema.
+                </p>
+                <div className="space-y-2 md:space-y-3">
+                  {monitoringFeatures.map((feature, index) => (
+                    <div key={index} className="flex items-start space-x-2 md:space-x-3">
+                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                         {feature.icon}
                       </div>
-                      <div>
-                        <h4 className="font-medium text-gray-900">{feature.title}</h4>
-                        <p className="text-gray-600">{feature.description}</p>
-                      </div>
+                      <span className="text-white/90 text-xs sm:text-sm md:text-base leading-tight md:leading-normal text-left">
+                        {feature.description}
+                      </span>
                     </div>
-                  </ScrollAnimation>
-                ))}
-              </div>
-
-              <ScrollAnimation delay={700} animationClass="reveal-fade-up">
-                <div className="border-l-4 border-green-500 pl-4 py-2">
-                  <p className="text-gray-700">
-                    Cada dado coletado é uma oportunidade de melhorar o desempenho da sua usina, 
-                    maximizando a geração de energia e o retorno do investimento.
-                  </p>
+                  ))}
                 </div>
-              </ScrollAnimation>
-            </div>
-          </ScrollAnimation>
-
-          {/* Right column - Image */}
-          <ScrollAnimation animationClass="reveal-fade-right" delay={300}>
-            <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="aspect-[1009/608]">
-                <img 
-                  src="/images/tracking.png" 
-                  alt="Sistema de monitoramento solar" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
               </div>
             </div>
-          </ScrollAnimation>
+          </div>
+        </div>
+
+        {/* Mobile Description - Under Image */}
+        <div className="relative md:hidden -mt-24 mb-24">
+          <div className="mx-auto max-w-[280px] bg-white/95 backdrop-blur-sm rounded-none p-4 shadow-sm">
+            <p className="text-xs tracking-wide text-slate-600 leading-relaxed">
+              O monitoramento diário garante que cada raio de sol se transforme em <span className="text-green-700">máxima energia</span>. 
+              Não é apenas acompanhar; é otimizar continuamente o <span className="text-green-700">desempenho do seu sistema</span>.
+            </p>
+          </div>
         </div>
 
         {/* Reports Section */}
