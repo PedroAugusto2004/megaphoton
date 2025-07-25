@@ -66,7 +66,7 @@ const InstallationSection = () => {
                 <h3 className="text-base sm:text-lg md:text-3xl font-light text-white mb-2 md:mb-4 leading-tight text-left">
                   Qualidade <span className="text-emerald-300 font-normal">Excepcional</span>
                 </h3>
-                <p className="text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
+                <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
                   Cada projeto é executado com excelência técnica, desde a seleção de materiais 
                   até a instalação final, garantindo máximo desempenho e durabilidade.
                 </p>
@@ -80,6 +80,15 @@ const InstallationSection = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Description - Under Image */}
+        <div className="relative md:hidden -mt-24 mb-24 px-6">
+          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow border border-slate-200/20">
+            <p className="text-sm text-slate-700 leading-relaxed text-center">
+              Cada projeto é executado com <span className="font-medium">excelência técnica</span>, desde a seleção de materiais até a instalação final, garantindo <span className="font-medium">máximo desempenho e durabilidade</span>.
+            </p>
           </div>
         </div>
 
