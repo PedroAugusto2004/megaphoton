@@ -45,8 +45,8 @@ const CleaningSection = () => {
         <ScrollAnimation>
           <div className="mb-16">
             <div className="flex items-center mb-2">
-              <div className="h-px w-12 bg-primary mr-4"></div>
-              <span className="text-primary uppercase tracking-wider text-sm font-medium">Higienização</span>
+              <div className="h-px w-12 bg-blue-500 mr-4"></div>
+              <span className="text-blue-500 uppercase tracking-wider text-sm font-medium">Higienização</span>
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               <span className="text-black">Higienização</span>

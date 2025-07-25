@@ -83,8 +83,8 @@ const ServicesSection = () => {
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-center mb-2">
-            <div className="h-px w-12 bg-primary mr-4"></div>
-            <span className="text-primary uppercase tracking-wider text-sm font-medium">Serviços</span>
+            <div className="h-px w-12 bg-green-700 mr-4"></div>
+            <span className="text-green-700 uppercase tracking-wider text-sm font-medium">Serviços</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Nossos <span className="text-black">Serviços</span>

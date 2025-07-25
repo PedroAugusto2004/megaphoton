@@ -37,8 +37,8 @@ const InstallationSection = () => {
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-center mb-2">
-            <div className="h-px w-12 bg-primary mr-4"></div>
-            <span className="text-primary uppercase tracking-wider text-sm font-medium">Instalações</span>
+            <div className="h-px w-12 bg-emerald-500 mr-4"></div>
+            <span className="text-emerald-500 uppercase tracking-wider text-sm font-medium">Instalações</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             <span className="text-black">Instalações</span>
