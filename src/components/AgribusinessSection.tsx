@@ -45,8 +45,8 @@ const AgribusinessSection = () => {
         <ScrollAnimation>
           <div className="mb-16">
             <div className="flex items-center mb-2">
-              <div className="h-px w-12 bg-primary mr-4"></div>
-              <span className="text-primary uppercase tracking-wider text-sm font-medium">Agronegócio</span>
+              <div className="h-px w-12 bg-green-600 mr-4"></div>
+              <span className="text-green-600 uppercase tracking-wider text-sm font-medium">Agronegócio</span>
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               <span className="text-black">Agronegócio</span>
@@ -56,91 +56,103 @@ const AgribusinessSection = () => {
             </p>
           </div>
         </ScrollAnimation>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-16 mb-16">
-          {/* Left column - Image */}
-          <ScrollAnimation animationClass="reveal-fade-left" delay={200}>
-            <div className="relative overflow-hidden rounded-lg shadow-md">
-              <img 
-                src="/images/agribusiness.png" 
-                alt="Agronegócio - Energia Solar para o Campo" 
-                className="w-full h-full object-cover aspect-[4/3]"
-              />
-            </div>
-          </ScrollAnimation>
-
-          {/* Right column - Content */}
-          <ScrollAnimation animationClass="reveal-fade-right" delay={400}>
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Energia Solar para o <span className="text-green-600">Campo</span>
-              </h3>
-              
-              <p className="text-gray-600">
-                O uso de inversores híbridos (com baterias e/ou geradores a diesel), inversores off-grid e 
-                zero grid (totalmente independentes da rede elétrica) tem aumentado a produtividade e 
-                segurança no meio urbano e rural.
-              </p>
-
-              <div className="border-l-4 border-green-600 pl-4 py-2">
-                <p className="text-gray-700">
-                  Sistemas fotovoltaicos adaptados ao agronegócio proporcionam autonomia energética 
-                  e redução de custos operacionais, mesmo em áreas remotas sem acesso à rede elétrica.
-                </p>
-              </div>
-
-              <div className="space-y-5">
-                {benefits.map((benefit, index) => (
-                  <ScrollAnimation key={benefit.title} delay={500 + index * 100} animationClass="reveal-fade-up">
-                    <div className="flex items-start space-x-4 bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                      <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                        {benefit.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-gray-900">{benefit.title}</h4>
-                        <p className="text-gray-600">{benefit.description}</p>
-                      </div>
-                    </div>
-                  </ScrollAnimation>
-                ))}
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-
-        {/* Systems Grid */}
-        <ScrollAnimation delay={800}>
-          <h3 className="text-xl font-semibold text-gray-900 mb-6">
-            Soluções para o Agronegócio
-          </h3>
-        </ScrollAnimation>
-        
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          {systems.map((system, index) => (
-            <ScrollAnimation key={system.title} delay={900 + index * 100} animationClass="reveal-scale">
-              <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
-                <div className="flex items-center space-x-3 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center text-green-600">
-                    {system.icon}
-                  </div>
-                  <h4 className="font-medium text-gray-900">{system.title}</h4>
+      {/* Full-width Image with Overlay (outside container) */}
+      <div
+        className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-6 md:mb-12 overflow-hidden"
+        style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
+      >
+        <ScrollAnimation animationClass="reveal-fade-up" delay={200}>
+          <div className="relative w-full h-full">
+            <img
+              src="/images/agribusiness.png"
+              alt="Agronegócio - Energia Solar para o Campo"
+              className="w-full object-cover h-[420px] md:h-[480px] lg:h-[550px] xl:h-[650px]"
+              style={{ maxHeight: '750px' }}
+            />
+            {/* Text Overlay */}
+            <div className="absolute top-2 left-2 right-2 md:top-8 md:left-16 md:right-auto">
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-2 md:p-6 max-w-xs w-full md:max-w-md border border-white/20">
+                <div className="flex items-center gap-2 mb-2 md:mb-4">
+                  <Tractor className="h-4 w-4 md:h-5 md:w-5 text-white" />
+                  <p className="text-white text-xs md:text-sm font-medium">
+                    Energia solar e armazenamento para o campo brasileiro
+                  </p>
                 </div>
-                <p className="text-sm text-gray-600 pl-11">{system.description}</p>
+                <div className="grid grid-cols-1 gap-1 md:gap-3">
+                  <div className="flex items-center gap-2">
+                    <Battery className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                    <div>
+                      <h4 className="font-semibold text-white text-xs md:text-xs">Armazenamento Inteligente</h4>
+                      <p className="text-gray-200 text-[10px] md:text-xs">Baterias de lítio para energia 24h por dia</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Shield className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                    <div>
+                      <h4 className="font-semibold text-white text-xs md:text-xs">Segurança Energética</h4>
+                      <p className="text-gray-200 text-[10px] md:text-xs">Independência total da concessionária</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Wifi className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                    <div>
+                      <h4 className="font-semibold text-white text-xs md:text-xs">Monitoramento Remoto</h4>
+                      <p className="text-gray-200 text-[10px] md:text-xs">Controle total via aplicativo móvel</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </ScrollAnimation>
-          ))}
-        </div>
-
-        <ScrollAnimation delay={1200} animationClass="reveal-fade-up">
-          <div className="p-6 bg-green-50 border-l-4 border-green-500 rounded-lg shadow-sm mb-16">
-            <p className="text-sm text-gray-700">
-              <strong>Produtividade Rural:</strong> Nossas soluções especializadas para o agronegócio proporcionam energia limpa, confiável e econômica, 
-              permitindo que produtores rurais se concentrem no que fazem de melhor: produzir alimentos de qualidade.
-            </p>
+            </div>
           </div>
         </ScrollAnimation>
       </div>
-    </section>
+        {/* Section Content */}
+        <div className="container mx-auto px-4 max-w-7xl mb-16">
+          {/* Technologies Grid */}
+          <ScrollAnimation delay={800}>
+            <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
+              Soluções para o Campo
+            </h3>
+          </ScrollAnimation>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {systems.map((tech, index) => (
+              <ScrollAnimation key={tech.title} delay={900 + index * 100} animationClass="reveal-scale">
+                <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                      {tech.icon}
+                    </div>
+                    <h4 className="font-semibold text-gray-900">{tech.title}</h4>
+                  </div>
+                  <p className="text-gray-600 text-sm">{tech.description}</p>
+                </div>
+              </ScrollAnimation>
+            ))}
+          </div>
+
+          <ScrollAnimation delay={1200} animationClass="reveal-fade-up">
+            <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-xl p-8 text-white">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <Tractor className="h-6 w-6 text-yellow-300" />
+                  <h3 className="text-xl font-bold text-yellow-300">Transformação Rural</h3>
+                </div>
+                <p className="text-lg leading-relaxed mb-4">
+                  Os sistemas híbridos e off-grid não são apenas uma opção - eles são a <strong>solução definitiva</strong> 
+                  que está revolucionando a energia no campo brasileiro.
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-yellow-300 rounded-full"></div>
+                  <p className="text-yellow-100 font-medium">Independência energética, produtividade máxima.</p>
+                </div>
+              </div>
+            </div>
+          </ScrollAnimation>
+        </div>
+  </section>
   );
 };
 
