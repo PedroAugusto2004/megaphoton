@@ -2,6 +2,7 @@ import { BarChart3, Eye, Shield, TrendingUp, FileText, X } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import './popup-animation.css';
 
 const MonitoringSection = () => {
   const [selectedBenefit, setSelectedBenefit] = useState<string | null>(null);
@@ -61,15 +62,19 @@ const MonitoringSection = () => {
     }, 200);
   };
 
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      closePopup();
+    }
+  };
+
   // Mobile Popup Portal
   const MobilePopup = () => {
     if (!mounted || (!selectedBenefit && !isAnimating)) return null;
     
     return createPortal(
       <div 
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 md:hidden transition-all duration-300 ease-out ${
-          selectedBenefit ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`fixed inset-0 z-[9999] popup-overlay ${isAnimating ? 'closing' : ''}`}
         style={{ 
           position: 'fixed', 
           top: 0, 
@@ -77,12 +82,17 @@ const MonitoringSection = () => {
           right: 0, 
           bottom: 0,
           width: '100vw',
-          height: '100vh'
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          backdropFilter: 'blur(4px)',
+          padding: '1rem'
         }}
+        onClick={handleBackdropClick}
       >
-        <div className={`bg-white rounded-xl p-6 max-w-xs w-full shadow-2xl transition-all duration-300 ease-out transform ${
-          selectedBenefit ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-        }`}>
+        <div className={`bg-white rounded-xl p-6 max-w-xs w-full shadow-2xl popup-content ${isAnimating ? 'closing' : ''}`}>
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold text-green-600">{selectedBenefit}</h3>
             <button 
@@ -178,11 +188,11 @@ const MonitoringSection = () => {
                   <div className="space-y-2 sm:space-y-4">
                     {reportBenefits.map((benefit, index) => (
                       <ScrollAnimation key={benefit.title} delay={900 + index * 100} animationClass="reveal-fade-left">
-                        <div className="transition-all duration-300 transform hover:translate-x-2">
+                        <div>
                           {/* Mobile: Button, Desktop: Regular text */}
                           <button 
                             onClick={() => handleBenefitClick(benefit.title)}
-                            className="md:hidden w-full text-center bg-green-500/20 hover:bg-green-500/30 rounded-md py-1.5 text-[9px] font-semibold text-green-300 mb-1 transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center"
+                            className="md:hidden w-full text-center bg-green-500/20 rounded-md py-1.5 text-[9px] font-semibold text-green-300 mb-1 flex items-center justify-center"
                           >
                             {benefit.title}
                           </button>
