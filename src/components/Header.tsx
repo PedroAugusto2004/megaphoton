@@ -40,18 +40,23 @@ const Header = () => {
             />
           </div>
           {/* Desktop Menu */}
-          <div className="hidden lg:flex flex-1 items-center justify-center space-x-8 text-white">
-            {menuItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-white font-medium hover:text-primary transition-smooth relative group"
-                onClick={createSmoothScrollHandler(item.href)}
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
+          <div className="hidden lg:flex flex-1 items-center justify-center text-white">
+            <div className="flex items-center justify-center space-x-8 flex-1">
+              {menuItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-white font-medium hover:text-primary transition-smooth relative group"
+                  onClick={createSmoothScrollHandler(item.href)}
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ))}
+            </div>
+            <div className="flex items-center justify-end flex-none ml-8">
+              <a href="/calculadora-solar" className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] text-white font-normal rounded-full px-6 py-2 shadow-lg transition-all text-base whitespace-nowrap tracking-wide" style={{fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '0.02em'}}>Calculadora Solar</a>
+            </div>
             {/* Contact Info removed as requested */}
           </div>
           {/* Mobile Menu Button */}
