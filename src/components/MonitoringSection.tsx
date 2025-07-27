@@ -143,7 +143,7 @@ const MonitoringSection = () => {
               />
               {/* Text Overlay - Right Side */}
               <div className="absolute top-4 right-2 sm:right-4 md:top-8 md:right-16 flex items-end md:block">
-                <div className="bg-black/40 backdrop-blur-md rounded-lg p-3 sm:p-4 md:p-8 w-[80%] sm:w-[65%] max-w-[280px] sm:max-w-[320px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
+                <div className="bg-black/40 backdrop-blur-md rounded-lg p-3 sm:p-4 md:p-8 w-[80%] sm:w-[65%] max-w-[280px] sm:max-w-[320px] md:w-auto md:max-w-lg border border-white/20 shadow-xl ml-auto md:ml-0">
                   <h3 className="text-base sm:text-lg md:text-3xl font-light text-white mb-2 md:mb-4 leading-tight text-left">
                     Monitoramento <span className="text-green-300 font-normal">Inteligente</span>
                   </h3>
