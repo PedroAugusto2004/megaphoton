@@ -141,7 +141,14 @@ const InstallationSection = () => {
                   <span>Solicitar Orçamento</span>
                   <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 animate-pulse" />
                 </button>
-                <button className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-transparent border border-emerald-200/30 text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl hover:bg-emerald-700/50 transition-all duration-300 font-medium text-sm sm:text-base">
+                <button className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-transparent border border-emerald-200/30 text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl hover:bg-emerald-700/50 transition-all duration-300 font-medium text-sm sm:text-base"
+                  onClick={() => {
+                    const contatoSection = document.getElementById('contato');
+                    if (contatoSection) {
+                      contatoSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
                   <span>Fale Conosco</span>
                 </button>
               </div>
