@@ -167,22 +167,22 @@ const MonitoringSection = () => {
               
               {/* Content overlay - Right Side */}
               <div className="absolute top-1/2 right-2 sm:right-4 md:right-16 transform -translate-y-1/2 flex items-center md:block">
-                <div className="backdrop-blur-md bg-black/20 rounded-lg p-2 sm:p-4 md:p-8 w-[120px] h-[120px] sm:w-[200px] sm:h-[200px] md:w-auto md:h-auto md:max-w-lg overflow-hidden">
+                <div className="backdrop-blur-md bg-black/20 rounded-lg p-3 sm:p-4 md:p-8 w-[140px] h-[170px] sm:w-[200px] sm:h-[200px] md:w-auto md:h-auto md:max-w-lg overflow-hidden">
                   <ScrollAnimation delay={800} animationClass="reveal-fade-left">
-                    <div className="flex items-center space-x-1 sm:space-x-3 mb-2 sm:mb-6">
+                    <div className="flex items-center space-x-1 sm:space-x-3 mb-3 sm:mb-6">
                       <FileText className="h-4 w-4 sm:h-8 sm:w-8 text-green-400 flex-shrink-0" />
                       <h3 className="text-xs sm:text-2xl md:text-3xl font-bold text-white leading-tight">Relatórios detalhados</h3>
                     </div>
                   </ScrollAnimation>
 
-                  <div className="space-y-1 sm:space-y-4">
+                  <div className="space-y-2 sm:space-y-4">
                     {reportBenefits.map((benefit, index) => (
                       <ScrollAnimation key={benefit.title} delay={900 + index * 100} animationClass="reveal-fade-left">
                         <div className="transition-all duration-300 transform hover:translate-x-2">
                           {/* Mobile: Button, Desktop: Regular text */}
                           <button 
                             onClick={() => handleBenefitClick(benefit.title)}
-                            className="md:hidden text-[8px] font-semibold text-green-400 mb-0.5 text-left leading-tight w-full text-left hover:text-green-300 transition-colors"
+                            className="md:hidden w-full text-center bg-green-500/20 hover:bg-green-500/30 rounded-md py-1.5 text-[9px] font-semibold text-green-300 mb-1 transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center"
                           >
                             {benefit.title}
                           </button>
