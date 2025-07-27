@@ -9,11 +9,13 @@
   background-color: #ffffff;
   z-index: 9999;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  pointer-events: none;
 }
 
 .mobile-menu-open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .mobile-menu-closed {
