@@ -104,47 +104,43 @@ const MonitoringSection = () => {
         </div>
 
         {/* Reports Section */}
-        <ScrollAnimation delay={800} animationClass="reveal-scale">
-          <div className="bg-white rounded-lg p-8 shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center space-x-3 mb-6">
-                  <FileText className="h-6 w-6 text-green-500" />
-                  <h3 className="text-xl font-semibold text-gray-900">Relatórios detalhados</h3>
-                </div>
-                
-                <div className="space-y-6">
+        <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-16"
+          style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
+          <div className="relative min-h-[800px] overflow-hidden">
+            {/* Full width image */}
+            <div className="absolute inset-0">
+              <img 
+                src="/images/monitoring.png" 
+                alt="Dashboard de monitoramento" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+            </div>
+
+            {/* Content overlay */}
+            <div className="relative container mx-auto px-4 py-24">
+              <div className="ml-auto max-w-2xl text-white">
+                <ScrollAnimation delay={800} animationClass="reveal-fade-left">
+                  <div className="flex items-center space-x-3 mb-8">
+                    <FileText className="h-10 w-10 text-green-400" />
+                    <h3 className="text-3xl md:text-4xl font-bold">Relatórios detalhados</h3>
+                  </div>
+                </ScrollAnimation>
+
+                <div className="space-y-12">
                   {reportBenefits.map((benefit, index) => (
                     <ScrollAnimation key={benefit.title} delay={900 + index * 100} animationClass="reveal-fade-left">
-                      <div className="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
-                        <h4 className="font-medium text-gray-900 mb-1">{benefit.title}</h4>
-                        <p className="text-gray-600 text-sm">{benefit.description}</p>
+                      <div className="backdrop-blur-sm bg-black/10 rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300 transform hover:translate-x-2">
+                        <h4 className="text-2xl font-semibold text-green-400 mb-4">{benefit.title}</h4>
+                        <p className="text-white/90 text-lg leading-relaxed">{benefit.description}</p>
                       </div>
                     </ScrollAnimation>
                   ))}
                 </div>
               </div>
-
-              {/* Monitoring Dashboard Preview */}
-              <ScrollAnimation delay={1000} animationClass="reveal-fade-right">
-                <div className="relative overflow-hidden rounded-lg shadow-md">
-                  <div className="aspect-[2244/1096]">
-                    <img 
-                      src="/images/monitoring.png" 
-                      alt="Dashboard de monitoramento" 
-                      className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 text-white">
-                      <p className="text-xs sm:text-sm font-medium mb-1">Dashboard em tempo real</p>
-                      <p className="text-xs opacity-90 hidden sm:block">Monitoramento completo do sistema</p>
-                    </div>
-                  </div>
-                </div>
-              </ScrollAnimation>
             </div>
           </div>
-        </ScrollAnimation>
+        </div>
       </div>
     </section>
   );
