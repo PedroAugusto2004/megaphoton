@@ -79,7 +79,7 @@ const MonitoringSection = () => {
                 <div className="space-y-2 md:space-y-3">
                   {monitoringFeatures.map((feature, index) => (
                     <div key={index} className="flex items-start space-x-2 md:space-x-3">
-                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="flex-shrink-0 mt-0.5">
                         {feature.icon}
                       </div>
                       <span className="text-white/90 text-xs sm:text-sm md:text-base leading-tight md:leading-normal text-left">
