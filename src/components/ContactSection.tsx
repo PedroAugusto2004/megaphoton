@@ -25,15 +25,28 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      // You could add error state here
+    } finally {
       setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({ name: '', email: '', phone: '', message: '' });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 1500);
+    }
   };
 
   const contactInfo = [
@@ -46,8 +59,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: 'E-mail',
-      value: 'contato@megaphoton.com.br',
-      action: 'mailto:contato@megaphoton.com.br'
+      value: 'megaphoton.ei@gmail.com',
+      action: 'mailto:megaphoton.ei@gmail.com'
     },
     {
       icon: Instagram,
