@@ -4,8 +4,7 @@ import { Button } from '@/components/ui/button';
 import { createSmoothScrollHandler } from '@/utils/scrollUtils';
 import './mobile-menu.css';
 
-// Add prop for hiding calculator button
-const Header = ({ hideCalculatorButton = false }: { hideCalculatorButton?: boolean }) => {
+const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -58,12 +57,6 @@ const Header = ({ hideCalculatorButton = false }: { hideCalculatorButton?: boole
                 </a>
               ))}
             </div>
-            {!hideCalculatorButton && (
-              <div className="flex items-center justify-end flex-none ml-8">
-                <a href="/calculadora-solar" className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] text-white font-normal rounded-full px-6 py-2 shadow-lg transition-all text-base whitespace-nowrap tracking-wide" style={{fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '0.02em'}}>Calculadora Solar</a>
-              </div>
-            )}
-            {/* Contact Info removed as requested */}
           </div>
           {/* Mobile Menu Button */}
           <div className="lg:hidden ml-auto">
