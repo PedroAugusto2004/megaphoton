@@ -171,7 +171,13 @@ const InspectionSection = () => {
                 Comissionamento profissional para máxima eficiência, segurança e durabilidade do seu investimento em energia solar.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <button className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-blue-800 px-5 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl hover:bg-blue-50 transition-all duration-300 font-semibold text-sm sm:text-base shadow-lg shadow-blue-900/30 hover:-translate-y-1">
+                <button 
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-blue-800 px-5 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl hover:bg-blue-50 transition-all duration-300 font-semibold text-sm sm:text-base shadow-lg shadow-blue-900/30 hover:-translate-y-1"
+                  onClick={() => {
+                    const message = encodeURIComponent('Olá, quero solicitar uma inspeção');
+                    window.open(`https://wa.me/5534992320853?text=${message}`, '_blank');
+                  }}
+                >
                   <span>Solicitar Inspeção</span>
                   <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 animate-pulse" />
                 </button>

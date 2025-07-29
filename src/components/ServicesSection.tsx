@@ -355,9 +355,7 @@ const ServicesSection = () => {
                 <Button 
                   onClick={() => {
                     closePopup();
-                    setTimeout(() => {
-                      document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 300);
+                    window.open('https://wa.me/5534992320853?text=Olá,%20quero%20fazer%20um%20orçamento', '_blank');
                   }}
                   className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
                 >
