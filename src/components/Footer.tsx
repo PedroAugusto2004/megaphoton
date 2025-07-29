@@ -9,6 +9,7 @@ const Footer = () => {
     'Laudo Técnico',
     'Monitoramento',
     'Comissionamento',
+    'Inspeção',
     'Instalação',
     'Reparos',
     'Higienização',

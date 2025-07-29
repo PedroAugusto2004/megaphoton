@@ -134,6 +134,98 @@ const ServicesSection = () => {
           })}
         </div>
 
+        {/* Como Funciona Section */}
+        <div className="mb-16">
+          <div className="flex items-center mb-2">
+            <div className="h-px w-12 bg-blue-700 mr-4"></div>
+            <span className="text-blue-700 uppercase tracking-wider text-sm font-medium">Como funciona</span>
+          </div>
+          <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            Como <span className="text-black">Funciona</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mb-8">
+            Um sistema fotovoltaico converte a luz do sol diretamente em eletricidade.
+          </p>
+        </div>
+
+        {/* Full-width Image with Overlay */}
+        <div
+          className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-16 overflow-hidden"
+          style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/images/How it works.png"
+              alt="Como funciona o sistema fotovoltaico"
+              className="w-full h-[600px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px] object-cover object-center sm:object-top"
+              style={{ maxHeight: '900px', objectPosition: 'center 20%' }}
+            />
+            {/* Content Overlay */}
+            <div className="absolute top-4 left-4 md:top-8 md:left-16">
+              <div className="bg-black/40 backdrop-blur-md rounded-lg p-4 md:p-6 border border-white/20 shadow-xl w-[calc(100vw-2rem)] max-w-[280px] sm:max-w-sm md:max-w-lg">
+                <p className="text-sm md:text-base text-white leading-relaxed">
+                  Os painéis solares, feitos de células fotovoltaicas, captam a luz e geram corrente elétrica contínua (CC). 
+                  Essa energia CC passa por um inversor, que a transforma em corrente alternada (CA) – o tipo de eletricidade 
+                  que usamos em casas e empresas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Process Details */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="space-y-4">
+            <h4 className="font-semibold text-orange-500 text-lg">Processo On-Grid</h4>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <div>
+                <h5 className="font-medium text-foreground">1 - Irradiação Solar</h5>
+                <p>Os fótons desencadeiam uma reação com o silício das placas e geram energia contínua</p>
+              </div>
+              <div>
+                <h5 className="font-medium text-foreground">2 - Inversor</h5>
+                <p>O inversor recebe esta energia e inverte para a energia alternada, usada na residência</p>
+              </div>
+              <div>
+                <h5 className="font-medium text-foreground">3 - String Box</h5>
+                <p>A "string box" é uma caixa de proteção onde ficam os disjuntores e DPS, dispositivos contra surtos</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="space-y-4">
+            <h4 className="font-semibold text-orange-500 text-lg">Distribuição & Grid</h4>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <div>
+                <h5 className="font-medium text-foreground">4 - Caixa de Distribuição</h5>
+                <p>A caixa de distribuição distribui a energia gerada pela usina. O excedente vai para a concessionária</p>
+              </div>
+              <div>
+                <h5 className="font-medium text-foreground">5 - Relógio Bidirecional</h5>
+                <p>O relógio faz a contabilidade da energia que entra e a que sai para a rede da concessionária</p>
+              </div>
+              <div>
+                <h5 className="font-medium text-foreground">6 - Rede Elétrica</h5>
+                <p>A rede elétrica da concessionária recebe a energia excedente, que vira crédito para abater na conta</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="space-y-4">
+            <h4 className="font-semibold text-orange-500 text-lg">Tipos de sistema</h4>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <div>
+                <h5 className="font-medium text-foreground">Híbrido</h5>
+                <p>Sistema com banco de baterias e ligado à rede elétrica.</p>
+              </div>
+              <div>
+                <h5 className="font-medium text-foreground">Off-Grid</h5>
+                <p>Sistema com banco de baterias desligado da rede elétrica.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
       
       {/* O&M Section - Full Width */}
