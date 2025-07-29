@@ -136,21 +136,13 @@ const FutureTechSection = () => {
         </div>
 
         <ScrollAnimation delay={1200} animationClass="reveal-fade-up">
-          <div className="bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl p-8 text-white">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <Zap className="h-6 w-6 text-yellow-300" />
-                <h3 className="text-xl font-bold text-yellow-300">Revolução Energética</h3>
-              </div>
-              <p className="text-lg leading-relaxed mb-4">
-                Os sistemas ESS não são apenas uma tecnologia do futuro - eles são a <strong>realidade presente</strong> 
-                que está transformando a maneira como consumimos energia.
-              </p>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-yellow-300 rounded-full"></div>
-                <p className="text-yellow-100 font-medium">Eficiência máxima, impacto mínimo.</p>
-              </div>
-            </div>
+          <div className="border-l-4 border-purple-600 pl-6 py-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Revolução Energética</h3>
+            <p className="text-gray-600 mb-4 leading-relaxed">
+              Os sistemas ESS não são apenas uma tecnologia do futuro - eles são a realidade presente 
+              que está transformando a maneira como consumimos energia.
+            </p>
+            <p className="text-sm text-purple-600 font-medium">Eficiência máxima, impacto mínimo.</p>
           </div>
         </ScrollAnimation>
       </div>

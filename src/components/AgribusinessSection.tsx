@@ -134,21 +134,13 @@ const AgribusinessSection = () => {
           </div>
 
           <ScrollAnimation delay={1200} animationClass="reveal-fade-up">
-            <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-xl p-8 text-white">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <Tractor className="h-6 w-6 text-yellow-300" />
-                  <h3 className="text-xl font-bold text-yellow-300">Transformação Rural</h3>
-                </div>
-                <p className="text-lg leading-relaxed mb-4">
-                  Os sistemas híbridos e off-grid não são apenas uma opção - eles são a <strong>solução definitiva</strong> 
-                  que está revolucionando a energia no campo brasileiro.
-                </p>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-yellow-300 rounded-full"></div>
-                  <p className="text-yellow-100 font-medium">Independência energética, produtividade máxima.</p>
-                </div>
-              </div>
+            <div className="border-l-4 border-green-600 pl-6 py-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Transformação Rural</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Os sistemas híbridos e off-grid não são apenas uma opção - eles são a solução definitiva 
+                que está revolucionando a energia no campo brasileiro.
+              </p>
+              <p className="text-sm text-green-600 font-medium">Independência energética, produtividade máxima.</p>
             </div>
           </ScrollAnimation>
         </div>
