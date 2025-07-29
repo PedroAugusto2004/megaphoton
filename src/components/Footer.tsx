@@ -5,15 +5,15 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    'Termografia',
-    'Laudo Técnico',
-    'Monitoramento',
-    'Comissionamento',
-    'Inspeção',
-    'Instalação',
-    'Reparos',
-    'Higienização',
-    'Projetos'
+    { name: 'Termografia', href: '#termografia' },
+    { name: 'Laudo Técnico', href: '#laudo-tecnico' },
+    { name: 'Monitoramento', href: '#monitoramento' },
+    { name: 'Comissionamento', href: '#comissionamento' },
+    { name: 'Inspeção', href: '#inspecao' },
+    { name: 'Instalação', href: '#instalacao' },
+    { name: 'Reparos', href: '#reparos' },
+    { name: 'Higienização', href: '#higienizacao' },
+    { name: 'Projetos', href: '#projetos' }
   ];
 
   const quickLinks = [
@@ -52,14 +52,14 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white">Nossos Serviços</h3>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service}>
+                <li key={service.name}>
                   <a 
-                    href="#servicos" 
+                    href={service.href} 
                     className="text-gray-300 hover:text-primary transition-smooth flex items-center space-x-2"
-                    onClick={createSmoothScrollHandler('#servicos')}
+                    onClick={createSmoothScrollHandler(service.href)}
                   >
                     <Sun className="h-4 w-4 text-primary flex-shrink-0" />
-                    <span>{service}</span>
+                    <span>{service.name}</span>
                   </a>
                 </li>
               ))}
