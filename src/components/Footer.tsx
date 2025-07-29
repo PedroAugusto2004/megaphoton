@@ -115,10 +115,10 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <a 
-                  href="mailto:contato@megaphoton.com.br" 
+                  href="mailto:megaphoton.ei@gmail.com" 
                   className="text-gray-300 hover:text-primary transition-smooth"
                 >
-                  contato@megaphoton.com.br
+                  megaphoton.ei@gmail.com
                 </a>
               </div>
 
