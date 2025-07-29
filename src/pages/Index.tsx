@@ -8,6 +8,7 @@ import InstallationSection from '@/components/InstallationSection';
 import CleaningSection from '@/components/CleaningSection';
 import ThermographySection from '@/components/ThermographySection';
 import MonitoringSection from '@/components/MonitoringSection';
+import InspectionSection from '@/components/InspectionSection';
 import TechnicalReportSection from '@/components/TechnicalReportSection';
 import AgribusinessSection from '@/components/AgribusinessSection';
 import FutureTechSection from '@/components/FutureTechSection';
@@ -73,12 +74,13 @@ const Index = () => {
         <ServicesSection />
         <ProjectsSection />
         <InstallationSection />
+        <MonitoringSection />
         <CleaningSection />
         <ThermographySection />
-        <MonitoringSection />
+        <InspectionSection />
         <TechnicalReportSection />
-        <AgribusinessSection />
         <FutureTechSection />
+        <AgribusinessSection />
         <CredibilitySection />
         <ContactSection />
       </main>
