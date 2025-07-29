@@ -57,58 +57,62 @@ const FutureTechSection = () => {
           </div>
         </ScrollAnimation>
 
-        {/* Main Content */}
-        <div className="mb-16">
+      </div>
 
-          {/* Large Image */}
-          <ScrollAnimation animationClass="reveal-fade-up" delay={700}>
-            <div className="-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32 relative">
-              <img 
-                src="/images/future.png" 
-                alt="Tecnologias do Futuro - ESS e Mobilidade Elétrica" 
-                className="w-full h-[500px] md:h-auto object-cover md:object-contain"
-              />
-              
-              {/* Text Overlay */}
-              <div className="absolute top-4 left-4 md:top-8 md:left-16">
-                <div className="bg-black/20 backdrop-blur-sm rounded-lg p-3 md:p-6 max-w-xs md:max-w-md border border-white/20">
-                  <div className="flex items-center gap-2 mb-3 md:mb-4">
-                    <Lightbulb className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                    <p className="text-white text-xs md:text-sm font-medium">
-                      Imagine acordar com seu carro elétrico carregado todos os dias!
-                    </p>
+      {/* Full-width Image with Overlay (outside container) */}
+      <div
+        className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-6 md:mb-12 overflow-hidden"
+        style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
+      >
+        <ScrollAnimation animationClass="reveal-fade-up" delay={200}>
+          <div className="relative w-full h-full">
+            <img
+              src="/images/future.png"
+              alt="Tecnologias do Futuro - ESS e Mobilidade Elétrica"
+              className="w-full object-cover h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px]"
+              style={{ maxHeight: '900px' }}
+            />
+            {/* Text Overlay */}
+            <div className="absolute top-2 left-2 right-2 md:top-8 md:left-16 md:right-auto">
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-2 md:p-6 max-w-xs w-full md:max-w-md border border-white/20">
+                <div className="flex items-center gap-2 mb-2 md:mb-4">
+                  <Lightbulb className="h-4 w-4 md:h-5 md:w-5 text-white" />
+                  <p className="text-white text-xs md:text-sm font-medium">
+                    Imagine acordar com seu carro elétrico carregado todos os dias!
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 gap-1 md:gap-3">
+                  <div className="flex items-center gap-2">
+                    <Battery className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                    <div>
+                      <h4 className="font-semibold text-white text-xs md:text-xs">Backup de Energia</h4>
+                      <p className="text-gray-200 text-[10px] md:text-xs">Energia disponível mesmo durante interrupções</p>
+                    </div>
                   </div>
-                  
-                  <div className="grid grid-cols-1 gap-2 md:gap-3">
-                    <div className="flex items-center gap-2">
-                      <Battery className="h-3 w-3 md:h-4 md:w-4 text-white" />
-                      <div>
-                        <h4 className="font-semibold text-white text-xs">Backup de Energia</h4>
-                        <p className="text-gray-200 text-xs">Energia disponível mesmo durante interrupções</p>
-                      </div>
+                  <div className="flex items-center gap-2">
+                    <Car className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                    <div>
+                      <h4 className="font-semibold text-white text-xs md:text-xs">Mobilidade Garantida</h4>
+                      <p className="text-gray-200 text-[10px] md:text-xs">Carregamento eficiente para veículos elétricos</p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Car className="h-3 w-3 md:h-4 md:w-4 text-white" />
-                      <div>
-                        <h4 className="font-semibold text-white text-xs">Mobilidade Garantida</h4>
-                        <p className="text-gray-200 text-xs">Carregamento eficiente para veículos elétricos</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Plug className="h-3 w-3 md:h-4 md:w-4 text-white" />
-                      <div>
-                        <h4 className="font-semibold text-white text-xs">Integração Inteligente</h4>
-                        <p className="text-gray-200 text-xs">Sistema integrado para máxima eficiência</p>
-                      </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Plug className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                    <div>
+                      <h4 className="font-semibold text-white text-xs md:text-xs">Integração Inteligente</h4>
+                      <p className="text-gray-200 text-[10px] md:text-xs">Sistema integrado para máxima eficiência</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </ScrollAnimation>
-        </div>
+          </div>
+        </ScrollAnimation>
+      </div>
+        {/* Section Content */}
+        <div className="container mx-auto px-4 max-w-7xl mb-16">
 
-        {/* Technologies Grid */}
+          {/* Technologies Grid */}
         <ScrollAnimation delay={800}>
           <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
             Tecnologias do Futuro
