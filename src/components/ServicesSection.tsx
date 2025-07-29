@@ -340,34 +340,30 @@ const ServicesSection = () => {
             </button>
             
             {activeService !== null && (
-              <div>
-                <div className={`${services[activeService].gradient} p-6 relative rounded-t-xl`}>
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-white/20 p-3 rounded-xl backdrop-blur-sm">
-                      {React.createElement(services[activeService].icon, { className: "h-8 w-8 text-white" })}
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">{services[activeService].title}</h3>
+              <div className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className={`w-12 h-12 rounded-lg ${services[activeService].gradient} flex items-center justify-center mr-4 shadow-sm`}>
+                    {React.createElement(services[activeService].icon, { className: "h-6 w-6 text-white" })}
                   </div>
+                  <h3 className="text-2xl font-semibold text-gray-900">
+                    {services[activeService].title}
+                  </h3>
                 </div>
-                
-                <div className="p-8">
-                  <p className="text-gray-700 mb-8 leading-relaxed">
-                    {services[activeService].details}
-                  </p>
-                  
-                  <Button 
-                    onClick={() => {
-                      closePopup();
-                      setTimeout(() => {
-                        document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 300);
-                    }}
-                    className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
-                  >
-                    <span>Solicitar um orçamento</span>
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </div>
+                <p className="text-gray-700 mb-8 leading-relaxed">
+                  {services[activeService].details}
+                </p>
+                <Button 
+                  onClick={() => {
+                    closePopup();
+                    setTimeout(() => {
+                      document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                  }}
+                  className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
+                >
+                  <span>Solicitar um orçamento</span>
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
               </div>
             )}
           </div>
