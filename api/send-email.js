@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       to: 'megaphoton.ei@gmail.com',
       subject: `Nova mensagem de ${name}`,
       html: `
-        <h2>Nova mensagem do site</h2>
+        <h2>Nova mensagem do site Megaphoton.com.br</h2>
         <p><strong>Nome:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Telefone:</strong> ${phone || 'Não informado'}</p>
