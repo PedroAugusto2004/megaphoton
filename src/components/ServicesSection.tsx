@@ -157,13 +157,13 @@ const ServicesSection = () => {
             <img
               src="/images/How it works.png"
               alt="Como funciona o sistema fotovoltaico"
-              className="w-full h-[600px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px] object-cover object-center sm:object-top"
+              className="w-full h-[700px] sm:h-[750px] md:h-[700px] lg:h-[750px] xl:h-[800px] object-cover object-center sm:object-top"
               style={{ maxHeight: '900px', objectPosition: 'center 20%' }}
             />
             {/* Content Overlay */}
             <div className="absolute top-4 left-4 md:top-8 md:left-16">
-              <div className="bg-black/40 backdrop-blur-md rounded-lg p-4 md:p-6 border border-white/20 shadow-xl w-[calc(100vw-2rem)] max-w-[280px] sm:max-w-sm md:max-w-lg">
-                <p className="text-sm md:text-base text-white leading-relaxed">
+              <div className="bg-black/40 backdrop-blur-md rounded-lg p-3 md:p-6 border border-white/20 shadow-xl w-[calc(100vw-2rem)] max-w-[240px] sm:max-w-xs md:max-w-lg">
+                <p className="text-xs md:text-base text-white leading-relaxed">
                   Os painéis solares, feitos de células fotovoltaicas, captam a luz e geram corrente elétrica contínua (CC). 
                   Essa energia CC passa por um inversor, que a transforma em corrente alternada (CA) – o tipo de eletricidade 
                   que usamos em casas e empresas.
