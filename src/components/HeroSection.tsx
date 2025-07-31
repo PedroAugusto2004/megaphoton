@@ -27,22 +27,58 @@
 import { ArrowRight, Sun, Zap, Shield, Phone, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { createSmoothScrollHandler } from '@/utils/scrollUtils';
+import { useState, useEffect } from 'react';
 
 const HeroSection = () => {
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const videos = ['videos/solar-video.mp4', 'videos/presentation.mp4'];
+
+  const handleVideoTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.currentTarget;
+    const isPresentation = currentVideo === 1;
+    const switchTime = isPresentation ? video.duration / 2 : video.duration - 1;
+    
+    if (video.currentTime >= switchTime) {
+      setCurrentVideo(prev => (prev + 1) % videos.length);
+    }
+  };
+
+  const handleVideoLoad = (e: React.SyntheticEvent<HTMLVideoElement>, index: number) => {
+    if (index === currentVideo) {
+      e.currentTarget.currentTime = 0;
+      e.currentTarget.play();
+    }
+  };
+
+  useEffect(() => {
+    const videos = document.querySelectorAll('video');
+    const currentVideoElement = videos[currentVideo];
+    if (currentVideoElement) {
+      currentVideoElement.currentTime = 0;
+      currentVideoElement.play();
+    }
+  }, [currentVideo]);
   return (
     <section id="inicio" className="min-h-screen flex items-center bg-hero-gradient relative pt-20">
       {/* Background Pattern removed as requested */}
 
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <video
-          src="videos/solar-video.mp4"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: '40% center' }}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+        {videos.map((video, index) => (
+          <video
+            key={`${video}-${index}`}
+            src={video}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              index === currentVideo ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ objectPosition: '40% center' }}
+            autoPlay
+            loop
+            muted
+            playsInline
+            onTimeUpdate={index === currentVideo ? handleVideoTimeUpdate : undefined}
+            onLoadedData={(e) => handleVideoLoad(e, index)}
+          />
+        ))}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 w-full h-full text-center">
@@ -55,7 +91,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Button 
             size="lg" 
-            className="bg-white text-black font-semibold group shadow-solar rounded-full px-8 py-3 hover:bg-gray-100 border border-white"
+            className="bg-white text-black font-semibold group rounded-full px-8 py-3 hover:bg-gray-100 border border-white"
             asChild
           >
             <a href="#servicos" onClick={createSmoothScrollHandler('#servicos')}>

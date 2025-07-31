@@ -118,17 +118,27 @@ const ProjectsSection = () => {
                   proporcionando o retorno esperado sobre o investimento.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-2 md:gap-3">
-                <span className="px-3 md:px-4 py-1.5 md:py-2 bg-white/15 rounded-full text-xs md:text-sm font-light backdrop-blur-sm border border-white/20">
-                  Análise de Localização
-                </span>
-                <span className="px-3 md:px-4 py-1.5 md:py-2 bg-white/15 rounded-full text-xs md:text-sm font-light backdrop-blur-sm border border-white/20">
-                  Escolha de Equipamentos
-                </span>
-                <span className="px-3 md:px-4 py-1.5 md:py-2 bg-white/15 rounded-full text-xs md:text-sm font-light backdrop-blur-sm border border-white/20">
-                  Estimativa de Geração
-                </span>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span className="text-white font-medium">Análise de Localização</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span className="text-white font-medium">Escolha de Equipamentos</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span className="text-white font-medium">Estimativa de Geração</span>
+                </div>
               </div>
+              
+              <button 
+                onClick={() => window.open('https://wa.me/5534992320853?text=Olá,%20quero%20marcar%20meu%20próximo%20projeto', '_blank')}
+                className="mt-6 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/30 rounded-lg text-white font-medium text-sm transition-all duration-300 backdrop-blur-sm hover:scale-105"
+              >
+                Marque seu próximo projeto
+              </button>
             </div>
           </div>
           {/* video Side */}

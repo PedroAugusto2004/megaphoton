@@ -229,7 +229,7 @@ const ServicesSection = () => {
       </div>
       
       {/* O&M Section - Full Width */}
-      <div className="relative w-full bg-gradient-to-br from-green-700 to-green-950 overflow-hidden shadow-2xl">
+      <div className="relative w-full bg-gradient-to-br from-green-950 to-black overflow-hidden shadow-2xl">
         <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
         
         <div className="relative flex flex-col lg:grid lg:grid-cols-2 lg:min-h-screen">
@@ -266,38 +266,22 @@ const ServicesSection = () => {
               </div>
               
               <button 
-                onClick={() => window.open('https://wa.me/5534992320853?text=Olá,%20quero%20marcar%20uma%20instalação', '_blank')}
+                onClick={() => window.open('https://wa.me/5534992320853?text=Olá,%20quero%20agendar%20uma%20instalação', '_blank')}
                 className="mt-6 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/30 rounded-lg text-white font-medium text-sm transition-all duration-300 backdrop-blur-sm hover:scale-105"
               >
-                Marque a sua instalação
+                Agende a sua instalação
               </button>
             </div>
           </div>
           
-          {/* Video Side */}
+          {/* Image Side */}
           <div className="relative min-h-[300px] lg:min-h-full lg:order-2">
             <div className="absolute inset-0">
-              {!videoError ? (
-                <video 
-                  className="w-full h-full object-cover"
-                  autoPlay 
-                  muted 
-                  loop 
-                  playsInline
-                  onError={() => setVideoError(true)}
-                >
-                  <source src="/videos/instalação.mp4" type="video/mp4" />
-                </video>
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="w-20 h-20 mx-auto bg-white/20 rounded-2xl flex items-center justify-center">
-                      <Wrench className="h-10 w-10 text-white/80" />
-                    </div>
-                    <p className="text-white/70 font-light">Instalação Profissional</p>
-                  </div>
-                </div>
-              )}
+              <img 
+                src="/images/installation.png" 
+                alt="Instalação Profissional"
+                className="w-full h-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             </div>
             
