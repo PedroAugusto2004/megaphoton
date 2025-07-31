@@ -67,7 +67,7 @@ const FutureTechSection = () => {
         <ScrollAnimation animationClass="reveal-fade-up" delay={200}>
           <div className="relative w-full h-full">
             <img
-              src="/images/future.png"
+              src="/images/future.jpeg"
               alt="Tecnologias do Futuro - ESS e Mobilidade Elétrica"
               className="w-full object-cover h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px]"
               style={{ maxHeight: '900px' }}
