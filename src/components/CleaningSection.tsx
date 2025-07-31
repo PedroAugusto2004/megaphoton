@@ -66,7 +66,7 @@ const CleaningSection = () => {
             <img
               src="/images/cleaning.png"
               alt="Limpeza de painéis solares"
-              className="w-full object-cover h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] xl:h-[600px]"
+              className="w-full object-cover h-[400px] sm:h-[450px] md:h-[600px] lg:h-[700px] xl:h-[750px]"
               style={{ maxHeight: '700px', objectPosition: 'center 30%' }}
             />
             {/* Text Overlay */}
