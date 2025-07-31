@@ -149,6 +149,9 @@ const Footer = () => {
             <p className="text-gray-500 text-xs">
               Desenvolvido com energia solar ☀️
             </p>
+            <p className="text-gray-500 text-xs mt-2">
+              Feito por <a href="https://pedrodev.website" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-smooth">Pedro Developments</a>
+            </p>
           </div>
         </div>
       </div>
