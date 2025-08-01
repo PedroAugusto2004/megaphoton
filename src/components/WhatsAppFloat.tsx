@@ -29,7 +29,7 @@ const WhatsAppFloat = () => {
     <>
       <button
         onClick={() => setIsPopupOpen(!isPopupOpen)}
-        className={`lg:hidden fixed bottom-4 right-4 z-30 w-14 h-14 rounded-full bg-gradient-to-br from-black/70 to-black/50 backdrop-blur-lg border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-110 group ${isPopupOpen ? 'opacity-0' : showButtons ? 'opacity-100' : 'opacity-0'}`}
+        className={`lg:hidden fixed bottom-5 right-4 z-30 w-12 h-12 rounded-full bg-gradient-to-br from-black/70 to-black/50 backdrop-blur-lg border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-110 group ${isPopupOpen ? 'opacity-0' : showButtons ? 'opacity-100' : 'opacity-0'}`}
         aria-label="Contato via WhatsApp"
       >
         <div className="relative flex items-center justify-center w-full h-full">
@@ -45,7 +45,7 @@ const WhatsAppFloat = () => {
       
       {/* Corner Popup */}
       <div 
-        className={`fixed bottom-0 right-0 sm:bottom-4 sm:right-4 z-[60] w-full sm:w-64 bg-white rounded-t-xl sm:rounded-xl shadow-xl overflow-hidden transition-all duration-500 ${isPopupOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-0 pointer-events-none'} origin-bottom-right`}
+        className={`fixed bottom-0 right-0 sm:bottom-5 sm:right-4 z-[60] w-full sm:w-64 bg-white rounded-t-xl sm:rounded-xl shadow-xl overflow-hidden transition-all duration-500 ${isPopupOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-0 pointer-events-none'} origin-bottom-right`}
       >
         {/* Content */}
         <div className="p-4 relative">
