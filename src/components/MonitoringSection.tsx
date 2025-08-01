@@ -175,36 +175,47 @@ const MonitoringSection = () => {
                 className="w-full h-full object-cover object-left"
               />
               
-              {/* Content overlay - Right Side */}
-              <div className="absolute top-1/2 right-2 sm:right-4 md:right-16 transform -translate-y-1/2 flex items-center md:block">
-                <div className="backdrop-blur-md bg-black/20 rounded-lg p-3 sm:p-4 md:p-8 w-[140px] h-[170px] sm:w-[200px] sm:h-[200px] md:w-auto md:h-auto md:max-w-lg overflow-hidden">
+              {/* Content overlay - Desktop Only */}
+              <div className="hidden md:block absolute top-1/2 right-16 transform -translate-y-1/2">
+                <div className="backdrop-blur-md bg-black/20 rounded-lg p-8 max-w-lg">
                   <ScrollAnimation delay={800} animationClass="reveal-fade-left">
-                    <div className="mb-3 sm:mb-6 text-center">
-                      <h3 className="text-xs sm:text-2xl md:text-3xl font-light text-white tracking-wide leading-tight">
+                    <div className="mb-6 text-center">
+                      <h3 className="text-3xl font-light text-white tracking-wide leading-tight">
                         Relatórios detalhados
                       </h3>
                     </div>
                   </ScrollAnimation>
 
-                  <div className="space-y-2 sm:space-y-4">
+                  <div className="space-y-4">
                     {reportBenefits.map((benefit, index) => (
                       <ScrollAnimation key={benefit.title} delay={900 + index * 100} animationClass="reveal-fade-left">
                         <div>
-                          {/* Mobile: Button, Desktop: Regular text */}
-                          <button 
-                            onClick={() => handleBenefitClick(benefit.title)}
-                            className="md:hidden w-full text-center bg-green-600 rounded-md py-1.5 text-[9px] font-semibold text-white mb-1 flex items-center justify-center"
-                          >
-                            {benefit.title}
-                          </button>
-                          <h4 className="hidden md:block text-lg font-semibold text-green-400 mb-1 text-left leading-tight">{benefit.title}</h4>
-                          <p className="text-white/90 text-[6px] sm:text-sm leading-tight sm:leading-relaxed text-left hidden sm:block">{benefit.description}</p>
+                          <h4 className="text-lg font-semibold text-green-400 mb-1 text-left leading-tight">{benefit.title}</h4>
+                          <p className="text-white/90 text-sm leading-relaxed text-left">{benefit.description}</p>
                         </div>
                       </ScrollAnimation>
                     ))}
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          
+          {/* Mobile Content - Under Images */}
+          <div className="md:hidden mb-16 px-6">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-slate-900 mb-2 tracking-tight">
+                Relatórios detalhados
+              </h3>
+              <div className="w-16 h-0.5 bg-green-500 mx-auto"></div>
+            </div>
+            <div className="space-y-8 max-w-lg mx-auto">
+              {reportBenefits.map((benefit, index) => (
+                <div key={benefit.title} className="text-center">
+                  <h4 className="text-xl font-bold text-green-600 mb-3 tracking-tight">{benefit.title}</h4>
+                  <p className="text-base text-slate-600 leading-relaxed">{benefit.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

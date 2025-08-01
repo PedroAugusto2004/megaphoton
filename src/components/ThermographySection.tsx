@@ -46,7 +46,7 @@ const ThermographySection = () => {
 
         {/* Full-width Image with Overlay */}
         <div
-          className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-16 overflow-hidden"
+          className="relative w-screen left-1/2 right-1/2 -mx-[50vw] mb-32 overflow-hidden"
           style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
         >
           <div className="relative w-full h-full">
@@ -92,23 +92,10 @@ const ThermographySection = () => {
         </div>
 
         {/* Mobile Description - Under Image */}
-        <div className="relative md:hidden mb-24">
-          <div className="mx-auto max-w-[300px] bg-white/95 backdrop-blur-md rounded-xl p-6 shadow-lg border border-gray-100">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Thermometer className="h-5 w-5 text-primary" />
-              </div>
-              <h4 className="font-semibold text-gray-900">Análise Avançada</h4>
-            </div>
-            <div className="space-y-4">
-              <p className="text-sm text-gray-600 leading-relaxed">
-                A inspeção termográfica permite identificar <span className="text-primary font-medium">problemas ocultos</span> antes que se tornem falhas custosas.
-              </p>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Essa tecnologia é essencial para prolongar a <span className="text-primary font-medium">vida útil</span> dos equipamentos e maximizar o <span className="text-primary font-medium">retorno do investimento</span>.
-              </p>
-            </div>
-          </div>
+        <div className="md:hidden -mt-16 mb-24 px-6">
+          <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
+            A inspeção termográfica permite identificar <span className="text-primary font-medium">problemas ocultos</span> antes que se tornem falhas custosas, sendo essencial para prolongar a <span className="text-primary font-medium">vida útil dos equipamentos</span>.
+          </p>
         </div>
 
         {/* Benefits Grid */}

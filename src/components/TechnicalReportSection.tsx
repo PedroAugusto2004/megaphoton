@@ -85,12 +85,10 @@ const TechnicalReportSection = () => {
         </div>
 
         {/* Mobile Description - Under Image */}
-        <div className="relative md:hidden -mt-24 mb-24">
-          <div className="mx-auto max-w-[280px] bg-white/95 backdrop-blur-sm rounded-none p-4 shadow-sm">
-            <p className="text-xs tracking-wide text-slate-600 leading-relaxed">
-              Nosso processo de <span className="text-blue-700">comissionamento</span> e elaboração de laudos técnicos garante <span className="text-blue-700">máxima eficiência e segurança</span> desde o primeiro dia.
-            </p>
-          </div>
+        <div className="md:hidden -mt-16 mb-24 px-6">
+          <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
+            Nosso processo de <span className="text-blue-600 font-medium">comissionamento</span> e elaboração de laudos técnicos garante <span className="text-blue-600 font-medium">máxima eficiência e segurança</span> desde o primeiro dia.
+          </p>
         </div>
 
         {/* Applications Grid */}

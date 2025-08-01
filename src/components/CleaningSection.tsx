@@ -96,16 +96,14 @@ const CleaningSection = () => {
         </div>
 
         {/* Mobile Description - Under Image */}
-        <div className="relative md:hidden -mt-24 mb-24">
-          <div className="mx-auto max-w-[280px] bg-white/95 backdrop-blur-sm rounded-none p-4 shadow-sm">
-            <p className="text-xs tracking-wide text-slate-600 leading-relaxed">
-              A limpeza profissional é <span className="text-blue-700">essencial</span> para manter a eficiência máxima do seu sistema fotovoltaico, garantindo <span className="text-blue-700">maior durabilidade e desempenho</span>.
-            </p>
-          </div>
+        <div className="md:hidden -mt-16 mb-24 px-6">
+          <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
+            A limpeza profissional é <span className="text-blue-600 font-medium">essencial</span> para manter a eficiência máxima do seu sistema fotovoltaico, garantindo <span className="text-blue-600 font-medium">maior durabilidade e desempenho</span>.
+          </p>
         </div>
 
         {/* Risks section */}
-        <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-12 mb-16">
+        <div className="mb-16">
           <ScrollAnimation delay={800}>
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
               <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-blue-500" />

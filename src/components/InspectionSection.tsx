@@ -77,12 +77,10 @@ const InspectionSection = () => {
         </div>
 
         {/* Mobile Description - Under Image */}
-        <div className="relative md:hidden -mt-24 mb-24">
-          <div className="mx-auto max-w-[280px] bg-white/95 backdrop-blur-sm rounded-none p-4 shadow-sm">
-            <p className="text-xs tracking-wide text-slate-600 leading-relaxed">
-              Esse processo envolve uma série de <span className="text-blue-700">testes, inspeções e verificações</span> que garantem a qualidade, a segurança e o desempenho do sistema.
-            </p>
-          </div>
+        <div className="md:hidden -mt-16 mb-24 px-6">
+          <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
+            Esse processo envolve uma série de <span className="text-blue-600 font-medium">testes, inspeções e verificações</span> que garantem a qualidade, a segurança e o desempenho do sistema.
+          </p>
         </div>
 
         {/* Features - Timeline/Stepper Redesign */}
