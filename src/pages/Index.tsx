@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import useHashScroll from '@/hooks/use-hash-scroll';
-import Header from '@/components/Header';
+import Header, { MobileFixedButton } from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import ProjectsSection from '@/components/ProjectsSection';
@@ -86,6 +86,7 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <MobileFixedButton />
     </div>
   );
 };

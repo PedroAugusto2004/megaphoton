@@ -58,6 +58,17 @@ const Header = () => {
               ))}
             </div>
           </div>
+          {/* Desktop CTA Button */}
+          <div className="hidden lg:block ml-auto">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="text-white border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:border-white/50 transition-smooth"
+              onClick={() => window.open('https://wa.me/5534992320853?text=Olá, quero agendar uma instalação', '_blank')}
+            >
+              Agende Já
+            </Button>
+          </div>
           {/* Mobile Menu Button */}
           <div className="lg:hidden ml-auto">
             <button
@@ -123,3 +134,17 @@ const Header = () => {
 };
 
 export default Header;
+
+// Mobile Fixed Button Component
+export const MobileFixedButton = () => {
+  return (
+    <div className="lg:hidden fixed bottom-6 left-6 right-24 z-50">
+      <Button 
+        className="w-full bg-black/50 backdrop-blur-lg border border-white/30 text-white hover:bg-black/60 transition-all duration-300 hover:scale-110 py-3 text-base font-medium"
+        onClick={() => window.open('https://wa.me/5534992320853?text=Olá, quero agendar uma instalação', '_blank')}
+      >
+        Agende Já
+      </Button>
+    </div>
+  );
+};
