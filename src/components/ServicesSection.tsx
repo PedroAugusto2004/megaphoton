@@ -164,53 +164,51 @@ const ServicesSection = () => {
         </div>
 
         {/* Process Details */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          <div className="space-y-4">
-            <h4 className="font-semibold text-orange-500 text-lg">Processo On-Grid</h4>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <div>
-                <h5 className="font-medium text-foreground">1 - Irradiação Solar</h5>
-                <p>Os fótons desencadeiam uma reação com o silício das placas e geram energia contínua</p>
-              </div>
-              <div>
-                <h5 className="font-medium text-foreground">2 - Inversor</h5>
-                <p>O inversor recebe esta energia e inverte para a energia alternada, usada na residência</p>
-              </div>
-              <div>
-                <h5 className="font-medium text-foreground">3 - String Box</h5>
-                <p>A "string box" é uma caixa de proteção onde ficam os disjuntores e DPS, dispositivos contra surtos</p>
-              </div>
-            </div>
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {/* Image Side */}
+          <div className="flex items-center justify-center">
+            <img 
+              src="/images/module.jpeg" 
+              alt="Módulo Solar"
+              className="w-full max-w-md h-auto rounded-lg object-cover"
+            />
           </div>
           
-          <div className="space-y-4">
-            <h4 className="font-semibold text-orange-500 text-lg">Distribuição & Grid</h4>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <div>
-                <h5 className="font-medium text-foreground">4 - Caixa de Distribuição</h5>
-                <p>A caixa de distribuição distribui a energia gerada pela usina. O excedente vai para a concessionária</p>
-              </div>
-              <div>
-                <h5 className="font-medium text-foreground">5 - Relógio Bidirecional</h5>
-                <p>O relógio faz a contabilidade da energia que entra e a que sai para a rede da concessionária</p>
-              </div>
-              <div>
-                <h5 className="font-medium text-foreground">6 - Rede Elétrica</h5>
-                <p>A rede elétrica da concessionária recebe a energia excedente, que vira crédito para abater na conta</p>
+          {/* Content Side */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h4 className="font-semibold text-orange-500 text-lg">Processo On-Grid</h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div>
+                  <h5 className="font-medium text-foreground">1 - Irradiação Solar</h5>
+                  <p>Os fótons desencadeiam uma reação com o silício das placas e geram energia contínua</p>
+                </div>
+                <div>
+                  <h5 className="font-medium text-foreground">2 - Inversor</h5>
+                  <p>O inversor recebe esta energia e inverte para a energia alternada, usada na residência</p>
+                </div>
+                <div>
+                  <h5 className="font-medium text-foreground">3 - String Box</h5>
+                  <p>A "string box" é uma caixa de proteção onde ficam os disjuntores e DPS, dispositivos contra surtos</p>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div className="space-y-4">
-            <h4 className="font-semibold text-orange-500 text-lg">Tipos de sistema</h4>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <div>
-                <h5 className="font-medium text-foreground">Híbrido</h5>
-                <p>Sistema com banco de baterias e ligado à rede elétrica.</p>
-              </div>
-              <div>
-                <h5 className="font-medium text-foreground">Off-Grid</h5>
-                <p>Sistema com banco de baterias desligado da rede elétrica.</p>
+            
+            <div className="space-y-4">
+              <h4 className="font-semibold text-orange-500 text-lg">Distribuição & Grid</h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div>
+                  <h5 className="font-medium text-foreground">4 - Caixa de Distribuição</h5>
+                  <p>A caixa de distribuição distribui a energia gerada pela usina. O excedente vai para a concessionária</p>
+                </div>
+                <div>
+                  <h5 className="font-medium text-foreground">5 - Relógio Bidirecional</h5>
+                  <p>O relógio faz a contabilidade da energia que entra e a que sai para a rede da concessionária</p>
+                </div>
+                <div>
+                  <h5 className="font-medium text-foreground">6 - Rede Elétrica</h5>
+                  <p>A rede elétrica da concessionária recebe a energia excedente, que vira crédito para abater na conta</p>
+                </div>
               </div>
             </div>
           </div>

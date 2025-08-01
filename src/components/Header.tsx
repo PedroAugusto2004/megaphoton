@@ -35,7 +35,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <a href="#inicio">
               <img 
-                src="/images/megaphoton.png" 
+                src="/images/Logo Megaphoton.png" 
                 alt="MEGAPHOTON Logo" 
                 className="h-12 w-auto -my-3"
                 style={{ imageRendering: 'auto' }}
