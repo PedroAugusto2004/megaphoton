@@ -1,22 +1,7 @@
-import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, TrendingUp, Play, CheckSquare, X, ArrowRight } from 'lucide-react';
+import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, CheckSquare } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import './popup-animation.css';
 
 const ServicesSection = () => {
-  const [videoError, setVideoError] = useState(false);
-  const [activeService, setActiveService] = useState<number | null>(null);
-  const [isClosing, setIsClosing] = useState(false);
-  
-  const closePopup = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      setActiveService(null);
-      setIsClosing(false);
-    }, 300);
-  };
   
   const services = [
     {
@@ -24,56 +9,56 @@ const ServicesSection = () => {
       title: 'Termografia',
       description: 'Detecção precoce de falhas como hot spots, microfissuras e delaminações',
       gradient: 'bg-orange-500',
-      details: 'A termografia é essencial para a manutenção preventiva de sistemas fotovoltaicos, permitindo identificar problemas antes que causem falhas graves. Utilizando câmeras térmicas de alta precisão, detectamos anomalias invisíveis a olho nu, garantindo a máxima eficiência e vida útil do seu sistema.'
+      sectionId: 'termografia'
     },
     {
       icon: FileText,
       title: 'Laudo Técnico',
       description: 'Documentação técnica completa para garantias e conformidade',
       gradient: 'bg-blue-500',
-      details: 'Nossos laudos técnicos são documentos essenciais que atestam a conformidade da sua instalação com as normas vigentes. Elaborados por engenheiros especializados, garantem segurança jurídica para garantias, seguros e financiamentos, além de identificar oportunidades de otimização do seu sistema.'
+      sectionId: 'laudos'
     },
     {
       icon: Monitor,
       title: 'Monitoramento',
       description: 'Acompanhamento online em tempo real do desempenho da usina',
       gradient: 'bg-green-500',
-      details: 'Nosso sistema de monitoramento permite acompanhar em tempo real a produção da sua usina solar, identificando rapidamente qualquer queda de desempenho. Com alertas automáticos e relatórios periódicos, garantimos que seu investimento esteja sempre operando com máxima eficiência.'
+      sectionId: 'monitoramento'
     },
     {
       icon: CheckSquare,
       title: 'Comissionamento',
       description: 'Verificação da conformidade e segurança elétrica da instalação',
       gradient: 'bg-purple-500',
-      details: 'O comissionamento é um processo rigoroso de verificação que garante que sua usina solar foi instalada corretamente e está operando conforme as especificações do projeto. Este serviço é fundamental para validar a segurança e eficiência do sistema antes da sua operação comercial.'
+      sectionId: 'inspecao'
     },
     {
       icon: Wrench,
       title: 'Instalação',
       description: 'Execução de projetos com excelência e precisão técnica',
       gradient: 'bg-orange-500',
-      details: 'Nossa equipe de instalação é composta por profissionais certificados e experientes, garantindo que seu sistema fotovoltaico seja instalado com a máxima qualidade e segurança. Seguimos rigorosamente as normas técnicas e utilizamos materiais de primeira linha para assegurar o melhor desempenho.'
+      sectionId: 'instalacoes'
     },
     {
       icon: Settings,
       title: 'Reparos',
       description: 'Manutenção corretiva e preventiva especializada',
       gradient: 'bg-red-500',
-      details: 'Nosso serviço de reparos atende com agilidade qualquer problema em seu sistema fotovoltaico. Com diagnóstico preciso e soluções eficientes, minimizamos o tempo de inatividade e restauramos rapidamente a produção de energia, evitando perdas financeiras prolongadas.'
+      sectionId: 'contato'
     },
     {
       icon: Droplets,
       title: 'Higienização',
       description: 'Limpeza profissional para máxima eficiência energética',
       gradient: 'bg-blue-500',
-      details: 'A higienização regular dos módulos fotovoltaicos é essencial para manter a eficiência do sistema. Nosso processo de limpeza especializado remove sujeira, poeira e outros resíduos que podem reduzir significativamente a produção de energia, garantindo o máximo retorno do seu investimento.'
+      sectionId: 'higienizacao'
     },
     {
       icon: PenTool,
       title: 'Projetos',
       description: 'Desenvolvimento de soluções completas em energia solar',
       gradient: 'bg-green-500',
-      details: 'Desenvolvemos projetos personalizados que atendem às necessidades específicas de cada cliente. Nossa equipe de engenharia analisa cuidadosamente o local, consumo e objetivos para criar a solução mais eficiente e rentável, maximizando o retorno do seu investimento em energia solar.'
+      sectionId: 'projetos'
     }
   ];
 
@@ -119,7 +104,12 @@ const ServicesSection = () => {
                   </p>
                   <div className="mt-4">
                     <button 
-                      onClick={() => setActiveService(index)} 
+                      onClick={() => {
+                        const section = document.getElementById(service.sectionId);
+                        if (section) {
+                          section.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }} 
                       className="flex items-center text-sm text-orange-500 font-medium hover:text-orange-600 transition-colors"
                     >
                       <span>Saiba mais</span>
@@ -290,72 +280,7 @@ const ServicesSection = () => {
         </div>
       </div>
 
-      {/* Popup rendered via portal to body for true fixed centering */}
-      {activeService !== null && ReactDOM.createPortal(
-        <div 
-          className={`fixed inset-0 z-[9999] popup-overlay ${isClosing ? 'closing' : ''}`}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-            backdropFilter: 'blur(4px)',
-            padding: '1rem'
-          }}
-          onClick={(e) => e.target === e.currentTarget && closePopup()}
-        >
-          <div 
-            className={`bg-white rounded-xl shadow-2xl max-w-md w-full relative popup-content ${isClosing ? 'closing' : ''}`}
-            style={{
-              maxHeight: 'calc(100vh - 2rem)',
-              overflowY: 'auto',
-              marginTop: 'auto',
-              marginBottom: 'auto'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button 
-              onClick={closePopup}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-full p-1.5 transition-colors"
-              aria-label="Fechar"
-            >
-              <X className="h-4 w-4" />
-            </button>
-            
-            {activeService !== null && (
-              <div className="p-8">
-                <div className="flex items-center mb-6">
-                  <div className={`w-12 h-12 rounded-lg ${services[activeService].gradient} flex items-center justify-center mr-4 shadow-sm`}>
-                    {React.createElement(services[activeService].icon, { className: "h-6 w-6 text-white" })}
-                  </div>
-                  <h3 className="text-2xl font-semibold text-gray-900">
-                    {services[activeService].title}
-                  </h3>
-                </div>
-                <p className="text-gray-700 mb-8 leading-relaxed">
-                  {services[activeService].details}
-                </p>
-                <Button 
-                  onClick={() => {
-                    closePopup();
-                    window.open('https://wa.me/5534992320853?text=Olá,%20quero%20fazer%20um%20orçamento', '_blank');
-                  }}
-                  className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
-                >
-                  <span>Solicitar um orçamento</span>
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-            )}
-          </div>
-        </div>,
-        document.body
-      )}
+
     </section>
   );
 };
