@@ -58,7 +58,7 @@ const ThermographySection = () => {
             />
             {/* Text Overlay */}
             <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
-              <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
+              <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-md border border-white/20 shadow-xl">
                 <h3 className="text-sm sm:text-base md:text-3xl font-light text-white mb-1.5 md:mb-4 leading-tight text-left">
                   Análise <span className="text-primary font-normal">Termográfica</span>
                 </h3>
