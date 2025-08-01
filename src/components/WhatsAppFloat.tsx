@@ -9,9 +9,14 @@ const WhatsAppFloat = () => {
   useEffect(() => {
     const handleScroll = () => {
       const inicioSection = document.getElementById('inicio');
-      if (inicioSection) {
-        const sectionBottom = inicioSection.offsetTop + inicioSection.offsetHeight;
-        setShowButtons(window.scrollY > sectionBottom - 200);
+      const contatoSection = document.getElementById('contato');
+      
+      if (inicioSection && contatoSection) {
+        const inicioBottom = inicioSection.offsetTop + inicioSection.offsetHeight;
+        const contatoTop = contatoSection.offsetTop;
+        const scrollY = window.scrollY;
+        
+        setShowButtons(scrollY > inicioBottom - 200 && scrollY < contatoTop - 100);
       }
     };
 
@@ -29,7 +34,7 @@ const WhatsAppFloat = () => {
     <>
       <button
         onClick={() => setIsPopupOpen(!isPopupOpen)}
-        className={`lg:hidden fixed bottom-5 right-4 z-30 w-12 h-12 rounded-full bg-gradient-to-br from-black/70 to-black/50 backdrop-blur-lg border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-110 group ${isPopupOpen ? 'opacity-0' : showButtons ? 'opacity-100' : 'opacity-0'}`}
+        className={`fixed bottom-5 right-4 z-30 w-12 h-12 rounded-full bg-gradient-to-br from-black/70 to-black/50 backdrop-blur-lg border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-110 group ${isPopupOpen ? 'opacity-0' : showButtons ? 'opacity-100' : 'opacity-0'}`}
         aria-label="Contato via WhatsApp"
       >
         <div className="relative flex items-center justify-center w-full h-full">

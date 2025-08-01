@@ -142,9 +142,14 @@ export const MobileFixedButton = () => {
   useEffect(() => {
     const handleScroll = () => {
       const inicioSection = document.getElementById('inicio');
-      if (inicioSection) {
-        const sectionBottom = inicioSection.offsetTop + inicioSection.offsetHeight;
-        setShowButton(window.scrollY > sectionBottom - 200);
+      const contatoSection = document.getElementById('contato');
+      
+      if (inicioSection && contatoSection) {
+        const inicioBottom = inicioSection.offsetTop + inicioSection.offsetHeight;
+        const contatoTop = contatoSection.offsetTop;
+        const scrollY = window.scrollY;
+        
+        setShowButton(scrollY > inicioBottom - 200 && scrollY < contatoTop - 100);
       }
     };
 
