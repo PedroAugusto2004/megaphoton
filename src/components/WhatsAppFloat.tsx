@@ -1,9 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const WhatsAppFloat = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
   const phoneNumber = "5534992320853";
   const message = "Olá, quero fazer um orçamento";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const inicioSection = document.getElementById('inicio');
+      if (inicioSection) {
+        const sectionBottom = inicioSection.offsetTop + inicioSection.offsetHeight;
+        setShowButtons(window.scrollY > sectionBottom - 200);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleOpenChat = () => {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -15,7 +29,7 @@ const WhatsAppFloat = () => {
     <>
       <button
         onClick={() => setIsPopupOpen(!isPopupOpen)}
-        className={`fixed bottom-4 right-4 z-30 w-14 h-14 rounded-full bg-gradient-to-br from-black/70 to-black/50 backdrop-blur-lg border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-110 group ${isPopupOpen ? 'opacity-0' : 'opacity-100'}`}
+        className={`lg:hidden fixed bottom-4 right-4 z-30 w-14 h-14 rounded-full bg-gradient-to-br from-black/70 to-black/50 backdrop-blur-lg border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-110 group ${isPopupOpen ? 'opacity-0' : showButtons ? 'opacity-100' : 'opacity-0'}`}
         aria-label="Contato via WhatsApp"
       >
         <div className="relative flex items-center justify-center w-full h-full">

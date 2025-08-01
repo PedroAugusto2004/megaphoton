@@ -137,8 +137,23 @@ export default Header;
 
 // Mobile Fixed Button Component
 export const MobileFixedButton = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const inicioSection = document.getElementById('inicio');
+      if (inicioSection) {
+        const sectionBottom = inicioSection.offsetTop + inicioSection.offsetHeight;
+        setShowButton(window.scrollY > sectionBottom - 200);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="lg:hidden fixed bottom-6 left-6 right-24 z-50">
+    <div className={`lg:hidden fixed bottom-6 left-6 right-20 z-50 transition-all duration-300 ${showButton ? 'opacity-100' : 'opacity-0'}`}>
       <Button 
         className="w-full bg-black/50 backdrop-blur-lg border border-white/30 text-white hover:bg-black/60 transition-all duration-300 hover:scale-110 py-3 text-base font-medium"
         onClick={() => window.open('https://wa.me/5534992320853?text=Olá, quero agendar uma instalação', '_blank')}
