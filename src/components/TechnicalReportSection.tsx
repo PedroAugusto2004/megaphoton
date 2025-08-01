@@ -28,10 +28,10 @@ const TechnicalReportSection = () => {
           <div className="mb-16">
             <div className="flex items-center mb-2">
               <div className="h-px w-12 bg-blue-600 mr-4"></div>
-              <span className="text-blue-600 uppercase tracking-wider text-sm font-medium">Laudo Técnico</span>
+              <span className="text-blue-600 uppercase tracking-wider text-sm font-medium">Comissionamento</span>
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              <span className="text-black">Laudo Técnico & Comissionamento</span>
+              <span className="text-black">Comissionamento</span>
             </h2>
             <p className="text-2xl text-muted-foreground max-w-6xl mx-auto font-medium">
               Garantia de <span className="text-blue-600">conformidade</span> e segurança para sua instalação

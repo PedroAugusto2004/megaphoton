@@ -1,4 +1,4 @@
-import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, CheckSquare } from 'lucide-react';
+import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, CheckSquare, Search } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const ServicesSection = () => {
@@ -12,11 +12,11 @@ const ServicesSection = () => {
       sectionId: 'termografia'
     },
     {
-      icon: FileText,
-      title: 'Laudo Técnico',
-      description: 'Documentação técnica completa para garantias e conformidade',
+      icon: Search,
+      title: 'Inspeção',
+      description: 'Análise detalhada e avaliação técnica de instalações solares',
       gradient: 'bg-blue-500',
-      sectionId: 'laudos'
+      sectionId: 'inspecao'
     },
     {
       icon: Monitor,
@@ -30,7 +30,7 @@ const ServicesSection = () => {
       title: 'Comissionamento',
       description: 'Verificação da conformidade e segurança elétrica da instalação',
       gradient: 'bg-purple-500',
-      sectionId: 'inspecao'
+      sectionId: 'laudos'
     },
     {
       icon: Wrench,
