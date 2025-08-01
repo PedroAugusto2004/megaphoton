@@ -145,7 +145,6 @@ const CredibilitySection = () => {
       {/* Full-width Trust Section */}
       <ScrollAnimation delay={200} animationClass="reveal-fade-up">
         <div className="py-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
           <div className="container max-w-5xl mx-auto px-4 text-center relative">
             <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-8 shadow-lg">
               <Heart className="h-10 w-10 text-primary" />
