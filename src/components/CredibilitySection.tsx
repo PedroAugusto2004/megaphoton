@@ -144,17 +144,19 @@ const CredibilitySection = () => {
       
       {/* Full-width Trust Section */}
       <ScrollAnimation delay={200} animationClass="reveal-fade-up">
-        <div className="bg-gray-50 py-20">
-          <div className="container max-w-4xl mx-auto px-4 text-center">
-            <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-6">
-              <Heart className="h-8 w-8 text-primary" />
+        <div className="py-24 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
+          <div className="container max-w-5xl mx-auto px-4 text-center relative">
+            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-8 shadow-lg">
+              <Heart className="h-10 w-10 text-primary" />
             </div>
-            <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              <span className="text-primary">Confiança</span> é a nossa marca
+            <h4 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              <span className="text-primary bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">Confiança</span> é a nossa marca
             </h4>
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto mb-8 rounded-full"></div>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
               Escolher a MEGAPHOTON é escolher um parceiro comprometido com a sua satisfação, 
-              com a qualidade dos serviços e com o <strong className="font-semibold text-gray-800">sucesso do seu projeto de energia solar</strong>.
+              com a qualidade dos serviços e com o <strong className="font-bold text-primary">sucesso do seu projeto de energia solar</strong>.
             </p>
           </div>
         </div>
