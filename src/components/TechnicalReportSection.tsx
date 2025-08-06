@@ -46,7 +46,7 @@ const TechnicalReportSection = () => {
         >
           <div className="relative w-full h-full">
             <img
-              src="/images/technical.jpg"
+              src="/images/technical.png"
               alt="Laudo Técnico e Comissionamento"
               className="w-full object-cover h-[600px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px]"
               style={{ maxHeight: '900px' }}
