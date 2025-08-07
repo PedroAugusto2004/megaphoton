@@ -182,29 +182,32 @@ const ContactSection = () => {
             <div className="bg-gray-50 rounded-xl p-8 mb-6">
               <h3 className="text-xl font-semibold mb-6">Informações de contato</h3>
               
-              <div className="space-y-5">
+              <div className="space-y-3">
                 {contactInfo.map((item, index) => {
                   const Icon = item.icon;
-                  return (
-                    <div key={index} className="flex items-start">
-                      <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                        <Icon className="h-5 w-5 text-primary" />
+                  const content = (
+                    <div className="flex items-center p-3 rounded-lg border border-gray-300 bg-gray-50 hover:border-primary hover:bg-primary/10 transition-all duration-200 group shadow-sm">
+                      <Icon className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs text-muted-foreground mb-0.5">{item.label}</p>
+                        <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors truncate">{item.value}</p>
                       </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">{item.label}</p>
-                        {item.action ? (
-                          <a 
-                            href={item.action} 
-                            target={item.action.startsWith('http') ? '_blank' : '_self'}
-                            rel="noopener noreferrer"
-                            className="text-foreground hover:text-primary transition-colors"
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <p className="text-foreground">{item.value}</p>
-                        )}
-                      </div>
+                    </div>
+                  );
+                  
+                  return item.action ? (
+                    <a 
+                      key={index}
+                      href={item.action} 
+                      target={item.action.startsWith('http') ? '_blank' : '_self'}
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div key={index}>
+                      {content}
                     </div>
                   );
                 })}
