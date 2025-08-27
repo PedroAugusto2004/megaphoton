@@ -31,7 +31,7 @@ import { useState, useEffect } from 'react';
 
 const HeroSection = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
-  const videos = ['videos/solar-video.mp4', 'videos/presentation.mp4'];
+  const videos = ['videos/presentation.mp4', 'videos/solar-video.mp4'];
 
   const handleVideoTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.currentTarget;
@@ -75,6 +75,7 @@ const HeroSection = () => {
             loop
             muted
             playsInline
+            preload={index === 0 ? 'auto' : 'metadata'}
             onTimeUpdate={index === currentVideo ? handleVideoTimeUpdate : undefined}
             onLoadedData={(e) => handleVideoLoad(e, index)}
           />
