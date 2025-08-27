@@ -257,9 +257,8 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-key
 This is a proprietary project for Megaphoton. For technical support or questions:
 
 - **Company**: Megaphoton Solar Energy
-- **Location**: Minas Gerais, Brazil
-- **WhatsApp**: +55 34 99232-0853
-- **Email**: contato@megaphoton.com.br
+- **WhatsApp**: +55 34 99281-5713
+- **Email**: pedro.augusto07.dev@gmail.com
 
 ## 📄 License
 
