@@ -57,9 +57,6 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
   }, [messages]);
 
   useEffect(() => {
-    if (isOpen && inputRef.current) {
-      inputRef.current.focus();
-    }
     if (isOpen) {
       setShowCloseConfirm(false);
     }
@@ -428,7 +425,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-4 right-4 z-[60] w-[calc(100vw-2rem)] max-w-sm sm:max-w-md md:max-w-lg lg:w-96 h-[500px] sm:h-[550px] md:h-[600px] bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 lg:bottom-5 lg:right-5 flex flex-col"
+            className="fixed bottom-2 right-2 z-[60] w-[calc(100vw-1rem)] max-w-sm sm:max-w-md md:max-w-lg lg:w-96 h-[calc(100vh-2rem)] sm:h-[550px] md:h-[600px] bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 lg:bottom-5 lg:right-5 flex flex-col"
           >
             {/* Header - Fixed */}
             <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 p-3 sm:p-4 relative flex-shrink-0">
@@ -448,11 +445,11 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
               </button>
 
               <div className="flex items-center justify-center flex-1">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
+                <div className="w-16 h-16 sm:w-18 sm:h-18 flex items-center justify-center">
                   <img 
                     src="/images/Logo Megaphoton.png" 
                     alt="Megaphoton Logo" 
-                    className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+                    className="w-16 h-16 sm:w-18 sm:h-18 object-contain"
                   />
                 </div>
                 <div className="flex flex-col items-center ml-3">
@@ -463,7 +460,6 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
                     <span className="bg-yellow-400 text-black text-xs px-1.5 py-0.5 rounded font-medium">
                       Beta
                     </span>
-                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300" />
                   </div>
                 </div>
               </div>
