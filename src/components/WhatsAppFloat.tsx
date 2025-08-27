@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Chatbot from './Chatbot';
-import { MessageCircle } from 'lucide-react';
 
 const WhatsAppFloat = () => {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
@@ -33,12 +32,13 @@ const WhatsAppFloat = () => {
         aria-label="Chat com Assistente Virtual"
       >
         <div className="relative flex items-center justify-center w-full h-full">
-          <MessageCircle className="w-7 h-7 transition-colors" />
-          
-          {/* AI indicator */}
-          <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center border-2 border-white shadow-lg">
-            <div className="w-2 h-2 bg-white rounded-full"></div>
-          </div>
+          {/* Custom chat icon with three dots */}
+          <svg className="w-7 h-7 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <circle cx="8" cy="12" r="1" fill="currentColor"/>
+            <circle cx="12" cy="12" r="1" fill="currentColor"/>
+            <circle cx="16" cy="12" r="1" fill="currentColor"/>
+          </svg>
         </div>
         
         {/* Subtle glow effect */}
