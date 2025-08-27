@@ -39,8 +39,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
         'Conhecer nossos serviços',
         'Fazer um orçamento',
         'Falar com um atendente',
-        'Informações da empresa',
-        'Mudar para inglês / Switch to English'
+        'Informações da empresa'
       ]
     }
   ]);
@@ -82,15 +81,13 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
           'Conhecer nossos serviços',
           'Fazer um orçamento',
           'Falar com um atendente',
-          'Informações da empresa',
-          'Mudar para inglês / Switch to English'
+          'Informações da empresa'
         ]
       : [
           'Learn about our services',
           'Get a quote',
           'Talk to an agent',
-          'Company information',
-          'Mudar para português / Switch to Portuguese'
+          'Company information'
         ];
 
     const languageSwitchMessage: Message = {
@@ -136,8 +133,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
           'Conhecer nossos serviços',
           'Fazer um orçamento',
           'Falar com um atendente',
-          'Informações da empresa',
-          'Mudar para inglês / Switch to English'
+          'Informações da empresa'
         ]
       }
     ]);
