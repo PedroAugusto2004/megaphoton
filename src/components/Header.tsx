@@ -64,7 +64,7 @@ const Header = () => {
               variant="outline" 
               size="sm" 
               className="text-white border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:border-white/50 transition-smooth"
-              onClick={() => window.open('https://wa.me/5534992320853?text=Olá, quero agendar uma instalação', '_blank')}
+              onClick={() => window.open('https://wa.me/5534992320853?text=Olá, quero agendar uma visita', '_blank')}
             >
               Agende Já
             </Button>
