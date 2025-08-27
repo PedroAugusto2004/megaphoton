@@ -425,7 +425,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-2 right-2 z-[60] w-[calc(100vw-1rem)] max-w-sm sm:max-w-md md:max-w-lg lg:w-96 h-[calc(100vh-2rem)] sm:h-[550px] md:h-[600px] bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 lg:bottom-5 lg:right-5 flex flex-col"
+            className="fixed bottom-4 right-4 z-[60] w-[calc(100vw-2rem)] max-w-sm sm:max-w-md md:max-w-lg lg:w-96 h-[calc(100vh-8rem)] sm:h-[550px] md:h-[600px] bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 lg:bottom-5 lg:right-5 flex flex-col"
           >
             {/* Header - Fixed */}
             <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 p-3 sm:p-4 relative flex-shrink-0">
@@ -630,7 +630,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage(inputValue)}
                       placeholder={currentLanguage === 'pt' ? 'Digite sua mensagem...' : 'Type your message...'}
-                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-xs sm:text-sm"
+                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-base sm:text-sm"
                       disabled={isLoading}
                     />
                     <motion.button
