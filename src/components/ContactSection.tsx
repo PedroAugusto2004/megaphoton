@@ -206,8 +206,12 @@ const ContactSection = () => {
                       {content}
                     </a>
                   ) : (
-                    <div key={index}>
-                      {content}
+                    <div key={index} className="flex items-center p-3">
+                      <Icon className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs text-muted-foreground mb-0.5">{item.label}</p>
+                        <p className="text-sm font-medium text-foreground">{item.value}</p>
+                      </div>
                     </div>
                   );
                 })}
