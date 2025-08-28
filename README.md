@@ -4,7 +4,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.4.1-646CFF.svg)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.11-38B2AC.svg)](https://tailwindcss.com/)
-[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-412991.svg)](https://openai.com/)
+[![Gemini AI](https://img.shields.io/badge/Gemini-1.5--Flash-4285F4.svg)](https://ai.google.dev/)
 
 > **Professional solar energy platform with intelligent AI-powered customer support**
 
@@ -16,7 +16,7 @@ Megaphoton is a cutting-edge web platform for a Brazilian solar energy company, 
 
 ### 🤖 **Intelligent AI Chatbot** (Primary Feature)
 - **Bilingual Support**: Portuguese (Brazilian) and English with automatic language detection
-- **OpenAI Integration**: Powered by GPT-4o-mini for intelligent, context-aware responses
+- **Gemini AI Integration**: Powered by Google Gemini 1.5-Flash for intelligent, context-aware responses
 - **RAG System**: Retrieval-Augmented Generation ensures accurate, company-specific information
 - **Zero Hallucination**: Only provides verified company data and services information
 - **WhatsApp Integration**: Seamless escalation to human agents
@@ -40,7 +40,7 @@ Megaphoton is a cutting-edge web platform for a Brazilian solar energy company, 
 ```
 Frontend (React + TypeScript)
 ├── AI Chatbot Service
-│   ├── OpenAI GPT-4o-mini Integration
+│   ├── Gemini 1.5-Flash Integration
 │   ├── Knowledge Base (RAG System)
 │   ├── Language Detection
 │   └── WhatsApp Escalation
@@ -48,6 +48,12 @@ Frontend (React + TypeScript)
 ├── Animation System (Framer Motion)
 ├── Styling (Tailwind CSS)
 └── Build System (Vite)
+
+Backend (Vercel Serverless)
+├── Secure API Endpoints
+├── Environment Variables
+├── HTTPS Enforcement
+└── Auto-scaling
 ```
 
 ## 📁 Project Structure
@@ -56,8 +62,9 @@ Frontend (React + TypeScript)
 megaphoton/
 ├── 🤖 AI Chatbot System
 │   ├── src/components/Chatbot.tsx          # Main chatbot interface
-│   ├── src/services/chatService.ts         # Core chat logic
-│   ├── src/services/enhancedChatService.ts # AI integration
+│   ├── src/services/geminiChatService.ts   # Gemini AI integration
+│   ├── src/services/apiChatService.ts      # Frontend API interface
+│   ├── api/chat.js                        # Secure backend endpoint
 │   └── src/config/environment.ts           # Configuration
 ├── 🎨 UI Components
 │   ├── src/components/ui/                  # Reusable UI components (40+ components)
@@ -92,11 +99,12 @@ megaphoton/
 ### **Technical Implementation**
 ```typescript
 // Core Technologies
-- OpenAI API (GPT-4o-mini)
+- Google Gemini 1.5-Flash API
 - React with TypeScript
+- Vercel Serverless Functions
 - Framer Motion animations
 - Tailwind CSS styling
-- Modular service architecture
+- Secure backend architecture
 ```
 
 ### **User Experience**
@@ -127,8 +135,9 @@ megaphoton/
 - **Lucide React**: Modern icon library
 
 ### **AI & Backend Integration**
-- **OpenAI 4.52.0**: GPT-4o-mini integration
-- **Supabase**: Database and authentication ready
+- **Google Generative AI**: Gemini 1.5-Flash integration
+- **Vercel**: Serverless backend deployment
+- **Supabase**: Vector database ready for RAG
 - **React Query**: Server state management
 
 ### **Development Tools**
@@ -141,7 +150,8 @@ megaphoton/
 ### Prerequisites
 ```bash
 Node.js 18+ and npm/yarn
-OpenAI API key (for AI chatbot)
+Google Gemini API key (for AI chatbot)
+Vercel account (for deployment)
 ```
 
 ### Installation
@@ -155,7 +165,7 @@ npm install
 
 # Set up environment variables
 cp .env.example .env.local
-# Add your OpenAI API key to .env.local
+# Add your Gemini API key to .env.local
 
 # Start development server
 npm run dev
@@ -205,8 +215,8 @@ npm run lint         # Run ESLint
 
 ### **Environment Variables**
 ```env
-# OpenAI Configuration
-OPENAI_API_KEY=sk-your-openai-api-key
+# Gemini AI Configuration (Backend Only)
+GEMINI_API_KEY=your-gemini-api-key
 
 # Supabase (Optional)
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
@@ -229,21 +239,28 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-key
 - ✅ Mobile responsiveness
 - ✅ Accessibility compliance
 
-### **Deployment Platforms**
-- **Vercel**: Optimized for React applications
+### **Current Deployment**
+- **Platform**: Vercel (Production)
+- **URL**: https://megaphoton.com.br
+- **Features**: Auto-scaling, HTTPS, Global CDN
+- **Security**: API keys secured in environment variables
+
+### **Alternative Platforms**
+- **Google Cloud Run**: Container deployment
+- **AWS Lambda**: Serverless functions
 - **Netlify**: Static site deployment
-- **AWS S3 + CloudFront**: Enterprise deployment
-- **Docker**: Containerized deployment
 
 ## 📈 Future Enhancements
 
 ### **AI Chatbot Roadmap**
+- [x] Gemini AI integration
+- [x] Secure backend deployment
+- [x] Production-ready architecture
 - [ ] Vector database integration (Supabase pgvector)
 - [ ] Advanced analytics dashboard
 - [ ] Voice interaction capabilities
 - [ ] Multi-language expansion
 - [ ] Sentiment analysis
-- [ ] Custom training on company data
 
 ### **Platform Features**
 - [ ] Customer portal
@@ -257,7 +274,6 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-key
 This is a proprietary project for Megaphoton. For technical support or questions:
 
 - **Company**: Megaphoton Solar Energy
-- **WhatsApp**: +55 34 99281-5713
 - **Email**: pedro.augusto07.dev@gmail.com
 
 ## 📄 License
@@ -267,7 +283,7 @@ This project is proprietary to Megaphoton. All rights reserved.
 ## 🏆 Recognition
 
 - **Modern Architecture**: Built with latest React patterns
-- **AI Integration**: Advanced OpenAI implementation
+- **AI Integration**: Advanced Gemini AI implementation
 - **User Experience**: Award-worthy interface design
 - **Performance**: Optimized for production use
 - **Accessibility**: WCAG compliant implementation
