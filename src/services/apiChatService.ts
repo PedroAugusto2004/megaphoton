@@ -1,45 +1,33 @@
-// Secure API Chat Service - Calls backend endpoint
+// API Chat Service - Uses local Gemini service for consistent behavior
+import { sendGeminiChatMessage } from './geminiChatService';
+
 export interface ChatResponse {
   response: string;
   language: 'pt' | 'en';
-  contextFound?: boolean;
+  contextFound: boolean;
   needsEscalation?: boolean;
   error?: boolean;
 }
 
-// Backend API endpoint
-const API_URL = '/api/chat';
-
-// Secure API function - no API keys in frontend
+// Main API function that uses the local Gemini service
 export async function sendChatMessage(message: string, language?: 'pt' | 'en'): Promise<ChatResponse> {
   try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ message, language })
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    const data = await response.json();
+    // Use the Gemini service directly for consistent behavior
+    const result = await sendGeminiChatMessage(message, language);
     
     return {
-      response: data.response,
-      language: data.language,
-      contextFound: true,
-      needsEscalation: data.needsEscalation,
-      error: data.error
+      response: result.response,
+      language: result.language,
+      contextFound: result.contextFound,
+      needsEscalation: result.needsEscalation,
+      error: result.error
     };
   } catch (error) {
-    console.error('API error:', error);
+    console.error('API Chat Service error:', error);
     
     const fallbackResponse = language === 'pt'
-      ? 'Erro técnico. WhatsApp: +55 34 99232-0853 📱'
-      : 'Technical error. WhatsApp: +55 34 99232-0853 📱';
+      ? 'Desculpe, estou enfrentando dificuldades técnicas. Entre em contato via WhatsApp: +55 34 99232-0853'
+      : 'Sorry, I\'m experiencing technical difficulties. Please contact via WhatsApp: +55 34 99232-0853';
     
     return {
       response: fallbackResponse,
