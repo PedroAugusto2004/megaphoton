@@ -1,15 +1,13 @@
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { createClient } from '@supabase/supabase-js';
-import OpenAI from 'openai';
+
+// Initialize Gemini AI
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Initialize Supabase client for vector database
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const supabase = createClient(supabaseUrl!, supabaseKey!);
-
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://your-project.supabase.co';
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'your-service-key';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Knowledge base data for Megaphoton
 const MEGAPHOTON_KNOWLEDGE = [
@@ -527,48 +525,37 @@ async function searchKnowledgeBase(query: string, language: 'pt' | 'en'): Promis
   }
 }
 
-// Function to generate AI response
-async function generateAIResponse(query: string, context: string[], language: 'pt' | 'en'): Promise<string> {
+// Generate response using Gemini AI
+async function generateGeminiResponse(query: string, context: string[], language: 'pt' | 'en'): Promise<string> {
   try {
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    
     const systemPrompt = language === 'pt' 
-      ? `Você é um assistente virtual especializado da Megaphoton, empresa brasileira de energia solar. 
-         Responda APENAS com base nas informações fornecidas no contexto. 
-         Se não souber algo ou se a pergunta não estiver no contexto, sugira que o usuário entre em contato via WhatsApp: +55 34 99232-0853.
-         Seja sempre útil, profissional e amigável. Use emojis quando apropriado para tornar a resposta mais amigável.
-         IMPORTANTE: NUNCA invente informações. Use APENAS o contexto fornecido.`
-      : `You are a virtual assistant specialized in Megaphoton, a Brazilian solar energy company.
-         Answer ONLY based on the information provided in the context.
-         If you don't know something or if the question is not in the context, suggest that the user contact via WhatsApp: +55 34 99232-0853.
-         Always be helpful, professional and friendly. Use emojis when appropriate to make the response more friendly.
-         IMPORTANT: NEVER invent information. Use ONLY the provided context.`;
+      ? `Você é o assistente virtual da Megaphoton, empresa brasileira de energia solar. 
+         Responda APENAS com base no contexto fornecido. 
+         Se não souber algo, sugira contato via WhatsApp +55 34 99232-0853.
+         Seja profissional, amigável e use emojis apropriados.
+         NUNCA invente informações - use APENAS o contexto.`
+      : `You are Megaphoton's virtual assistant, a Brazilian solar energy company.
+         Answer ONLY based on the provided context.
+         If you don't know something, suggest contact via WhatsApp +55 34 99232-0853.
+         Be professional, friendly and use appropriate emojis.
+         NEVER invent information - use ONLY the context.`;
 
-    const userPrompt = language === 'pt'
-      ? `Pergunta do usuário: "${query}"
-         
-         Contexto disponível:
-         ${context.join('\n\n')}
-         
-         Por favor, responda em português brasileiro de forma clara e útil.`
-      : `User question: "${query}"
-         
-         Available context:
-         ${context.join('\n\n')}
-         
-         Please answer in English in a clear and helpful way.`;
+    const prompt = `${systemPrompt}
 
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: userPrompt }
-      ],
-      max_tokens: 500,
-      temperature: 0.7,
-    });
+Pergunta: "${query}"
 
-    return completion.choices[0]?.message?.content || '';
+Contexto disponível:
+${context.join('\n\n')}
+
+Responda em ${language === 'pt' ? 'português brasileiro' : 'English'}:`;
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    return response.text();
   } catch (error) {
-    console.error('Error generating AI response:', error);
+    console.error('Gemini API error:', error);
     throw new Error('Failed to generate response');
   }
 }
@@ -591,13 +578,36 @@ export async function POST(request: Request) {
     // Search knowledge base for relevant context
     const context = await searchKnowledgeBase(message, detectedLanguage);
     
-    // Generate AI response
-    const aiResponse = await generateAIResponse(message, context, detectedLanguage);
+    // Check for escalation keywords
+    const escalationKeywords = ['orçamento', 'quote', 'atendente', 'agent', 'vendas', 'sales'];
+    const needsEscalation = escalationKeywords.some(keyword => 
+      message.toLowerCase().includes(keyword)
+    );
+    
+    if (needsEscalation || context.length === 0) {
+      const escalationMessage = detectedLanguage === 'pt'
+        ? 'Desculpe, não encontrei essa informação nos dados da Megaphoton. Deseja falar com um atendente no WhatsApp +55 34 99232-0853?'
+        : 'Sorry, I couldn\'t find that information in Megaphoton\'s data. Would you like to speak with an agent on WhatsApp +55 34 99232-0853?';
+      
+      return new Response(JSON.stringify({
+        response: escalationMessage,
+        language: detectedLanguage,
+        contextFound: false,
+        needsEscalation: true
+      }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+    
+    // Generate AI response using Gemini
+    const aiResponse = await generateGeminiResponse(message, context, detectedLanguage);
     
     return new Response(JSON.stringify({
       response: aiResponse,
       language: detectedLanguage,
-      contextFound: context.length > 0
+      contextFound: context.length > 0,
+      needsEscalation: false
     }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },

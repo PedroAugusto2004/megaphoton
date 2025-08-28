@@ -193,9 +193,9 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
         return;
       }
 
-      // Call the enhanced chat service
+      // Call the new API chat service
       try {
-        const { sendEnhancedChatMessage } = await import('../services/enhancedChatService');
+        const { sendEnhancedChatMessage } = await import('../services/apiChatService');
         const data = await sendEnhancedChatMessage(text.trim(), currentLanguage);
         
         // Animate typing effect
@@ -207,7 +207,8 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
           sender: 'bot',
           timestamp: new Date(),
           language: currentLanguage,
-          showWhatsApp: data.response.toLowerCase().includes('whatsapp') || 
+          showWhatsApp: data.needsEscalation || 
+                       data.response.toLowerCase().includes('whatsapp') || 
                        data.response.toLowerCase().includes('equipe') ||
                        data.response.toLowerCase().includes('atendente') ||
                        data.response.toLowerCase().includes('comercial')
@@ -217,7 +218,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
         
 
       } catch (importError) {
-        console.error('Import error:', importError);
+        console.error('Gemini service error:', importError);
         // Fallback to simple responses if import fails
         const { response, showWhatsApp } = generateSimpleResponse(text.trim(), currentLanguage);
         

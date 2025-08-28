@@ -9,6 +9,9 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  define: {
+    'process.env.GEMINI_API_KEY': JSON.stringify(process.env.GEMINI_API_KEY),
+  },
   plugins: [
     react(),
     mode === 'development' &&
@@ -19,4 +22,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  envPrefix: ['VITE_', 'GEMINI_'],
 }));

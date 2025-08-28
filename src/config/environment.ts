@@ -2,10 +2,16 @@
 // Copy this file to .env.local and fill in your actual API keys
 
 export const config = {
-  // OpenAI API Configuration
+  // Gemini AI Configuration
+  gemini: {
+    apiKey: process.env.GEMINI_API_KEY,
+    model: 'gemini-1.5-flash',
+  },
+
+  // OpenAI API Configuration (legacy)
   openai: {
     apiKey: process.env.OPENAI_API_KEY || 'your_openai_api_key_here',
-    model: 'gpt-4o-mini', // or 'gpt-4-turbo' for better performance
+    model: 'gpt-4o-mini',
   },
 
   // Supabase Configuration (for future vector database implementation)
@@ -34,11 +40,3 @@ export const config = {
     typingDelay: 800,
   }
 };
-
-// Instructions for setup:
-// 1. Create a .env.local file in your project root
-// 2. Add your actual API keys:
-//    OPENAI_API_KEY=sk-your-actual-key
-//    NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-//    SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-// 3. Restart your development server
