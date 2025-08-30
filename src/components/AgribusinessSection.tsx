@@ -66,14 +66,14 @@ const AgribusinessSection = () => {
         <ScrollAnimation animationClass="reveal-fade-up" delay={200}>
           <div className="relative w-full h-full">
             <img
-              src="/images/agribusiness.png"
+              src="/images/farmer.png"
               alt="Agronegócio - Energia Solar para o Campo"
               className="w-full object-cover h-[420px] md:h-[480px] lg:h-[550px] xl:h-[650px]"
               style={{ maxHeight: '750px' }}
             />
             {/* Text Overlay */}
             <div className="absolute top-2 left-2 right-2 md:top-8 md:left-16 md:right-auto">
-              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-2 md:p-6 max-w-xs w-full md:max-w-md border border-white/20">
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-1.5 md:p-6 max-w-[280px] w-full md:max-w-md border border-white/20">
                 <div className="flex items-center gap-2 mb-2 md:mb-4">
                   <Tractor className="h-4 w-4 md:h-5 md:w-5 text-white" />
                   <p className="text-white text-xs md:text-sm font-medium">
