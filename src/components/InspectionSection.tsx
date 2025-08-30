@@ -2,25 +2,25 @@ import { CheckCircle, ArrowRight, Award, Shield, FileText } from 'lucide-react';
 
 const InspectionSection = () => {
   const applications = [
-    'Garantia de conformidade com o projeto',
-    'Segurança Elétrica',
-    'Validação de Garantias'
+    'Verificações detalhadas da parte elétrica',
+    'Inspeção visual de equipamentos',
+    'Testes de corrente e potência'
   ];
 
   const features = [
     {
-      title: 'Conformidade',
-      description: 'Verificação completa do projeto',
+      title: 'Verificação Elétrica',
+      description: 'Conexões, cabos e proteções',
       icon: Award
     },
     {
-      title: 'Segurança',
-      description: 'Proteção elétrica garantida',
+      title: 'Inspeção Visual',
+      description: 'Desgaste, sujeira e danos',
       icon: Shield
     },
     {
-      title: 'Documentação',
-      description: 'Relatórios técnicos formais',
+      title: 'Testes Técnicos',
+      description: 'Corrente, potência e desempenho',
       icon: FileText
     }
   ];
@@ -38,7 +38,7 @@ const InspectionSection = () => {
             <span className="text-black">Inspeção</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Comissionamento essencial para garantir pleno funcionamento e conformidade técnica
+            Verificações essenciais para garantir desempenho, segurança e durabilidade do sistema
           </p>
         </div>
 
@@ -58,10 +58,10 @@ const InspectionSection = () => {
             <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
               <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
                 <h3 className="text-sm sm:text-base md:text-3xl font-light text-white mb-1.5 md:mb-4 leading-tight text-left">
-                  Comissionamento <span className="text-blue-300 font-normal">Profissional</span>
+                  Inspeção <span className="text-blue-300 font-normal">Técnica</span>
                 </h3>
                 <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
-                  O comissionamento de um sistema solar fotovoltaico é uma etapa essencial que assegura o pleno funcionamento da instalação, conforme as especificações técnicas do projeto.
+                  A inspeção em uma usina solar fotovoltaica é essencial para garantir o desempenho, a segurança e a durabilidade do sistema.
                 </p>
                 <div className="space-y-0.5 md:space-y-3">
                   {applications.map((application, index) => (
@@ -79,7 +79,7 @@ const InspectionSection = () => {
         {/* Mobile Description - Under Image */}
         <div className="md:hidden -mt-16 mb-24 px-6">
           <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
-            Esse processo envolve uma série de <span className="text-blue-600 font-medium">testes, inspeções e verificações</span> que garantem a qualidade, a segurança e o desempenho do sistema.
+            Durante esse processo, são realizadas <span className="text-blue-600 font-medium">verificações detalhadas da parte elétrica</span>, incluindo conexões, cabos e dispositivos de proteção.
           </p>
         </div>
 
@@ -110,45 +110,28 @@ const InspectionSection = () => {
           </div>
         </section>
 
-        {/* Important Section */}
+        {/* Tests Section */}
         <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-8 mb-16 border border-blue-100">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-blue-900 mb-4 tracking-wider">
-              I M P O R T A N T E
+              T E S T E S
             </h3>
             <p className="text-gray-700 leading-relaxed max-w-4xl mx-auto">
-              Adotar o comissionamento como prática padrão é altamente recomendável, pois oferece benefícios concretos em termos de eficiência, durabilidade e proteção do investimento — além de contribuir para a plena satisfação do cliente.
+              Durante as inspeções, são realizados diversos testes para verificação de corrente, potência e desempenho do sistema, essenciais para identificar possíveis falhas, garantir o bom funcionamento da usina solar e assegurar sua máxima eficiência energética.
             </p>
           </div>
         </div>
 
-        {/* Applications Section */}
+        {/* Important Section */}
         <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 mb-16">
           <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 tracking-wider">
-            APLICAÇÕES PRÁTICAS
+            I M P O R T A N T E
           </h3>
           
-          <div className="space-y-8">
-            <div className="border-l-4 border-blue-600 pl-6">
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Garantia de conformidade com o projeto</h4>
-              <p className="text-gray-600 leading-relaxed">
-                O comissionamento verifica se todos os componentes foram instalados corretamente e se o sistema atende aos parâmetros de desempenho definidos no projeto executivo.
-              </p>
-            </div>
-            
-            <div className="border-l-4 border-blue-600 pl-6">
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Segurança Elétrica</h4>
-              <p className="text-gray-600 leading-relaxed">
-                Sistemas fotovoltaicos operam com altas tensões, e eventuais falhas na instalação podem gerar riscos como choques elétricos ou incêndios. O comissionamento certifica que todas as conexões estão seguras e adequadas.
-              </p>
-            </div>
-            
-            <div className="border-l-4 border-blue-600 pl-6">
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Validação de Garantias</h4>
-              <p className="text-gray-600 leading-relaxed">
-                Os relatórios técnicos gerados durante o comissionamento servem como documentação formal, facilitando o acionamento de garantias em caso de falhas, defeitos ou mau funcionamento.
-              </p>
-            </div>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-gray-700 leading-relaxed text-center">
+              O constante movimento dos módulos solares provocado pelo vento, aliado à dilatação térmica durante o dia e à contração à noite, pode causar o afrouxamento dos parafusos da estrutura. Por isso, o reaperto periódico desses parafusos é fundamental para garantir a fixação segura dos módulos, prevenindo acidentes e prejuízos.
+            </p>
           </div>
         </div>
 
@@ -166,7 +149,7 @@ const InspectionSection = () => {
                 Garanta a <span className="text-blue-200">qualidade</span> <br className="hidden lg:block" />do seu sistema
               </h3>
               <p className="text-blue-100/90 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed">
-                Comissionamento profissional para máxima eficiência, segurança e durabilidade do seu investimento em energia solar.
+                Inspeção profissional para máxima eficiência, segurança e durabilidade do seu investimento em energia solar.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <button 
