@@ -172,7 +172,7 @@
 
 /* Enhanced quote styling */
 .enhanced-quote {
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid hsl(var(--primary));
   padding-left: 1rem;
   font-style: italic;
   color: rgba(0, 0, 0, 0.7);
@@ -184,7 +184,7 @@
   border-radius: 0.75rem;
   padding: 1.5rem;
   background-color: rgba(var(--primary-rgb), 0.05);
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid hsl(var(--primary));
   margin: 1.5rem 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -193,12 +193,12 @@
 .section-header-line {
   height: 1px;
   width: 3rem;
-  background-color: var(--primary);
+  background-color: hsl(var(--primary));
   margin-right: 1rem;
 }
 
 .section-header-tag {
-  color: var(--primary);
+  color: hsl(var(--primary));
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.875rem;

@@ -39,6 +39,7 @@
     --primary: 25 100% 50%;
     --primary-light: 35 100% 60%;
     --primary-glow: 35 100% 75%;
+    --primary-rgb: 255, 128, 0;
     
     /* Solar Green Theme */
     --secondary: 140 70% 35%;
@@ -121,8 +122,8 @@
   
   /* Section animations */
   section {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: translateY(0px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
   
