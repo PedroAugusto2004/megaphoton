@@ -20,13 +20,18 @@ const KNOWLEDGE_BASE = [
 ];
 
 function detectLanguage(text) {
-  const ptWords = ['energia', 'solar', 'como', 'que', 'para', 'não'];
-  const enWords = ['energy', 'solar', 'how', 'what', 'for', 'not'];
+  const ptWords = ['energia', 'solar', 'como', 'que', 'para', 'não', 'você', 'seu', 'sua', 'onde', 'quando', 'quanto', 'por', 'sim', 'obrigado', 'oi', 'olá'];
+  const enWords = ['energy', 'solar', 'how', 'what', 'for', 'not', 'you', 'your', 'where', 'when', 'much', 'by', 'yes', 'thanks', 'hi', 'hello'];
   
-  const ptCount = ptWords.filter(w => text.toLowerCase().includes(w)).length;
-  const enCount = enWords.filter(w => text.toLowerCase().includes(w)).length;
+  const textLower = text.toLowerCase();
+  const ptCount = ptWords.filter(w => textLower.includes(w)).length;
+  const enCount = enWords.filter(w => textLower.includes(w)).length;
   
-  return ptCount > enCount ? 'pt' : 'en';
+  // Check for Portuguese-specific characters
+  const ptPatterns = /[ãâáàçõôóêé]/g;
+  const ptCharCount = (text.match(ptPatterns) || []).length;
+  
+  return (ptCount + ptCharCount) > enCount ? 'pt' : 'en';
 }
 
 function searchKnowledge(query) {
@@ -78,10 +83,14 @@ export default async function handler(req, res) {
     // Generate AI response
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
     
-    const prompt = `Você é o assistente da Megaphoton, empresa de energia solar em MG.
-Responda com base no contexto: ${context.join(' ')}
-Pergunta: ${message}
-Responda em ${detectedLanguage === 'pt' ? 'português' : 'English'}:`;
+    const systemPrompt = detectedLanguage === 'pt'
+      ? 'Você é o assistente da Megaphoton, empresa de energia solar em MG. IMPORTANTE: Responda SEMPRE em português brasileiro.'
+      : 'You are Megaphoton assistant, solar energy company in MG. IMPORTANT: Always respond in English.';
+    
+    const prompt = `${systemPrompt}
+Contexto: ${context.join(' ')}
+${detectedLanguage === 'pt' ? 'Pergunta' : 'Question'}: ${message}
+${detectedLanguage === 'pt' ? 'RESPONDA EM PORTUGUÊS' : 'RESPOND IN ENGLISH'}:`;
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
