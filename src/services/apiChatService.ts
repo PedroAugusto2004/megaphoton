@@ -1,6 +1,4 @@
-// API Chat Service - Uses local Gemini service for consistent behavior
-import { sendGeminiChatMessage } from './geminiChatService';
-
+// API Chat Service - Uses backend API for secure communication
 export interface ChatResponse {
   response: string;
   language: 'pt' | 'en';
@@ -9,18 +7,29 @@ export interface ChatResponse {
   error?: boolean;
 }
 
-// Main API function that uses the local Gemini service
+// Main API function that calls the backend endpoint
 export async function sendChatMessage(message: string, language?: 'pt' | 'en'): Promise<ChatResponse> {
   try {
-    // Use the Gemini service directly for consistent behavior
-    const result = await sendGeminiChatMessage(message, language);
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message, language })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
     
     return {
-      response: result.response,
-      language: result.language,
-      contextFound: result.contextFound,
-      needsEscalation: result.needsEscalation,
-      error: result.error
+      response: data.response,
+      language: data.language,
+      contextFound: data.contextFound || false,
+      needsEscalation: data.needsEscalation || false,
+      error: data.error || false
     };
   } catch (error) {
     console.error('API Chat Service error:', error);

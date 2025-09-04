@@ -7,8 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:prod": "node package-scripts.js pre-deploy && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "security-check": "node package-scripts.js security",
+    "pre-deploy": "node package-scripts.js pre-deploy",
+    "deploy": "npm run pre-deploy && vercel --prod"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

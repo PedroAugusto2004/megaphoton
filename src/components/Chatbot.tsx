@@ -193,10 +193,10 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
         return;
       }
 
-      // Call the new API chat service
+      // Call the new API chat service with automatic language detection
       try {
         const { sendEnhancedChatMessage } = await import('../services/apiChatService');
-        const data = await sendEnhancedChatMessage(text.trim(), currentLanguage);
+        const data = await sendEnhancedChatMessage(text.trim()); // Remove forced language parameter
         
         // Animate typing effect
         await animateTyping(data.response);
@@ -206,7 +206,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
           text: data.response,
           sender: 'bot',
           timestamp: new Date(),
-          language: currentLanguage,
+          language: data.language, // Use detected language from API
           showWhatsApp: data.needsEscalation || 
                        data.response.toLowerCase().includes('whatsapp') || 
                        data.response.toLowerCase().includes('equipe') ||

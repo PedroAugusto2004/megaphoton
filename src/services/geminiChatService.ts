@@ -55,23 +55,64 @@ const MEGAPHOTON_DOCS = [
     content: 'Contato Megaphoton: 📱 WhatsApp +55 34 99232-0853 (prioritário) 📧 contato@megaphoton.com.br 🌐 www.megaphoton.com.br 🕰️ Seg-Sex 8h-18h, Sáb 8h-12h 📍 Minas Gerais, atendimento nacional 🏠 Visitas gratuitas 📊 Orçamentos sem compromisso',
     category: 'contact',
     language: 'pt'
+  },
+  {
+    id: 'company-info-en',
+    content: 'Megaphoton is a leading Brazilian solar energy company based in Minas Gerais. We are ANEEL certified and partners with major global brands. Our mission is to democratize sustainable solar energy in Brazil.',
+    category: 'company',
+    language: 'en'
+  },
+  {
+    id: 'services-complete-en',
+    content: 'Megaphoton Services: 🔧 Complete installation 🔍 Maintenance 📸 Thermography 🔍 Inspections 🧹 Panel cleaning 📱 24/7 monitoring 👥 Technical support',
+    category: 'services',
+    language: 'en'
+  },
+  {
+    id: 'contact-complete-en',
+    content: 'Megaphoton Contact: 📱 WhatsApp +55 34 99232-0853 📧 contato@megaphoton.com.br 🌐 www.megaphoton.com.br 🕰️ Mon-Fri 8am-6pm 📍 Minas Gerais, nationwide service',
+    category: 'contact',
+    language: 'en'
   }
 ];
 
-// Enhanced language detection
+// Enhanced language detection with improved accuracy
 function detectLanguage(text: string): 'pt' | 'en' {
-  const ptWords = ['energia', 'solar', 'painel', 'instalação', 'orçamento', 'preço', 'como', 'que', 'para', 'com', 'não', 'mais', 'você', 'seu', 'sua', 'onde', 'quando', 'quanto', 'por', 'sim', 'obrigado', 'oi', 'olá'];
-  const enWords = ['energy', 'solar', 'panel', 'installation', 'quote', 'price', 'how', 'what', 'for', 'with', 'not', 'more', 'you', 'your', 'where', 'when', 'much', 'by', 'yes', 'thanks', 'hi', 'hello'];
+  const ptWords = [
+    // Common Portuguese words
+    'energia', 'solar', 'painel', 'instalação', 'orçamento', 'preço', 'como', 'que', 'para', 'com', 'não', 'mais', 'você', 'seu', 'sua', 'onde', 'quando', 'quanto', 'por', 'sim', 'obrigado', 'oi', 'olá',
+    // Portuguese-specific words
+    'também', 'então', 'muito', 'bem', 'fazer', 'ter', 'ser', 'estar', 'casa', 'empresa', 'brasil', 'brasileiro', 'minas', 'gerais', 'atendimento', 'informação', 'serviço', 'garantia', 'manutenção'
+  ];
+  
+  const enWords = [
+    // Common English words
+    'energy', 'solar', 'panel', 'installation', 'quote', 'price', 'how', 'what', 'for', 'with', 'not', 'more', 'you', 'your', 'where', 'when', 'much', 'by', 'yes', 'thanks', 'hi', 'hello',
+    // English-specific words
+    'also', 'then', 'very', 'well', 'make', 'have', 'are', 'is', 'house', 'company', 'brazil', 'service', 'warranty', 'maintenance', 'information'
+  ];
   
   const textLower = text.toLowerCase();
+  
+  // Count word matches
   const ptCount = ptWords.filter(word => textLower.includes(word)).length;
   const enCount = enWords.filter(word => textLower.includes(word)).length;
   
-  // Check for Portuguese-specific characters and patterns
+  // Check for Portuguese-specific characters (strong indicator)
   const ptPatterns = /[ãâáàçõôóêé]/g;
   const ptCharCount = (text.match(ptPatterns) || []).length;
   
-  return (ptCount + ptCharCount) > enCount ? 'pt' : 'en';
+  // Check for Portuguese verb endings and patterns
+  const ptVerbPatterns = /\b\w+(ção|são|ões|mente)\b/g;
+  const ptVerbCount = (text.match(ptVerbPatterns) || []).length;
+  
+  // Calculate weighted score
+  const ptScore = ptCount + (ptCharCount * 2) + ptVerbCount;
+  const enScore = enCount;
+  
+  console.log(`🌍 Language detection - PT score: ${ptScore}, EN score: ${enScore}`);
+  
+  return ptScore > enScore ? 'pt' : 'en';
 }
 
 // Vector similarity search (simplified)
@@ -104,15 +145,15 @@ async function generateGeminiResponse(query: string, context: string[], language
     
     const systemPrompt = language === 'pt' 
       ? `Você é o assistente virtual da Megaphoton, empresa brasileira de energia solar em Minas Gerais. 
-         IMPORTANTE: Responda SEMPRE em português brasileiro, independente do idioma da pergunta.
-         Responda com base no contexto fornecido sobre nossos serviços de energia solar.
+         REGRA FUNDAMENTAL: Responda EXCLUSIVAMENTE em português brasileiro.
+         Use o contexto fornecido sobre nossos serviços de energia solar.
          Seja profissional, amigável e use emojis apropriados.
-         Se não tiver informação específica, sugira contato via WhatsApp +55 34 99232-0853.`
+         Para orçamentos, sugira contato via WhatsApp +55 34 99232-0853.`
       : `You are Megaphoton's virtual assistant, a Brazilian solar energy company in Minas Gerais.
-         IMPORTANT: Always respond in English, regardless of the question language.
-         Answer based on the provided context about our solar energy services.
+         FUNDAMENTAL RULE: Respond EXCLUSIVELY in English.
+         Use the provided context about our solar energy services.
          Be professional, friendly and use appropriate emojis.
-         If you don't have specific information, suggest contact via WhatsApp +55 34 99232-0853.`;
+         For quotes, suggest contact via WhatsApp +55 34 99232-0853.`;
 
     const prompt = `${systemPrompt}
 
@@ -121,7 +162,7 @@ ${language === 'pt' ? 'Pergunta' : 'Question'}: "${query}"
 ${language === 'pt' ? 'Contexto da Megaphoton' : 'Megaphoton Context'}:
 ${context.join('\n\n')}
 
-${language === 'pt' ? 'RESPONDA EXCLUSIVAMENTE EM PORTUGUÊS BRASILEIRO' : 'RESPOND EXCLUSIVELY IN ENGLISH'}:`;
+${language === 'pt' ? 'RESPONDA SOMENTE EM PORTUGUÊS' : 'RESPOND ONLY IN ENGLISH'}:`;
 
     console.log('📤 Sending to Gemini:', prompt.substring(0, 200) + '...');
     
@@ -137,7 +178,7 @@ ${language === 'pt' ? 'RESPONDA EXCLUSIVAMENTE EM PORTUGUÊS BRASILEIRO' : 'RESP
   }
 }
 
-// Main chat service function
+// Main chat service function with forced language detection
 export async function sendGeminiChatMessage(message: string, language?: 'pt' | 'en') {
   try {
     console.log('🚀 Gemini Chat Service called with:', message);
