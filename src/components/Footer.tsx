@@ -22,6 +22,7 @@ const Footer = () => {
     { label: 'Projetos', href: '#projetos' },
     { label: 'Instalações', href: '#instalacoes' },
     { label: 'Agronegócio', href: '#agronegocio' },
+    { label: 'Sobre Nós', href: '#sobre' },
     { label: 'Contato', href: '#contato' }
   ];
 
