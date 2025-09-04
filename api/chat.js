@@ -155,12 +155,13 @@ export default async function handler(req, res) {
     
     if (needsEscalation) {
       const escalationMsg = detectedLanguage === 'pt'
-        ? 'Para orçamentos e informações comerciais, nossa equipe pode te ajudar melhor! Vamos conversar no WhatsApp? 📱'
-        : 'For quotes and commercial information, our team can help you better! Let\'s chat on WhatsApp? 📱';
+        ? 'Para orçamentos e informações comerciais detalhadas, nossa equipe especializada pode te ajudar melhor! 🚀\n\nVamos conversar no WhatsApp? 📱'
+        : 'For quotes and detailed commercial information, our specialized team can help you better! 🚀\n\nLet\'s chat on WhatsApp? 📱';
       
       return res.json({
         response: escalationMsg,
         language: detectedLanguage,
+        contextFound: false,
         needsEscalation: true
       });
     }
@@ -168,14 +169,26 @@ export default async function handler(req, res) {
     // Generate AI response
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
     
-    const systemPrompt = detectedLanguage === 'pt'
-      ? 'Você é o assistente da Megaphoton, empresa de energia solar em MG. IMPORTANTE: Responda SEMPRE em português brasileiro.'
-      : 'You are Megaphoton assistant, solar energy company in MG. IMPORTANT: Always respond in English.';
-    
+    const systemPrompt = detectedLanguage === 'pt' 
+      ? `Você é o assistente virtual da Megaphoton, empresa brasileira de energia solar em Minas Gerais. 
+         REGRA FUNDAMENTAL: Responda EXCLUSIVAMENTE em português brasileiro.
+         Use o contexto fornecido sobre nossos serviços de energia solar.
+         Seja profissional, amigável e use emojis apropriados.
+         Para orçamentos, sugira contato via WhatsApp +55 34 99232-0853.`
+      : `You are Megaphoton's virtual assistant, a Brazilian solar energy company in Minas Gerais.
+         FUNDAMENTAL RULE: Respond EXCLUSIVELY in English.
+         Use the provided context about our solar energy services.
+         Be professional, friendly and use appropriate emojis.
+         For quotes, suggest contact via WhatsApp +55 34 99232-0853.`;
+
     const prompt = `${systemPrompt}
-Contexto: ${context.join(' ')}
-${detectedLanguage === 'pt' ? 'Pergunta' : 'Question'}: ${message}
-${detectedLanguage === 'pt' ? 'RESPONDA EM PORTUGUÊS' : 'RESPOND IN ENGLISH'}:`;
+
+${detectedLanguage === 'pt' ? 'Pergunta' : 'Question'}: "${message}"
+
+${detectedLanguage === 'pt' ? 'Contexto da Megaphoton' : 'Megaphoton Context'}:
+${context.join('\n\n')}
+
+${detectedLanguage === 'pt' ? 'RESPONDA SOMENTE EM PORTUGUÊS' : 'RESPOND ONLY IN ENGLISH'}:`;
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
@@ -189,8 +202,16 @@ ${detectedLanguage === 'pt' ? 'RESPONDA EM PORTUGUÊS' : 'RESPOND IN ENGLISH'}:`
 
   } catch (error) {
     console.error('Chat error:', error);
+    
+    const fallbackResponse = detectedLanguage === 'pt'
+      ? 'Oi! 😊 Sou o assistente da Megaphoton. Estou com uma dificuldade técnica agora, mas posso te conectar com nossa equipe via WhatsApp: +55 34 99232-0853 📱'
+      : 'Hi! 😊 I\'m Megaphoton\'s assistant. I\'m having a technical difficulty right now, but I can connect you with our team via WhatsApp: +55 34 99232-0853 📱';
+    
     res.status(500).json({
-      response: 'Erro técnico. WhatsApp: +55 34 99232-0853',
+      response: fallbackResponse,
+      language: detectedLanguage || 'pt',
+      contextFound: false,
+      needsEscalation: true,
       error: true
     });
   }
