@@ -432,17 +432,17 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
             className="fixed bottom-4 right-4 z-[60] w-[calc(100vw-2rem)] max-w-sm sm:max-w-md md:max-w-lg lg:w-96 h-[calc(100vh-8rem)] sm:h-[550px] md:h-[600px] bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 lg:bottom-5 lg:right-5 flex flex-col"
           >
             {/* Header - Fixed */}
-            <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 p-3 sm:p-4 relative flex-shrink-0">
+            <div className="bg-white/80 backdrop-blur-sm p-3 sm:p-4 relative flex-shrink-0">
               <button
                 onClick={onClose}
-                className="absolute top-2 sm:top-3 left-2 sm:left-3 text-white/80 hover:text-white transition-colors rounded-full p-1.5 hover:bg-white/10"
+                className="absolute top-2 sm:top-3 left-2 sm:left-3 text-black/60 hover:text-black transition-colors rounded-full p-1.5 hover:bg-gray-100"
                 aria-label="Minimizar"
               >
                 <Minus className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
               <button
                 onClick={handleCloseAttempt}
-                className="absolute top-2 sm:top-3 right-2 sm:right-3 text-white/80 hover:text-white transition-colors rounded-full p-1.5 hover:bg-white/10"
+                className="absolute top-2 sm:top-3 right-2 sm:right-3 text-black/60 hover:text-black transition-colors rounded-full p-1.5 hover:bg-gray-100"
                 aria-label="Fechar"
               >
                 <X className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -451,19 +451,16 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
               <div className="flex items-center justify-center flex-1">
                 <div className="w-16 h-16 sm:w-18 sm:h-18 flex items-center justify-center">
                   <img 
-                    src="/images/Logo Megaphoton.png" 
+                    src="/images/megaphoton.png" 
                     alt="Megaphoton Logo" 
                     className="w-16 h-16 sm:w-18 sm:h-18 object-contain"
                   />
                 </div>
                 <div className="flex flex-col items-center ml-3">
                   <div className="flex items-center space-x-2">
-                    <h3 className="text-white font-semibold text-base sm:text-lg">
+                    <h3 className="text-black font-semibold text-base sm:text-lg">
                       Megaphoton IA
                     </h3>
-                    <span className="bg-yellow-400 text-black text-xs px-1.5 py-0.5 rounded font-medium">
-                      Beta
-                    </span>
                   </div>
                 </div>
               </div>
