@@ -167,7 +167,7 @@ export default async function handler(req, res) {
     }
 
     // Generate AI response
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-lite' });
     
     const systemPrompt = detectedLanguage === 'pt' 
       ? `Você é o assistente virtual da Megaphoton, empresa brasileira de energia solar em Minas Gerais. 
