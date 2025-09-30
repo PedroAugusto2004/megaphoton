@@ -16,7 +16,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 const MEGAPHOTON_DOCS = [
   {
     id: 'company-info-pt',
-    content: 'Megaphoton é uma empresa brasileira líder em energia solar, sediada em Minas Gerais. Somos certificados ANEEL e parceiros das principais marcas mundiais. Nossa missão é democratizar energia solar sustentável no Brasil. Atendemos residências, comércios e indústrias em todo território nacional com milhares de clientes satisfeitos.',
+    content: 'Como empresa brasileira, somos especialistas em instalação e manutenção de usinas solares fotovoltaicas. Nosso diferencial está no atendimento de excelência e no cuidado que temos com o nosso pós-venda. Atuamos em Uberlândia, Minas Gerais, e trabalhamos com as principais marcas do mercado global, garantindo a qualidade e durabilidade das nossas soluções.',
     category: 'company',
     language: 'pt'
   },
@@ -40,7 +40,7 @@ const MEGAPHOTON_DOCS = [
   },
   {
     id: 'benefits-pt',
-    content: 'Benefícios energia solar: 💰 Economia 70-95% conta luz 🌱 100% sustentável, zero emissões 🏠 Valoriza imóvel 3-8% 🔋 Energia limpa e renovável 📈 Retorno investimento 3-7 anos 🚪 Independência energética 🛡️ Proteção contra inflação elétrica ⚙️ Baixa manutenção',
+    content: 'Benefícios energia solar: 💰 Economia 70-95% conta luz 🌱 100% sustentável, zero emissões 🏠 Valoriza imóvel 3-8% 🔋 Energia limpa e renovável 📈 Retorno investimento em muito pouco tempo! 🚪 Independência energética 🛡️ Proteção contra inflação elétrica ⚙️ Baixa manutenção',
     category: 'benefits',
     language: 'pt'
   },
@@ -52,13 +52,13 @@ const MEGAPHOTON_DOCS = [
   },
   {
     id: 'contact-complete-pt',
-    content: 'Contato Megaphoton: 📱 WhatsApp +55 34 99232-0853 (prioritário) 📧 contato@megaphoton.com.br 🌐 www.megaphoton.com.br 🕰️ Seg-Sex 8h-18h, Sáb 8h-12h 📍 Minas Gerais, atendimento nacional 🏠 Visitas gratuitas 📊 Orçamentos sem compromisso',
+    content: 'Contato Megaphoton: 📱 WhatsApp +55 34 99232-0853 (prioritário) 📧 contato@megaphoton.com.br 🌐 www.megaphoton.com.br 🕰️ Seg-Sex 8h-18h, Sáb 8h-12h 📍 Uberlândia, Minas Gerais 🏠 Visitas gratuitas 📊 Orçamentos sem compromisso',
     category: 'contact',
     language: 'pt'
   },
   {
     id: 'company-info-en',
-    content: 'Megaphoton is a leading Brazilian solar energy company based in Minas Gerais. We are ANEEL certified and partners with major global brands. Our mission is to democratize sustainable solar energy in Brazil.',
+    content: 'Megaphoton is a leading Brazilian solar energy company based in Minas Gerais. We are partners with major global brands. Our mission is to democratize sustainable solar energy in Brazil.',
     category: 'company',
     language: 'en'
   },
