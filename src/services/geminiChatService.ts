@@ -78,41 +78,52 @@ const MEGAPHOTON_DOCS = [
 
 // Enhanced language detection with improved accuracy
 function detectLanguage(text: string): 'pt' | 'en' {
+  const textLower = text.toLowerCase().trim();
+  
+  // Strong Portuguese indicators
+  const accentCount = (textLower.match(/[ãâáàçõôóêéíú]/g) || []).length;
+  const ptEndingsCount = (textLower.match(/\w+(ção|são|ões|mente|ável)\b/g) || []).length;
+  
+  // Portuguese words with exact matching
   const ptWords = [
-    // Common Portuguese words
-    'energia', 'solar', 'painel', 'instalação', 'orçamento', 'preço', 'como', 'que', 'para', 'com', 'não', 'mais', 'você', 'seu', 'sua', 'onde', 'quando', 'quanto', 'por', 'sim', 'obrigado', 'oi', 'olá',
-    // Portuguese-specific words
-    'também', 'então', 'muito', 'bem', 'fazer', 'ter', 'ser', 'estar', 'casa', 'empresa', 'brasil', 'brasileiro', 'minas', 'gerais', 'atendimento', 'informação', 'serviço', 'garantia', 'manutenção'
+    'oi', 'olá', 'não', 'sim', 'você', 'está', 'são', 'tem', 'fazer', 'ser', 'ter', 'muito', 'bem', 'então', 'também',
+    'energia', 'solar', 'painel', 'painéis', 'instalação', 'orçamento', 'preço', 'valor', 'custo', 'informação', 'serviço', 'garantia', 'manutenção',
+    'como', 'que', 'para', 'com', 'mais', 'seu', 'sua', 'onde', 'quando', 'quanto', 'por', 'obrigado', 'obrigada',
+    'casa', 'empresa', 'brasil', 'brasileiro', 'minas', 'gerais', 'atendimento', 'megaphoton',
+    'preciso', 'quero', 'gostaria', 'pode', 'consegue', 'ajuda', 'ajudar', 'falar', 'conversar'
   ];
   
+  // English words
   const enWords = [
-    // Common English words
-    'energy', 'solar', 'panel', 'installation', 'quote', 'price', 'how', 'what', 'for', 'with', 'not', 'more', 'you', 'your', 'where', 'when', 'much', 'by', 'yes', 'thanks', 'hi', 'hello',
-    // English-specific words
-    'also', 'then', 'very', 'well', 'make', 'have', 'are', 'is', 'house', 'company', 'brazil', 'service', 'warranty', 'maintenance', 'information'
+    'hi', 'hello', 'yes', 'no', 'you', 'are', 'is', 'have', 'make', 'do', 'very', 'well', 'also', 'then',
+    'energy', 'solar', 'panel', 'panels', 'installation', 'quote', 'price', 'cost', 'information', 'service', 'warranty', 'maintenance',
+    'how', 'what', 'for', 'with', 'not', 'more', 'your', 'where', 'when', 'much', 'by', 'thanks', 'thank',
+    'house', 'company', 'brazil', 'megaphoton',
+    'need', 'want', 'would', 'can', 'help', 'talk', 'speak'
   ];
   
-  const textLower = text.toLowerCase();
+  // Count exact word matches
+  const ptWordCount = ptWords.filter(word => 
+    new RegExp(`\\b${word}\\b`, 'i').test(textLower)
+  ).length;
   
-  // Count word matches
-  const ptCount = ptWords.filter(word => textLower.includes(word)).length;
-  const enCount = enWords.filter(word => textLower.includes(word)).length;
+  const enWordCount = enWords.filter(word => 
+    new RegExp(`\\b${word}\\b`, 'i').test(textLower)
+  ).length;
   
-  // Check for Portuguese-specific characters (strong indicator)
-  const ptPatterns = /[ãâáàçõôóêé]/g;
-  const ptCharCount = (text.match(ptPatterns) || []).length;
+  // Calculate scores with heavy Portuguese weighting
+  const ptScore = (accentCount * 5) + (ptEndingsCount * 4) + (ptWordCount * 3);
+  const enScore = enWordCount;
   
-  // Check for Portuguese verb endings and patterns
-  const ptVerbPatterns = /\b\w+(ção|são|ões|mente)\b/g;
-  const ptVerbCount = (text.match(ptVerbPatterns) || []).length;
+  console.log(`🌍 Language detection - Accents: ${accentCount}, PT endings: ${ptEndingsCount}, PT words: ${ptWordCount}, EN words: ${enWordCount}, PT score: ${ptScore}, EN score: ${enScore}`);
   
-  // Calculate weighted score
-  const ptScore = ptCount + (ptCharCount * 2) + ptVerbCount;
-  const enScore = enCount;
+  // Default to Portuguese for Brazilian context
+  if (ptScore === 0 && enScore === 0) {
+    console.log('🌍 No indicators found, defaulting to Portuguese');
+    return 'pt';
+  }
   
-  console.log(`🌍 Language detection - PT score: ${ptScore}, EN score: ${enScore}`);
-  
-  return ptScore > enScore ? 'pt' : 'en';
+  return ptScore >= enScore ? 'pt' : 'en';
 }
 
 // Vector similarity search (simplified)

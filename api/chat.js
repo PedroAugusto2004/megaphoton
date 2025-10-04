@@ -50,35 +50,52 @@ const KNOWLEDGE_BASE = [
 ];
 
 function detectLanguage(text) {
+  const textLower = text.toLowerCase().trim();
+  
+  // Strong Portuguese indicators
+  const accentCount = (textLower.match(/[ãâáàçõôóêéíú]/g) || []).length;
+  const ptEndingsCount = (textLower.match(/\w+(ção|são|ões|mente|ável)\b/g) || []).length;
+  
+  // Portuguese words with exact matching
   const ptWords = [
-    'energia', 'solar', 'painel', 'instalação', 'orçamento', 'preço', 'como', 'que', 'para', 'com', 'não', 'mais', 'você', 'seu', 'sua', 'onde', 'quando', 'quanto', 'por', 'sim', 'obrigado', 'oi', 'olá',
-    'também', 'então', 'muito', 'bem', 'fazer', 'ter', 'ser', 'estar', 'casa', 'empresa', 'brasil', 'brasileiro', 'minas', 'gerais', 'atendimento', 'informação', 'serviço', 'garantia', 'manutenção'
+    'oi', 'olá', 'não', 'sim', 'você', 'está', 'são', 'tem', 'fazer', 'ser', 'ter', 'muito', 'bem', 'então', 'também',
+    'energia', 'solar', 'painel', 'painéis', 'instalação', 'orçamento', 'preço', 'valor', 'custo', 'informação', 'serviço', 'garantia', 'manutenção',
+    'como', 'que', 'para', 'com', 'mais', 'seu', 'sua', 'onde', 'quando', 'quanto', 'por', 'obrigado', 'obrigada',
+    'casa', 'empresa', 'brasil', 'brasileiro', 'minas', 'gerais', 'atendimento', 'megaphoton',
+    'preciso', 'quero', 'gostaria', 'pode', 'consegue', 'ajuda', 'ajudar', 'falar', 'conversar'
   ];
   
+  // English words
   const enWords = [
-    'energy', 'solar', 'panel', 'installation', 'quote', 'price', 'how', 'what', 'for', 'with', 'not', 'more', 'you', 'your', 'where', 'when', 'much', 'by', 'yes', 'thanks', 'hi', 'hello',
-    'also', 'then', 'very', 'well', 'make', 'have', 'are', 'is', 'house', 'company', 'brazil', 'service', 'warranty', 'maintenance', 'information'
+    'hi', 'hello', 'yes', 'no', 'you', 'are', 'is', 'have', 'make', 'do', 'very', 'well', 'also', 'then',
+    'energy', 'solar', 'panel', 'panels', 'installation', 'quote', 'price', 'cost', 'information', 'service', 'warranty', 'maintenance',
+    'how', 'what', 'for', 'with', 'not', 'more', 'your', 'where', 'when', 'much', 'by', 'thanks', 'thank',
+    'house', 'company', 'brazil', 'megaphoton',
+    'need', 'want', 'would', 'can', 'help', 'talk', 'speak'
   ];
   
-  const textLower = text.toLowerCase();
-  const ptCount = ptWords.filter(w => textLower.includes(w)).length;
-  const enCount = enWords.filter(w => textLower.includes(w)).length;
+  // Count exact word matches
+  const ptWordCount = ptWords.filter(word => 
+    new RegExp(`\\b${word}\\b`, 'i').test(textLower)
+  ).length;
   
-  // Check for Portuguese-specific characters (strong indicator)
-  const ptPatterns = /[ãâáàçõôóêé]/g;
-  const ptCharCount = (text.match(ptPatterns) || []).length;
+  const enWordCount = enWords.filter(word => 
+    new RegExp(`\\b${word}\\b`, 'i').test(textLower)
+  ).length;
   
-  // Check for Portuguese verb endings
-  const ptVerbPatterns = /\b\w+(ção|são|ões|mente)\b/g;
-  const ptVerbCount = (text.match(ptVerbPatterns) || []).length;
+  // Calculate scores with heavy Portuguese weighting
+  const ptScore = (accentCount * 5) + (ptEndingsCount * 4) + (ptWordCount * 3);
+  const enScore = enWordCount;
   
-  // Calculate weighted score
-  const ptScore = ptCount + (ptCharCount * 2) + ptVerbCount;
-  const enScore = enCount;
+  console.log(`Language detection - Accents: ${accentCount}, PT endings: ${ptEndingsCount}, PT words: ${ptWordCount}, EN words: ${enWordCount}, PT score: ${ptScore}, EN score: ${enScore}`);
   
-  console.log(`Language detection - PT: ${ptScore}, EN: ${enScore}`);
+  // Default to Portuguese for Brazilian context
+  if (ptScore === 0 && enScore === 0) {
+    console.log('No indicators found, defaulting to Portuguese');
+    return 'pt';
+  }
   
-  return ptScore > enScore ? 'pt' : 'en';
+  return ptScore >= enScore ? 'pt' : 'en';
 }
 
 function searchKnowledge(query, language) {
