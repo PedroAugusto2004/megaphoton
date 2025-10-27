@@ -1,62 +1,64 @@
 import { Thermometer, FileText, Monitor, Settings, Wrench, Droplets, PenTool, CheckSquare, Search } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useTranslation } from 'react-i18next';
 
 const ServicesSection = () => {
+  const { t } = useTranslation();
   
   const services = [
     {
       icon: Thermometer,
-      title: 'Termografia',
-      description: 'Detecção precoce de falhas como hot spots, microfissuras e delaminações',
+      titleKey: 'services.termografia',
+      descKey: 'services.termografiaDesc',
       gradient: 'bg-orange-500',
       sectionId: 'termografia'
     },
     {
       icon: Search,
-      title: 'Inspeção',
-      description: 'Análise detalhada e avaliação técnica de instalações solares',
+      titleKey: 'services.inspecao',
+      descKey: 'services.inspecaoDesc',
       gradient: 'bg-blue-500',
       sectionId: 'inspecao'
     },
     {
       icon: Monitor,
-      title: 'Monitoramento',
-      description: 'Acompanhamento online em tempo real do desempenho da usina',
+      titleKey: 'services.monitoramento',
+      descKey: 'services.monitoramentoDesc',
       gradient: 'bg-green-500',
       sectionId: 'monitoramento'
     },
     {
       icon: CheckSquare,
-      title: 'Comissionamento',
-      description: 'Verificação da conformidade e segurança elétrica da instalação',
+      titleKey: 'services.comissionamento',
+      descKey: 'services.comissionamentoDesc',
       gradient: 'bg-purple-500',
       sectionId: 'laudos'
     },
     {
       icon: Wrench,
-      title: 'Instalação',
-      description: 'Execução de projetos com excelência e precisão técnica',
+      titleKey: 'services.instalacao',
+      descKey: 'services.instalacaoDesc',
       gradient: 'bg-orange-500',
       sectionId: 'instalacoes'
     },
     {
       icon: Settings,
-      title: 'Reparos',
-      description: 'Manutenção corretiva e preventiva especializada',
+      titleKey: 'services.reparos',
+      descKey: 'services.reparosDesc',
       gradient: 'bg-red-500',
       sectionId: 'contato'
     },
     {
       icon: Droplets,
-      title: 'Higienização',
-      description: 'Limpeza profissional para máxima eficiência energética',
+      titleKey: 'services.higienizacao',
+      descKey: 'services.higienizacaoDesc',
       gradient: 'bg-blue-500',
       sectionId: 'higienizacao'
     },
     {
       icon: PenTool,
-      title: 'Projetos',
-      description: 'Desenvolvimento de soluções completas em energia solar',
+      titleKey: 'services.projetos',
+      descKey: 'services.projetosDesc',
       gradient: 'bg-green-500',
       sectionId: 'projetos'
     }
@@ -69,14 +71,13 @@ const ServicesSection = () => {
         <div className="mb-16">
           <div className="flex items-center mb-2">
             <div className="h-px w-12 bg-green-700 mr-4"></div>
-            <span className="text-green-700 uppercase tracking-wider text-sm font-medium">Serviços</span>
+            <span className="text-green-700 uppercase tracking-wider text-sm font-medium">{t('services.title')}</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Nossos <span className="text-black">Serviços</span>
+            {t('services.heading')} <span className="text-black">{t('services.headingBold')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            A MEGAPHOTON oferece aos seus clientes serviços de qualidade em usinas solares, 
-            realizados por profissionais capacitados
+            {t('services.description')}
           </p>
         </div>
 
@@ -97,10 +98,10 @@ const ServicesSection = () => {
                     </div>
                   </div>
                   <h3 className="text-lg font-medium text-gray-800 mb-2">
-                    {service.title}
+                    {t(service.titleKey)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed flex-grow">
-                    {service.description}
+                    {t(service.descKey)}
                   </p>
                   <div className="mt-4">
                     <button 
@@ -112,7 +113,7 @@ const ServicesSection = () => {
                       }} 
                       className="flex items-center text-sm text-orange-500 font-medium hover:text-orange-600 transition-colors"
                     >
-                      <span>Saiba mais</span>
+                      <span>{t('services.saibaMais')}</span>
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                       </svg>
@@ -128,13 +129,13 @@ const ServicesSection = () => {
         <div className="mb-16">
           <div className="flex items-center mb-2">
             <div className="h-px w-12 bg-blue-700 mr-4"></div>
-            <span className="text-blue-700 uppercase tracking-wider text-sm font-medium">Como funciona</span>
+            <span className="text-blue-700 uppercase tracking-wider text-sm font-medium">{t('services.comoFunciona')}</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Como <span className="text-black">Funciona</span>
+            {t('services.comoFuncionaTitle')} <span className="text-black">{t('services.comoFuncionaTitleBold')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mb-8">
-            Um sistema fotovoltaico converte a luz do sol diretamente em eletricidade.
+            {t('services.comoFuncionaDesc')}
           </p>
         </div>
 
@@ -154,9 +155,7 @@ const ServicesSection = () => {
             <div className="absolute top-4 left-4 md:top-8 md:left-16">
               <div className="bg-black/40 backdrop-blur-md rounded-lg p-3 md:p-6 border border-white/20 shadow-xl w-[calc(100vw-2rem)] max-w-[240px] sm:max-w-xs md:max-w-lg">
                 <p className="text-xs md:text-base text-white leading-relaxed">
-                  Os painéis solares, feitos de células fotovoltaicas, captam a luz e geram corrente elétrica contínua (CC). 
-                  Essa energia CC passa por um inversor, que a transforma em corrente alternada (CA) – o tipo de eletricidade 
-                  que usamos em casas e empresas.
+                  {t('services.comoFuncionaText')}
                 </p>
               </div>
             </div>
@@ -177,37 +176,37 @@ const ServicesSection = () => {
           {/* Content Side */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h4 className="font-semibold text-orange-500 text-lg">Processo On-Grid</h4>
+              <h4 className="font-semibold text-orange-500 text-lg">{t('services.processoOnGrid')}</h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div>
-                  <h5 className="font-medium text-foreground">1 - Irradiação Solar</h5>
-                  <p>Os fótons desencadeiam uma reação com o silício das placas e geram energia contínua</p>
+                  <h5 className="font-medium text-foreground">{t('services.irradiacaoSolar')}</h5>
+                  <p>{t('services.irradiacaoSolarDesc')}</p>
                 </div>
                 <div>
-                  <h5 className="font-medium text-foreground">2 - Inversor</h5>
-                  <p>O inversor recebe esta energia e inverte para a energia alternada, usada na residência</p>
+                  <h5 className="font-medium text-foreground">{t('services.inversor')}</h5>
+                  <p>{t('services.inversorDesc')}</p>
                 </div>
                 <div>
-                  <h5 className="font-medium text-foreground">3 - String Box</h5>
-                  <p>A "string box" é uma caixa de proteção onde ficam os disjuntores e DPS, dispositivos contra surtos</p>
+                  <h5 className="font-medium text-foreground">{t('services.stringBox')}</h5>
+                  <p>{t('services.stringBoxDesc')}</p>
                 </div>
               </div>
             </div>
             
             <div className="space-y-4">
-              <h4 className="font-semibold text-orange-500 text-lg">Distribuição & Grid</h4>
+              <h4 className="font-semibold text-orange-500 text-lg">{t('services.distribuicaoGrid')}</h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div>
-                  <h5 className="font-medium text-foreground">4 - Caixa de Distribuição</h5>
-                  <p>A caixa de distribuição distribui a energia gerada pela usina. O excedente vai para a concessionária</p>
+                  <h5 className="font-medium text-foreground">{t('services.caixaDistribuicao')}</h5>
+                  <p>{t('services.caixaDistribuicaoDesc')}</p>
                 </div>
                 <div>
-                  <h5 className="font-medium text-foreground">5 - Relógio Bidirecional</h5>
-                  <p>O relógio faz a contabilidade da energia que entra e a que sai para a rede da concessionária</p>
+                  <h5 className="font-medium text-foreground">{t('services.relogioBidirecional')}</h5>
+                  <p>{t('services.relogioBidirecionalDesc')}</p>
                 </div>
                 <div>
-                  <h5 className="font-medium text-foreground">6 - Rede Elétrica</h5>
-                  <p>A rede elétrica da concessionária recebe a energia excedente, que vira crédito para abater na conta</p>
+                  <h5 className="font-medium text-foreground">{t('services.redeEletrica')}</h5>
+                  <p>{t('services.redeEletricaDesc')}</p>
                 </div>
               </div>
             </div>
@@ -225,31 +224,30 @@ const ServicesSection = () => {
           <div className="flex items-center px-6 md:px-8 lg:px-16 py-8 md:py-16 lg:py-20 lg:order-1">
             <div className="space-y-6 md:space-y-8 text-white max-w-lg">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
-                INSTALAÇÕES &<br />MANUTENÇÕES
+                {t('services.omTitle')}<br />{t('services.omTitle2')}
               </h3>
               
               <div className="space-y-4 md:space-y-6">
                 <p className="text-base md:text-lg font-medium text-white/90">
-                  Serviços de O&M (Operação e Manutenção)
+                  {t('services.omSubtitle')}
                 </p>
                 <p className="text-sm md:text-base text-white/80 leading-relaxed font-light">
-                  Garantimos o funcionamento otimizado da sua usina solar através de serviços 
-                  especializados, maximizando a vida útil e o desempenho do seu investimento.
+                  {t('services.omDesc')}
                 </p>
               </div>
               
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-white font-medium">Instalação Profissional</span>
+                  <span className="text-white font-medium">{t('services.instalacaoProfissional')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-white font-medium">Manutenção Preventiva</span>
+                  <span className="text-white font-medium">{t('services.manutencaoPreventiva')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-white font-medium">Suporte Técnico</span>
+                  <span className="text-white font-medium">{t('services.suporteTecnico')}</span>
                 </div>
               </div>
               
@@ -257,7 +255,7 @@ const ServicesSection = () => {
                 onClick={() => window.open('https://wa.me/5534992320853?text=Olá,%20quero%20agendar%20uma%20instalação', '_blank')}
                 className="mt-6 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/30 rounded-lg text-white font-medium text-sm transition-all duration-300 backdrop-blur-sm hover:scale-105"
               >
-                Agende a sua instalação
+                {t('services.agendeSuaInstalacao')}
               </button>
             </div>
           </div>

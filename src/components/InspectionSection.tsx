@@ -1,26 +1,28 @@
 import { CheckCircle, ArrowRight, Award, Shield, FileText } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const InspectionSection = () => {
+  const { t } = useTranslation();
   const applications = [
-    'Verificações detalhadas da parte elétrica',
-    'Inspeção visual de equipamentos',
-    'Testes de corrente e potência'
+    t('inspection.verificacao1'),
+    t('inspection.verificacao2'),
+    t('inspection.verificacao3')
   ];
 
   const features = [
     {
-      title: 'Verificação Elétrica',
-      description: 'Conexões, cabos e proteções',
+      titleKey: 'inspection.verificacaoEletrica',
+      descKey: 'inspection.verificacaoEletricaDesc',
       icon: Award
     },
     {
-      title: 'Inspeção Visual',
-      description: 'Desgaste, sujeira e danos',
+      titleKey: 'inspection.inspecaoVisual',
+      descKey: 'inspection.inspecaoVisualDesc',
       icon: Shield
     },
     {
-      title: 'Testes Técnicos',
-      description: 'Corrente, potência e desempenho',
+      titleKey: 'inspection.testesTecnicos',
+      descKey: 'inspection.testesDesc',
       icon: FileText
     }
   ];
@@ -32,13 +34,13 @@ const InspectionSection = () => {
         <div className="mb-16">
           <div className="flex items-center mb-2">
             <div className="h-px w-12 bg-blue-600 mr-4"></div>
-            <span className="text-blue-600 uppercase tracking-wider text-sm font-medium">Inspeção</span>
+            <span className="text-blue-600 uppercase tracking-wider text-sm font-medium">{t('inspection.title')}</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            <span className="text-black">Inspeção</span>
+            <span className="text-black">{t('inspection.title')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Verificações essenciais para garantir desempenho, segurança e durabilidade do sistema
+            {t('inspection.description')}
           </p>
         </div>
 
@@ -58,10 +60,10 @@ const InspectionSection = () => {
             <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
               <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
                 <h3 className="text-sm sm:text-base md:text-3xl font-light text-white mb-1.5 md:mb-4 leading-tight text-left">
-                  Inspeção <span className="text-blue-300 font-normal">Técnica</span>
+                  {t('inspection.inspecaoTitle')} <span className="text-blue-300 font-normal">{t('inspection.inspecaoBold')}</span>
                 </h3>
                 <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
-                  A inspeção em uma usina solar fotovoltaica é essencial para garantir o desempenho, a segurança e a durabilidade do sistema.
+                  {t('inspection.inspecaoDesc')}
                 </p>
                 <div className="space-y-0.5 md:space-y-3">
                   {applications.map((application, index) => (
@@ -98,10 +100,10 @@ const InspectionSection = () => {
                   </span>
                   <div className="flex flex-col justify-center bg-white/90 backdrop-blur-md border border-slate-100 rounded-xl shadow p-6 lg:p-8 min-w-[220px] max-w-xs mx-auto">
                     <h4 className="text-lg lg:text-xl font-bold text-slate-900 mb-2 tracking-tight">
-                      {feature.title}
+                      {t(feature.titleKey)}
                     </h4>
                     <p className="text-slate-600 leading-relaxed text-base">
-                      {feature.description}
+                      {t(feature.descKey)}
                     </p>
                   </div>
                 </div>
@@ -146,10 +148,10 @@ const InspectionSection = () => {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             <div className="text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Garanta a <span className="text-blue-200">qualidade</span> <br className="hidden lg:block" />do seu sistema
+                {t('inspection.ctaTitle')} <span className="text-blue-200">{t('inspection.ctaTitleBold')}</span> <br className="hidden lg:block" />{t('inspection.ctaSubtitle')}
               </h3>
               <p className="text-blue-100/90 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed">
-                Inspeção profissional para máxima eficiência, segurança e durabilidade do seu investimento em energia solar.
+                {t('inspection.ctaDesc')}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <button 
@@ -159,7 +161,7 @@ const InspectionSection = () => {
                     window.open(`https://wa.me/5534992320853?text=${message}`, '_blank');
                   }}
                 >
-                  <span>Solicitar Inspeção</span>
+                  <span>{t('inspection.solicitarInspecao')}</span>
                   <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 animate-pulse" />
                 </button>
                 <button className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-transparent border border-blue-200/30 text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl hover:bg-blue-700/50 transition-all duration-300 font-medium text-sm sm:text-base"
@@ -170,7 +172,7 @@ const InspectionSection = () => {
                     }
                   }}
                 >
-                  <span>Fale Conosco</span>
+                  <span>{t('inspection.faleConosco')}</span>
                 </button>
               </div>
             </div>

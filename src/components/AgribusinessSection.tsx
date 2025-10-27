@@ -1,21 +1,23 @@
 import { Tractor, Battery, Zap, Wifi, Shield, Droplets, Thermometer, Clock, TrendingUp, Leaf, Sun, Calculator, Users, Award } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const AgribusinessSection = () => {
+  const { t } = useTranslation();
   const systems = [
     {
       icon: <Battery className="h-5 w-5 text-green-600" />,
-      title: 'Sistemas Híbridos',
-      description: 'Inversores com baterias para máxima independência energética'
+      titleKey: 'agribusiness.sistemasHibridos',
+      descKey: 'agribusiness.hibridosDesc'
     },
     {
       icon: <Zap className="h-5 w-5 text-green-600" />,
-      title: 'Off-Grid',
-      description: 'Sistemas completamente independentes da rede elétrica'
+      titleKey: 'agribusiness.offGrid',
+      descKey: 'agribusiness.offGridDesc'
     },
     {
       icon: <Shield className="h-5 w-5 text-green-600" />,
-      title: 'Zero Grid',
-      description: 'Autonomia total para propriedades rurais remotas'
+      titleKey: 'agribusiness.zeroGrid',
+      descKey: 'agribusiness.zeroGridDesc'
     }
   ];
 
@@ -26,13 +28,13 @@ const AgribusinessSection = () => {
         <div className="mb-16">
           <div className="flex items-center mb-2">
             <div className="h-px w-12 bg-green-600 mr-4"></div>
-            <span className="text-green-600 uppercase tracking-wider text-sm font-medium">Agronegócio</span>
+            <span className="text-green-600 uppercase tracking-wider text-sm font-medium">{t('agribusiness.title')}</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            <span className="text-black">Agronegócio</span>
+            <span className="text-black">{t('agribusiness.title')}</span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-6xl mx-auto font-medium">
-            Energia <span className="text-green-600">independente</span> para o campo brasileiro
+            {t('agribusiness.subtitle')} <span className="text-green-600">{t('agribusiness.subtitleBold')}</span> {t('agribusiness.subtitleEnd')}
           </p>
         </div>
       </div>
@@ -55,29 +57,29 @@ const AgribusinessSection = () => {
               <div className="flex items-center gap-2 mb-2 md:mb-4">
                 <Tractor className="h-4 w-4 md:h-5 md:w-5 text-white" />
                 <p className="text-white text-xs md:text-sm font-medium">
-                  Energia solar e armazenamento para o campo brasileiro
+                  {t('agribusiness.energiaSolarText')}
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-1 md:gap-3">
                 <div className="flex items-center gap-2">
                   <Battery className="h-3 w-3 md:h-4 md:w-4 text-white" />
                   <div>
-                    <h4 className="font-semibold text-white text-xs md:text-xs">Armazenamento Inteligente</h4>
-                    <p className="text-gray-200 text-[10px] md:text-xs">Baterias de lítio para energia 24h por dia</p>
+                    <h4 className="font-semibold text-white text-xs md:text-xs">{t('agribusiness.armazenamentoInteligente')}</h4>
+                    <p className="text-gray-200 text-[10px] md:text-xs">{t('agribusiness.armazenamentoDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <Shield className="h-3 w-3 md:h-4 md:w-4 text-white" />
                   <div>
-                    <h4 className="font-semibold text-white text-xs md:text-xs">Segurança Energética</h4>
-                    <p className="text-gray-200 text-[10px] md:text-xs">Independência total da concessionária</p>
+                    <h4 className="font-semibold text-white text-xs md:text-xs">{t('agribusiness.segurancaEnergetica')}</h4>
+                    <p className="text-gray-200 text-[10px] md:text-xs">{t('agribusiness.segurancaDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <Wifi className="h-3 w-3 md:h-4 md:w-4 text-white" />
                   <div>
-                    <h4 className="font-semibold text-white text-xs md:text-xs">Monitoramento Remoto</h4>
-                    <p className="text-gray-200 text-[10px] md:text-xs">Controle total via aplicativo móvel</p>
+                    <h4 className="font-semibold text-white text-xs md:text-xs">{t('agribusiness.monitoramentoRemoto')}</h4>
+                    <p className="text-gray-200 text-[10px] md:text-xs">{t('agribusiness.monitoramentoDesc')}</p>
                   </div>
                 </div>
               </div>
@@ -90,7 +92,7 @@ const AgribusinessSection = () => {
       <div className="container mx-auto px-4 max-w-7xl mb-16">
         {/* Technologies Grid */}
         <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
-          Soluções para o Campo
+          {t('agribusiness.solucoesCampo')}
         </h3>
         
         <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -100,9 +102,9 @@ const AgribusinessSection = () => {
                 <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
                   {tech.icon}
                 </div>
-                <h4 className="font-semibold text-gray-900">{tech.title}</h4>
+                <h4 className="font-semibold text-gray-900">{t(tech.titleKey)}</h4>
               </div>
-              <p className="text-gray-600 text-sm">{tech.description}</p>
+              <p className="text-gray-600 text-sm">{t(tech.descKey)}</p>
             </div>
           ))}
         </div>
@@ -115,12 +117,10 @@ const AgribusinessSection = () => {
             <div className="h-px w-16 bg-green-600 ml-6"></div>
           </div>
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 leading-tight">
-            Como a Energia Solar Transforma o <span className="text-green-600">Agronegócio</span>
+            {t('agribusiness.transformaTitle')} <span className="text-green-600">{t('agribusiness.transformaBold')}</span>
           </h3>
           <p className="text-xl text-gray-700 max-w-5xl mx-auto leading-relaxed font-medium">
-            A energia solar deixou de ser apenas uma fonte alternativa de eletricidade <span className="text-green-600 font-semibold">tornou-se um ativo estratégico </span> 
-            para o agronegócio. Ao reduzir custos operacionais, aumentar a eficiência e possibilitar práticas sustentáveis, 
-            a energia solar apoia produtores e empresas agrícolas em múltiplas frentes.
+            {t('agribusiness.transformaDesc')}
           </p>
         </div>
       </div>
@@ -399,10 +399,10 @@ const AgribusinessSection = () => {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             <div className="text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Transforme sua <span className="text-green-200">propriedade</span> <br className="hidden lg:block" />rural
+                {t('agribusiness.ctaTitle')} <span className="text-green-200">{t('agribusiness.ctaTitleBold')}</span> <br className="hidden lg:block" />{t('agribusiness.ctaSubtitle')}
               </h3>
               <p className="text-green-100/90 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed">
-                Energia solar profissional para máxima eficiência, sustentabilidade e lucratividade do seu investimento no agronegócio.
+                {t('agribusiness.ctaDesc')}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <button 
@@ -412,7 +412,7 @@ const AgribusinessSection = () => {
                     window.open(`https://wa.me/5534992320853?text=${message}`, '_blank');
                   }}
                 >
-                  <span>Solicitar Orçamento</span>
+                  <span>{t('agribusiness.solicitarOrcamento')}</span>
                 </button>
                 <button className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-transparent border border-green-200/30 text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl hover:bg-green-700/50 transition-all duration-300 font-medium text-sm sm:text-base"
                   onClick={() => {
@@ -422,7 +422,7 @@ const AgribusinessSection = () => {
                     }
                   }}
                 >
-                  <span>Fale Conosco</span>
+                  <span>{t('agribusiness.faleConosco')}</span>
                 </button>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, X, MessageCircle, Phone, ShoppingCart, User, Bot, ChevronDown, Sparkles, Globe, Loader2, Minus } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface Message {
   id: string;
@@ -27,26 +28,12 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      text: 'Olá! 👋 Sou o assistente virtual inteligente da Megaphoton. Como posso ajudá-lo hoje?',
-      sender: 'bot',
-      timestamp: new Date(),
-      type: 'options',
-      language: 'pt',
-      options: [
-        'Conhecer nossos serviços',
-        'Fazer um orçamento',
-        'Falar com um atendente',
-        'Informações da empresa'
-      ]
-    }
-  ]);
+  const { t, i18n } = useTranslation();
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [typingText, setTypingText] = useState('');
-  const [currentLanguage, setCurrentLanguage] = useState<'pt' | 'en'>('pt');
+  const currentLanguage = i18n.language as 'pt' | 'en';
   const [isLoading, setIsLoading] = useState(false);
   const [showCloseConfirm, setShowCloseConfirm] = useState(false);
   const [chatEnded, setChatEnded] = useState(false);
@@ -68,40 +55,45 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
     }
   }, [isOpen]);
 
-  const handleLanguageSwitch = () => {
-    const newLanguage = currentLanguage === 'pt' ? 'en' : 'pt';
-    setCurrentLanguage(newLanguage);
-    
-    const welcomeMessage = newLanguage === 'pt' 
-      ? 'Olá! 👋 Sou o assistente virtual inteligente da Megaphoton. Como posso ajudá-lo hoje?'
-      : 'Hello! 👋 I am Megaphoton\'s intelligent virtual assistant. How can I help you today?';
-    
-    const options = newLanguage === 'pt' 
-      ? [
-          'Conhecer nossos serviços',
-          'Fazer um orçamento',
-          'Falar com um atendente',
-          'Informações da empresa'
+  useEffect(() => {
+    if (messages.length === 0) {
+      setMessages([{
+        id: '1',
+        text: t('chatbot.welcome'),
+        sender: 'bot',
+        timestamp: new Date(),
+        type: 'options',
+        language: i18n.language as 'pt' | 'en',
+        options: [
+          t('chatbot.option1'),
+          t('chatbot.option2'),
+          t('chatbot.option3'),
+          t('chatbot.option4')
         ]
-      : [
-          'Learn about our services',
-          'Get a quote',
-          'Talk to an agent',
-          'Company information'
-        ];
+      }]);
+    }
+  }, []);
 
-    const languageSwitchMessage: Message = {
-      id: Date.now().toString(),
-      text: welcomeMessage,
-      sender: 'bot',
-      timestamp: new Date(),
-      language: newLanguage,
-      type: 'options',
-      options
-    };
+  useEffect(() => {
+    if (messages.length > 0 && messages[0].id === '1') {
+      setMessages([{
+        id: '1',
+        text: t('chatbot.welcome'),
+        sender: 'bot',
+        timestamp: messages[0].timestamp,
+        type: 'options',
+        language: i18n.language as 'pt' | 'en',
+        options: [
+          t('chatbot.option1'),
+          t('chatbot.option2'),
+          t('chatbot.option3'),
+          t('chatbot.option4')
+        ]
+      }, ...messages.slice(1)]);
+    }
+  }, [i18n.language]);
 
-    setMessages(prev => [...prev, languageSwitchMessage]);
-  };
+
 
   const handleCloseAttempt = () => {
     setShowCloseConfirm(true);
@@ -124,16 +116,16 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
     setMessages([
       {
         id: '1',
-        text: 'Olá! 👋 Sou o assistente virtual inteligente da Megaphoton. Como posso ajudá-lo hoje?',
+        text: t('chatbot.welcome'),
         sender: 'bot',
         timestamp: new Date(),
         type: 'options',
-        language: 'pt',
+        language: i18n.language as 'pt' | 'en',
         options: [
-          'Conhecer nossos serviços',
-          'Fazer um orçamento',
-          'Falar com um atendente',
-          'Informações da empresa'
+          t('chatbot.option1'),
+          t('chatbot.option2'),
+          t('chatbot.option3'),
+          t('chatbot.option4')
         ]
       }
     ]);
@@ -160,13 +152,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
     setIsLoading(true);
 
     try {
-      // Check for language switch command
-      if (text.toLowerCase().includes('mudar para') || text.toLowerCase().includes('switch to')) {
-        handleLanguageSwitch();
-        setIsTyping(false);
-        setIsLoading(false);
-        return;
-      }
+
 
       // Check for quick actions that need WhatsApp
       if (text.toLowerCase().includes('orçamento') || text.toLowerCase().includes('quote') || 
@@ -265,8 +251,6 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
   const handleOptionClick = (option: string) => {
     if (option.includes('WhatsApp') || option.includes('Abrir') || option.includes('Open')) {
       handleWhatsAppRedirect(option);
-    } else if (option.includes('Mudar para') || option.includes('Switch to')) {
-      handleLanguageSwitch();
     } else {
       handleSendMessage(option);
     }
@@ -459,7 +443,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
                 <div className="flex flex-col items-center ml-3">
                   <div className="flex items-center space-x-2">
                     <h3 className="text-black font-semibold text-base sm:text-lg">
-                      Megaphoton IA
+                      {currentLanguage === 'pt' ? 'Megaphoton IA' : 'Megaphoton AI'}
                     </h3>
                   </div>
                 </div>
@@ -630,7 +614,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage(inputValue)}
-                      placeholder={currentLanguage === 'pt' ? 'Digite sua mensagem...' : 'Type your message...'}
+                      placeholder={t('chatbot.placeholder')}
                       className="flex-1 px-3 py-2 sm:px-4 sm:py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-base sm:text-sm"
                       disabled={isLoading}
                     />
@@ -659,7 +643,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
                     >
                       <ShoppingCart className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                       <span className="text-xs">
-                        {currentLanguage === 'pt' ? 'Orçamento' : 'Quote'}
+                        {t('chatbot.quote')}
                       </span>
                     </motion.button>
                     <motion.button
@@ -670,7 +654,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
                     >
                       <WhatsAppIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                       <span className="text-xs">
-                        {currentLanguage === 'pt' ? 'Atendente' : 'Agent'}
+                        {t('chatbot.agent')}
                       </span>
                     </motion.button>
                   </div>
@@ -681,7 +665,7 @@ const Chatbot = ({ isOpen, onClose, phoneNumber }: ChatbotProps) => {
             {/* AI Disclaimer */}
             <div className="px-3 py-2 bg-gray-50 border-t border-gray-100">
               <p className="text-xs text-gray-500 text-center">
-                Megaphoton usa IA, erros podem acontecer
+                {t('chatbot.disclaimer')}
               </p>
             </div>
           </motion.div>

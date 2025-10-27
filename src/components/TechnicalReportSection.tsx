@@ -1,22 +1,24 @@
 import { FileText, Settings, CheckCircle, Shield, Award } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
+import { useTranslation } from 'react-i18next';
 
 const TechnicalReportSection = () => {
+  const { t } = useTranslation();
   const applications = [
     {
       icon: <CheckCircle className="h-5 w-5 text-blue-500" />,
-      title: 'Verificação de Conformidade',
-      description: 'Confirmação de que o projeto foi executado conforme especificações'
+      titleKey: 'technical.verificacaoConformidade',
+      descKey: 'technical.verificacaoDesc'
     },
     {
       icon: <Shield className="h-5 w-5 text-blue-500" />,
-      title: 'Garantia de Segurança',
-      description: 'Validação da segurança elétrica e operacional da instalação'
+      titleKey: 'technical.garantiaSeguranca',
+      descKey: 'technical.garantiaDesc'
     },
     {
       icon: <Award className="h-5 w-5 text-blue-500" />,
-      title: 'Documentação Técnica',
-      description: 'Documentação completa para acionamento de garantias'
+      titleKey: 'technical.documentacaoTecnica',
+      descKey: 'technical.documentacaoDesc'
     }
   ];
 
@@ -28,13 +30,13 @@ const TechnicalReportSection = () => {
           <div className="mb-16">
             <div className="flex items-center mb-2">
               <div className="h-px w-12 bg-blue-600 mr-4"></div>
-              <span className="text-blue-600 uppercase tracking-wider text-sm font-medium">Comissionamento</span>
+              <span className="text-blue-600 uppercase tracking-wider text-sm font-medium">{t('technical.title')}</span>
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              <span className="text-black">Comissionamento</span>
+              <span className="text-black">{t('technical.title')}</span>
             </h2>
             <p className="text-2xl text-muted-foreground max-w-6xl mx-auto font-medium">
-              Garantia de <span className="text-blue-600">conformidade</span> e segurança para sua instalação
+              {t('technical.subtitle')} <span className="text-blue-600">{t('technical.subtitleBold')}</span> {t('technical.subtitleEnd')}
             </p>
           </div>
         </ScrollAnimation>
@@ -55,28 +57,27 @@ const TechnicalReportSection = () => {
             <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
               <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
                 <h3 className="text-sm sm:text-base md:text-3xl font-light text-white mb-1.5 md:mb-4 leading-tight text-left">
-                  Garantindo a <span className="text-blue-300 font-normal">Excelência Técnica</span>
+                  {t('technical.garantindoTitle')} <span className="text-blue-300 font-normal">{t('technical.garantindoBold')}</span>
                 </h3>
                 <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
-                  Nosso processo de comissionamento e elaboração de laudos técnicos garante que sua instalação 
-                  solar opere com máxima eficiência e segurança desde o primeiro dia.
+                  {t('technical.garantindoDesc')}
                 </p>
                 <div className="space-y-0.5 md:space-y-3">
                   <div className="flex items-start space-x-1.5 md:space-x-3">
                     <CheckCircle className="h-2.5 w-2.5 md:h-5 md:w-5 text-blue-300 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">Verificação completa dos componentes</span>
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">{t('technical.feature1')}</span>
                   </div>
                   <div className="flex items-start space-x-1.5 md:space-x-3">
                     <Shield className="h-2.5 w-2.5 md:h-5 md:w-5 text-blue-300 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">Proteção do seu investimento</span>
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">{t('technical.feature2')}</span>
                   </div>
                   <div className="flex items-start space-x-1.5 md:space-x-3">
                     <FileText className="h-2.5 w-2.5 md:h-5 md:w-5 text-blue-300 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">Documentação técnica completa</span>
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">{t('technical.feature3')}</span>
                   </div>
                   <div className="flex items-start space-x-1.5 md:space-x-3">
                     <Settings className="h-2.5 w-2.5 md:h-5 md:w-5 text-blue-300 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">Conformidade com normas técnicas</span>
+                    <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">{t('technical.feature4')}</span>
                   </div>
                 </div>
               </div>
@@ -94,7 +95,7 @@ const TechnicalReportSection = () => {
         {/* Applications Grid */}
         <ScrollAnimation delay={600}>
           <h3 className="text-xl font-semibold text-gray-900 mb-6">
-            Aplicações do laudo técnico
+            {t('technical.aplicacoesTitle')}
           </h3>
         </ScrollAnimation>
         
@@ -106,9 +107,9 @@ const TechnicalReportSection = () => {
                   <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600">
                     {application.icon}
                   </div>
-                  <h4 className="font-medium text-gray-900">{application.title}</h4>
+                  <h4 className="font-medium text-gray-900">{t(application.titleKey)}</h4>
                 </div>
-                <p className="text-sm text-gray-600 pl-11">{application.description}</p>
+                <p className="text-sm text-gray-600 pl-11">{t(application.descKey)}</p>
               </div>
             </ScrollAnimation>
           ))}
@@ -117,8 +118,7 @@ const TechnicalReportSection = () => {
         <ScrollAnimation delay={1000} animationClass="reveal-fade-up">
           <div className="p-6 bg-blue-50 border-l-4 border-blue-400 rounded-lg shadow-sm mb-16">
             <p className="text-sm text-gray-700">
-              <strong>Importante:</strong> Nossos laudos técnicos e processos de comissionamento seguem os mais rigorosos padrões da indústria, 
-              garantindo que sua instalação solar atenda a todas as normas técnicas e de segurança.
+              <strong>{t('technical.importante')}</strong> {t('technical.importanteDesc')}
             </p>
           </div>
         </ScrollAnimation>

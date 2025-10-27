@@ -28,8 +28,10 @@ import { ArrowRight, Sun, Zap, Shield, Phone, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { createSmoothScrollHandler } from '@/utils/scrollUtils';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   const [currentVideo, setCurrentVideo] = useState(0);
   const videos = ['videos/presentation.mp4', 'videos/solar-video.mp4'];
 
@@ -84,11 +86,11 @@ const HeroSection = () => {
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 w-full h-full text-center">
         <h1 className="text-5xl lg:text-7xl font-light mb-6 text-white" style={{ fontFamily: 'Google Sans, sans-serif' }}>
-          SUA USINA EM BOAS MÃOS
+          {t('hero.title')}
         </h1>
         <p className="text-2xl lg:text-3xl mb-8 text-white font-light" style={{ fontFamily: 'Google Sans, sans-serif' }}>
-          A MEGAPHOTON oferece serviços de qualidade em usinas solares,<br />
-          realizados por profissionais capacitados
+          {t('hero.subtitle')}<br />
+          {t('hero.subtitle2')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Button 
@@ -97,7 +99,7 @@ const HeroSection = () => {
             asChild
           >
             <a href="#servicos" onClick={createSmoothScrollHandler('#servicos')}>
-              Nossos Serviços
+              {t('hero.nossosServicos')}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
@@ -107,7 +109,7 @@ const HeroSection = () => {
             className="bg-transparent text-white font-semibold rounded-full px-8 py-3 border border-white transition-colors duration-200 hover:bg-white hover:text-black"
             asChild
           >
-            <a href="#contato" onClick={createSmoothScrollHandler('#contato')}>Entre em Contato</a>
+            <a href="#contato" onClick={createSmoothScrollHandler('#contato')}>{t('hero.entreEmContato')}</a>
           </Button>
         </div>
         {/* Contact info removed as requested */}

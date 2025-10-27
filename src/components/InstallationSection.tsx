@@ -1,32 +1,34 @@
 import { CheckCircle, ArrowRight, Award, Gem, Wrench, Headset } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const InstallationSection = () => {
+  const { t } = useTranslation();
   const benefits = [
-    'Máximo aproveitamento da luz solar',
-    'Redução significativa dos custos de energia',
-    'Acompanhamento completo do processo',
-    'Garantia de durabilidade e desempenho'
+    t('installation.benefit1'),
+    t('installation.benefit2'),
+    t('installation.benefit3'),
+    t('installation.benefit4')
   ];
 
   const features = [
     {
-      title: 'Excelência',
-      description: 'Padrões de qualidade superiores',
+      titleKey: 'installation.excelencia',
+      descKey: 'installation.excelenciaDesc',
       icon: Award
     },
     {
-      title: 'Materiais Premium',
-      description: 'Componentes selecionados',
+      titleKey: 'installation.materiaisPremium',
+      descKey: 'installation.materiaisDesc',
       icon: Gem
     },
     {
-      title: 'Precisão Técnica',
-      description: 'Instalação especializada',
+      titleKey: 'installation.precisaoTecnica',
+      descKey: 'installation.precisaoDesc',
       icon: Wrench
     },
     {
-      title: 'Suporte Completo',
-      description: 'Do projeto à manutenção',
+      titleKey: 'installation.suporteCompleto',
+      descKey: 'installation.suporteDesc',
       icon: Headset
     }
   ];
@@ -38,13 +40,13 @@ const InstallationSection = () => {
         <div className="mb-16">
           <div className="flex items-center mb-2">
             <div className="h-px w-12 bg-emerald-500 mr-4"></div>
-            <span className="text-emerald-500 uppercase tracking-wider text-sm font-medium">Instalações</span>
+            <span className="text-emerald-500 uppercase tracking-wider text-sm font-medium">{t('installation.title')}</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            <span className="text-black">Instalações</span>
+            <span className="text-black">{t('installation.title')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Soluções energéticas que combinam inovação, eficiência e sustentabilidade
+            {t('installation.description')}
           </p>
         </div>
 
@@ -64,11 +66,10 @@ const InstallationSection = () => {
             <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
               <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-lg border border-white/20 shadow-xl">
                 <h3 className="text-sm sm:text-base md:text-3xl font-light text-white mb-1.5 md:mb-4 leading-tight text-left">
-                  Qualidade <span className="text-emerald-300 font-normal">Excepcional</span>
+                  {t('installation.qualidadeTitle')} <span className="text-emerald-300 font-normal">{t('installation.qualidadeBold')}</span>
                 </h3>
                 <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
-                  Cada projeto é executado com excelência técnica, desde a seleção de materiais 
-                  até a instalação final, garantindo máximo desempenho e durabilidade.
+                  {t('installation.qualidadeDesc')}
                 </p>
                 <div className="space-y-0.5 md:space-y-3">
                   {benefits.map((benefit, index) => (
@@ -105,10 +106,10 @@ const InstallationSection = () => {
                   </span>
                   <div className="flex flex-col justify-center bg-white/90 backdrop-blur-md border border-slate-100 rounded-xl shadow p-6 lg:p-8 min-w-[220px] max-w-xs mx-auto">
                     <h4 className="text-lg lg:text-xl font-bold text-slate-900 mb-2 tracking-tight">
-                      {feature.title}
+                      {t(feature.titleKey)}
                     </h4>
                     <p className="text-slate-600 leading-relaxed text-base">
-                      {feature.description}
+                      {t(feature.descKey)}
                     </p>
                   </div>
                 </div>
@@ -128,11 +129,10 @@ const InstallationSection = () => {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             <div className="text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Transforme sua <span className="text-emerald-200">energia</span> <br className="hidden lg:block" />com nosso acompanhamento
+                {t('installation.ctaTitle')} <span className="text-emerald-200">{t('installation.ctaTitleBold')}</span> <br className="hidden lg:block" />{t('installation.ctaSubtitle')}
               </h3>
               <p className="text-emerald-100/90 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed">
-                Atendimento personalizado em todas as etapas, do planejamento inicial 
-                à manutenção pós-instalação, garantindo máxima eficiência.  
+                {t('installation.ctaDesc')}  
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <button 
@@ -142,7 +142,7 @@ const InstallationSection = () => {
                     window.open(`https://wa.me/5534992320853?text=${message}`, '_blank');
                   }}
                 >
-                  <span>Solicitar Orçamento</span>
+                  <span>{t('installation.solicitarOrcamento')}</span>
                   <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 animate-pulse" />
                 </button>
                 <button className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-transparent border border-emerald-200/30 text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-lg sm:rounded-xl hover:bg-emerald-700/50 transition-all duration-300 font-medium text-sm sm:text-base"
@@ -153,7 +153,7 @@ const InstallationSection = () => {
                     }
                   }}
                 >
-                  <span>Fale Conosco</span>
+                  <span>{t('installation.faleConosco')}</span>
                 </button>
               </div>
             </div>

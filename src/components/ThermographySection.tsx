@@ -1,27 +1,29 @@
 import { Thermometer, Search, Shield, TrendingUp, Zap } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
+import { useTranslation } from 'react-i18next';
 
 const ThermographySection = () => {
+  const { t } = useTranslation();
   const benefits = [
     {
       icon: <Search className="h-5 w-5" />,
-      title: 'Detecção Precoce',
-      description: 'Identifica hot spots, microfissuras e falhas de interconexão'
+      titleKey: 'thermography.deteccaoPrecoce',
+      descKey: 'thermography.deteccaoDesc'
     },
     {
       icon: <Shield className="h-5 w-5" />,
-      title: 'Técnica Não Invasiva',
-      description: 'Análise sem interrupção da operação do sistema'
+      titleKey: 'thermography.tecnicaNaoInvasiva',
+      descKey: 'thermography.tecnicaDesc'
     },
     {
       icon: <TrendingUp className="h-5 w-5" />,
-      title: 'Monitoramento Contínuo',
-      description: 'Acompanhamento da qualidade ao longo do tempo'
+      titleKey: 'thermography.monitoramentoContinuo',
+      descKey: 'thermography.monitoramentoDesc'
     },
     {
       icon: <Zap className="h-5 w-5" />,
-      title: 'Avaliação de Performance',
-      description: 'Identificação de módulos com baixo desempenho'
+      titleKey: 'thermography.avaliacaoPerformance',
+      descKey: 'thermography.avaliacaoDesc'
     }
   ];
 
@@ -33,13 +35,13 @@ const ThermographySection = () => {
           <div className="mb-16">
             <div className="flex items-center mb-2">
               <div className="h-px w-12 bg-primary mr-4"></div>
-              <span className="text-primary uppercase tracking-wider text-sm font-medium">Termografia</span>
+              <span className="text-primary uppercase tracking-wider text-sm font-medium">{t('thermography.title')}</span>
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              <span className="text-black">Termografia</span>
+              <span className="text-black">{t('thermography.title')}</span>
             </h2>
             <p className="text-2xl text-muted-foreground max-w-6xl mx-auto font-medium">
-              Identifique problemas <span className="text-primary">invisíveis</span> antes que afetem seu sistema
+              {t('thermography.subtitle')} <span className="text-primary">{t('thermography.subtitleBold')}</span> {t('thermography.subtitleEnd')}
             </p>
           </div>
         </ScrollAnimation>
@@ -60,29 +62,28 @@ const ThermographySection = () => {
             <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
               <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-8 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-md border border-white/20 shadow-xl">
                 <h3 className="text-sm sm:text-base md:text-3xl font-light text-white mb-1.5 md:mb-4 leading-tight text-left">
-                  Análise <span className="text-primary font-normal">Termográfica</span>
+                  {t('thermography.analiseTitle')} <span className="text-primary font-normal">{t('thermography.analiseBold')}</span>
                 </h3>
                 <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-base mb-2 md:mb-6 text-left">
-                  Utilizamos tecnologia avançada para identificar problemas invisíveis a olho nu, 
-                  garantindo a máxima eficiência e segurança da sua instalação fotovoltaica.
+                  {t('thermography.analiseDesc')}
                 </p>
                 <div className="space-y-0.5 md:space-y-3">
                   <div className="flex items-start space-x-1.5 md:space-x-3">
                     <Search className="h-2.5 w-2.5 md:h-5 md:w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">
-                      Identifica hot spots e falhas de interconexão
+                      {t('thermography.feature1')}
                     </span>
                   </div>
                   <div className="flex items-start space-x-1.5 md:space-x-3">
                     <Shield className="h-2.5 w-2.5 md:h-5 md:w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">
-                      Análise não invasiva do sistema
+                      {t('thermography.feature2')}
                     </span>
                   </div>
                   <div className="flex items-start space-x-1.5 md:space-x-3">
                     <TrendingUp className="h-2.5 w-2.5 md:h-5 md:w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-white/90 text-[9px] sm:text-xs md:text-base leading-tight md:leading-normal">
-                      Monitoramento contínuo da qualidade
+                      {t('thermography.feature3')}
                     </span>
                   </div>
                 </div>
@@ -101,7 +102,7 @@ const ThermographySection = () => {
         {/* Benefits Grid */}
         <ScrollAnimation delay={600}>
           <h3 className="text-xl font-semibold text-gray-900 mb-6">
-            Benefícios da análise termográfica
+            {t('thermography.beneficiosTitle')}
           </h3>
         </ScrollAnimation>
         
@@ -113,10 +114,10 @@ const ThermographySection = () => {
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     {benefit.icon}
                   </div>
-                  <h4 className="font-medium text-gray-900">{benefit.title}</h4>
+                  <h4 className="font-medium text-gray-900">{t(benefit.titleKey)}</h4>
                 </div>
                 <div className="h-px w-full bg-gray-100 my-3"></div>
-                <p className="text-sm text-gray-600">{benefit.description}</p>
+                <p className="text-sm text-gray-600">{t(benefit.descKey)}</p>
               </div>
             </ScrollAnimation>
           ))}

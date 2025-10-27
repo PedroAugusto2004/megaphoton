@@ -2,9 +2,11 @@ import { BarChart3, Eye, Shield, TrendingUp, FileText, X } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import './popup-animation.css';
 
 const MonitoringSection = () => {
+  const { t } = useTranslation();
   const [selectedBenefit, setSelectedBenefit] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -14,36 +16,15 @@ const MonitoringSection = () => {
   }, []);
 
   const monitoringFeatures = [
-    {
-      icon: <Eye className="h-5 w-5 text-green-500" />,
-      title: 'Monitoramento Online',
-      description: 'Acompanhamento em tempo real identifica falhas e evita perdas'
-    },
-    {
-      icon: <TrendingUp className="h-5 w-5 text-green-500" />,
-      title: 'Dados em Insights',
-      description: 'Transformamos dados em informações acionáveis para decisões'
-    },
-    {
-      icon: <Shield className="h-5 w-5 text-green-500" />,
-      title: 'Controle Total',
-      description: 'Transparência e segurança financeira e operacional'
-    }
+    { icon: <Eye className="h-5 w-5 text-green-500" />, descKey: 'monitoring.feature1' },
+    { icon: <TrendingUp className="h-5 w-5 text-green-500" />, descKey: 'monitoring.feature2' },
+    { icon: <Shield className="h-5 w-5 text-green-500" />, descKey: 'monitoring.feature3' }
   ];
 
   const reportBenefits = [
-    {
-      title: 'Insights Valiosos',
-      description: 'Transformam dados complexos em informações claras e acionáveis'
-    },
-    {
-      title: 'Controle Total',
-      description: 'Garantem transparência, segurança financeira e operacional'
-    },
-    {
-      title: 'Prevenção de Perdas',
-      description: 'Identificação rápida de falhas evita perdas de geração'
-    }
+    { titleKey: 'monitoring.insightsValiosos', descKey: 'monitoring.insightsDesc' },
+    { titleKey: 'monitoring.controleTotal', descKey: 'monitoring.controleDesc' },
+    { titleKey: 'monitoring.prevencaoPerdas', descKey: 'monitoring.prevencaoDesc' }
   ];
 
   const handleBenefitClick = (title: string) => {
@@ -94,7 +75,7 @@ const MonitoringSection = () => {
       >
         <div className={`bg-white rounded-xl p-6 max-w-xs w-full shadow-2xl popup-content ${isAnimating ? 'closing' : ''}`}>
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-green-600">{selectedBenefit}</h3>
+            <h3 className="text-lg font-semibold text-green-600">{selectedBenefit && t(reportBenefits.find(b => t(b.titleKey) === selectedBenefit)?.titleKey || '')}</h3>
             <button 
               onClick={closePopup}
               className="text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-full hover:bg-gray-100"
@@ -103,7 +84,7 @@ const MonitoringSection = () => {
             </button>
           </div>
           <p className="text-gray-700 text-sm leading-relaxed">
-            {reportBenefits.find(b => b.title === selectedBenefit)?.description}
+            {selectedBenefit && t(reportBenefits.find(b => t(b.titleKey) === selectedBenefit)?.descKey || '')}
           </p>
         </div>
       </div>,
@@ -120,13 +101,13 @@ const MonitoringSection = () => {
             <div className="mb-16">
               <div className="flex items-center mb-2">
                 <div className="h-px w-12 bg-green-500 mr-4"></div>
-                <span className="text-green-500 uppercase tracking-wider text-sm font-medium"> MONITORAMENTO E RELATÓRIOS</span>
+                <span className="text-green-500 uppercase tracking-wider text-sm font-medium">{t('monitoring.title')}</span>
               </div>
               <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                <span className="text-black"> Monitoramento e Relatórios</span>
+                <span className="text-black">{t('monitoring.heading')}</span>
               </h2>
               <p className="text-2xl text-muted-foreground max-w-6xl mx-auto font-medium">
-                Como está o <span className="text-green-500">desempenho</span> da sua usina solar?
+                {t('monitoring.subtitle')} <span className="text-green-500">{t('monitoring.subtitleBold')}</span> {t('monitoring.subtitleEnd')}
               </p>
             </div>
           </ScrollAnimation>
@@ -145,11 +126,10 @@ const MonitoringSection = () => {
               <div className="absolute top-4 right-2 sm:right-4 md:top-8 md:right-16 flex items-end md:block">
                 <div className="bg-black/40 backdrop-blur-md rounded-lg p-3 sm:p-4 md:p-8 w-[80%] sm:w-[65%] max-w-[280px] sm:max-w-[320px] md:w-auto md:max-w-lg border border-white/20 shadow-xl ml-auto md:ml-0">
                   <h3 className="text-base sm:text-lg md:text-3xl font-light text-white mb-2 md:mb-4 leading-tight text-left">
-                    Monitoramento <span className="text-green-300 font-normal">Inteligente</span>
+                    {t('monitoring.monitoramentoTitle')} <span className="text-green-300 font-normal">{t('monitoring.monitoramentoBold')}</span>
                   </h3>
                   <p className="hidden md:block text-white/90 text-sm md:text-base mb-3 md:mb-6 text-left">
-                    O monitoramento diário garante que cada raio de sol se transforme em máxima energia.
-                    Não é apenas acompanhar; é otimizar continuamente o desempenho do seu sistema.
+                    {t('monitoring.monitoramentoDesc')}
                   </p>
                   <div className="space-y-2 md:space-y-3">
                     {monitoringFeatures.map((feature, index) => (
@@ -158,7 +138,7 @@ const MonitoringSection = () => {
                           {feature.icon}
                         </div>
                         <span className="text-white/90 text-xs sm:text-sm md:text-base leading-tight md:leading-normal text-left">
-                          {feature.description}
+                          {t(feature.descKey)}
                         </span>
                       </div>
                     ))}
@@ -181,7 +161,7 @@ const MonitoringSection = () => {
                   <ScrollAnimation delay={800} animationClass="reveal-fade-left">
                     <div className="mb-6 text-center">
                       <h3 className="text-3xl font-light text-white tracking-wide leading-tight">
-                        Relatórios detalhados
+                        {t('monitoring.relatoriosTitle')}
                       </h3>
                     </div>
                   </ScrollAnimation>
@@ -190,8 +170,8 @@ const MonitoringSection = () => {
                     {reportBenefits.map((benefit, index) => (
                       <ScrollAnimation key={benefit.title} delay={900 + index * 100} animationClass="reveal-fade-left">
                         <div>
-                          <h4 className="text-lg font-semibold text-green-400 mb-1 text-left leading-tight">{benefit.title}</h4>
-                          <p className="text-white/90 text-sm leading-relaxed text-left">{benefit.description}</p>
+                          <h4 className="text-lg font-semibold text-green-400 mb-1 text-left leading-tight">{t(benefit.titleKey)}</h4>
+                          <p className="text-white/90 text-sm leading-relaxed text-left">{t(benefit.descKey)}</p>
                         </div>
                       </ScrollAnimation>
                     ))}
@@ -212,8 +192,8 @@ const MonitoringSection = () => {
             <div className="space-y-8 max-w-lg mx-auto">
               {reportBenefits.map((benefit, index) => (
                 <div key={benefit.title} className="text-center">
-                  <h4 className="text-xl font-bold text-green-600 mb-3 tracking-tight">{benefit.title}</h4>
-                  <p className="text-base text-slate-600 leading-relaxed">{benefit.description}</p>
+                  <h4 className="text-xl font-bold text-green-600 mb-3 tracking-tight">{t(benefit.titleKey)}</h4>
+                  <p className="text-base text-slate-600 leading-relaxed">{t(benefit.descKey)}</p>
                 </div>
               ))}
             </div>

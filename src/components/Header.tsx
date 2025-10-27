@@ -1,12 +1,25 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Instagram } from 'lucide-react';
+import { Menu, X, Phone, Instagram, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { createSmoothScrollHandler } from '@/utils/scrollUtils';
+import { useTranslation } from 'react-i18next';
+import { useToast } from '@/hooks/use-toast';
 import './mobile-menu.css';
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
+  const { toast } = useToast();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'pt' ? 'en' : 'pt';
+    i18n.changeLanguage(newLang);
+    toast({
+      description: newLang === 'en' ? 'Translated to English' : 'Traduzido para o Português',
+      duration: 2000,
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,13 +32,13 @@ const Header = () => {
 
   const isCalculatorPage = typeof window !== 'undefined' && window.location.pathname.includes('calculadora-solar');
   const menuItems = [
-    { label: 'Início', href: '#inicio' },
-    { label: 'Serviços', href: '#servicos' },
-    { label: 'Projetos', href: '#projetos' },
-    { label: 'Instalações', href: '#instalacoes' },
-    { label: 'Agronegócio', href: '#agronegocio' },
-    { label: 'Sobre Nós', href: '#sobre' },
-    { label: 'Contato', href: '#contato' },
+    { label: t('header.inicio'), href: '#inicio' },
+    { label: t('header.servicos'), href: '#servicos' },
+    { label: t('header.projetos'), href: '#projetos' },
+    { label: t('header.instalacoes'), href: '#instalacoes' },
+    { label: t('header.agronegocio'), href: '#agronegocio' },
+    { label: t('header.sobre'), href: '#sobre' },
+    { label: t('header.contato'), href: '#contato' },
   ];
 
   return (
@@ -59,19 +72,33 @@ const Header = () => {
               ))}
             </div>
           </div>
-          {/* Desktop CTA Button */}
-          <div className="hidden lg:block ml-auto">
+          {/* Desktop CTA Button & Language Toggle */}
+          <div className="hidden lg:flex items-center gap-3 ml-auto">
+            <button
+              onClick={toggleLanguage}
+              className="p-2 text-white hover:text-primary transition-smooth rounded-full hover:bg-white/10"
+              title={i18n.language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
+            >
+              <Globe className="h-5 w-5" />
+            </button>
             <Button 
               variant="outline" 
               size="sm" 
               className="text-white border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:border-white/50 transition-smooth"
               onClick={() => window.open('https://wa.me/5534992320853?text=Olá, quero agendar uma visita', '_blank')}
             >
-              Agende Já
+              {t('header.agendeJa')}
             </Button>
           </div>
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden ml-auto">
+          {/* Mobile Language Toggle & Menu Button */}
+          <div className="lg:hidden ml-auto flex items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="p-2 text-white hover:text-primary transition-smooth rounded-full hover:bg-white/10"
+              title={i18n.language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
+            >
+              <Globe className="h-6 w-6" />
+            </button>
             <button
               className="relative z-[10000] p-2 transition-transform duration-300 hover:scale-110 active:scale-95"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

@@ -3,9 +3,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import ReactDOM from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import './popup-animation.css';
 
 const ProjectsSection = () => {
+  const { t } = useTranslation();
   const [videoError, setVideoError] = useState(false);
   const [activePopup, setActivePopup] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
@@ -21,27 +23,27 @@ const ProjectsSection = () => {
   const segments = [
     {
       icon: Building,
-      title: 'Comercial',
-      description: 'Soluções para empresas e estabelecimentos comerciais',
+      titleKey: 'projects.comercial',
+      descKey: 'projects.comercialDesc',
+      detailsKey: 'projects.comercialDetails',
       color: 'text-blue-600',
-      bgColor: 'bg-blue-100',
-      details: 'Projetos fotovoltaicos comerciais são ideais para empresas que buscam reduzir custos operacionais e demonstrar compromisso com sustentabilidade. Instalações em telhados ou áreas disponíveis podem gerar economia significativa na conta de energia.'
+      bgColor: 'bg-blue-100'
     },
     {
       icon: Factory,
-      title: 'Industrial', 
-      description: 'Projetos de grande escala para indústrias',
+      titleKey: 'projects.industrial',
+      descKey: 'projects.industrialDesc',
+      detailsKey: 'projects.industrialDetails',
       color: 'text-purple-600',
-      bgColor: 'bg-purple-100',
-      details: 'Sistemas fotovoltaicos industriais são projetados para atender grandes demandas energéticas. Com capacidade para gerar volumes expressivos de energia limpa, estas instalações oferecem retorno sobre investimento acelerado e redução significativa nos custos operacionais.'
+      bgColor: 'bg-purple-100'
     },
     {
       icon: Tractor,
-      title: 'Rural',
-      description: 'Sistemas para propriedades rurais e agronegócio',
+      titleKey: 'projects.rural',
+      descKey: 'projects.ruralDesc',
+      detailsKey: 'projects.ruralDetails',
       color: 'text-green-600',
-      bgColor: 'bg-green-100',
-      details: 'Soluções fotovoltaicas para o agronegócio permitem que propriedades rurais alcancem independência energética. Ideais para bombeamento de água, sistemas de irrigação e outras aplicações agrícolas, reduzindo custos operacionais e aumentando a sustentabilidade.'
+      bgColor: 'bg-green-100'
     }
   ];
 
@@ -52,13 +54,13 @@ const ProjectsSection = () => {
         <div className="mb-16">
           <div className="flex items-center mb-2">
             <div className="h-px w-12 bg-primary mr-4"></div>
-            <span className="text-primary uppercase tracking-wider text-sm font-medium">Projetos</span>
+            <span className="text-primary uppercase tracking-wider text-sm font-medium">{t('projects.title')}</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Nossos <span className="text-black">Projetos</span>
+            {t('projects.heading')} <span className="text-black">{t('projects.headingBold')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Desenvolvemos projetos e soluções de engenharia para a construção de usinas solares fotovoltaicas
+            {t('projects.description')}
           </p>
         </div>
 
@@ -77,18 +79,18 @@ const ProjectsSection = () => {
                 </div>
                 
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {segment.title}
+                  {t(segment.titleKey)}
                 </h3>
                 
                 <p className="text-gray-600 mb-6">
-                  {segment.description}
+                  {t(segment.descKey)}
                 </p>
                 
                 <button 
-                  onClick={() => setActivePopup(segment.title)}
+                  onClick={() => setActivePopup(segment.titleKey)}
                   className="text-sm font-medium text-primary flex items-center hover:text-primary/80 transition-colors group-hover:translate-x-1"
                 >
-                  Saiba mais
+                  {t('projects.saibaMais')}
                   <ArrowRight className="w-4 h-4 ml-1.5" />
                 </button>
                 
@@ -107,29 +109,28 @@ const ProjectsSection = () => {
           <div className="flex items-center px-6 md:px-8 lg:px-16 py-8 md:py-16 lg:py-20 lg:order-1">
             <div className="space-y-6 md:space-y-8 text-white max-w-lg">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
-                PROJETOS ELABORADOS &<br />EXCELÊNCIA
+                {t('projects.detailsTitle')}<br />{t('projects.detailsTitle2')}
               </h3>
               <div className="space-y-4 md:space-y-6">
                 <p className="text-base md:text-lg font-medium text-white/90">
-                  Modelo EPC (Engineering, Procurement and Construction)
+                  {t('projects.detailsSubtitle')}
                 </p>
                 <p className="text-sm md:text-base text-white/80 leading-relaxed font-light">
-                  A elaboração cuidadosa do projeto garante que a usina opere com máxima eficiência, 
-                  proporcionando o retorno esperado sobre o investimento.
+                  {t('projects.detailsDesc')}
                 </p>
               </div>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-white font-medium">Análise de Localização</span>
+                  <span className="text-white font-medium">{t('projects.analiseLocalizacao')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-white font-medium">Escolha de Equipamentos</span>
+                  <span className="text-white font-medium">{t('projects.escolhaEquipamentos')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-white font-medium">Estimativa de Geração</span>
+                  <span className="text-white font-medium">{t('projects.estimativaGeracao')}</span>
                 </div>
               </div>
               
@@ -137,7 +138,7 @@ const ProjectsSection = () => {
                 onClick={() => window.open('https://wa.me/5534992320853?text=Olá,%20quero%20marcar%20meu%20próximo%20projeto', '_blank')}
                 className="mt-6 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/30 rounded-lg text-white font-medium text-sm transition-all duration-300 backdrop-blur-sm hover:scale-105"
               >
-                Marque seu próximo projeto
+                {t('projects.marqueProximo')}
               </button>
             </div>
           </div>
@@ -161,7 +162,7 @@ const ProjectsSection = () => {
                     <div className="w-20 h-20 mx-auto bg-white/20 rounded-2xl flex items-center justify-center">
                       <Zap className="h-10 w-10 text-white/80" />
                     </div>
-                    <p className="text-white/70 font-light">Projeto em Desenvolvimento</p>
+                    <p className="text-white/70 font-light">{t('projects.projetoDesenvolvimento')}</p>
                   </div>
                 </div>
               )}
@@ -171,7 +172,7 @@ const ProjectsSection = () => {
             <div className="absolute bottom-6 right-6 bg-black/20 backdrop-blur-md text-white px-4 py-2 rounded-xl shadow-lg border border-white/20">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-semibold">Projeto em Desenvolvimento</span>
+                <span className="text-sm font-semibold">{t('projects.projetoDesenvolvimento')}</span>
               </div>
             </div>
             {/* Decorative Elements */}
@@ -180,7 +181,7 @@ const ProjectsSection = () => {
             </div>
             {/* Stats Overlay */}
             <div className="absolute top-6 right-6 bg-black/20 backdrop-blur-md text-white px-3 py-2 rounded-lg border border-white/10">
-              <div className="text-xs font-light opacity-90">Eficiência</div>
+              <div className="text-xs font-light opacity-90">{t('projects.eficiencia')}</div>
               <div className="text-lg font-bold">95%+</div>
             </div>
           </div>
@@ -225,19 +226,19 @@ const ProjectsSection = () => {
                 <X className="h-4 w-4" />
               </button>
               {segments.map(segment => {
-                if (segment.title === activePopup) {
+                if (segment.titleKey === activePopup) {
                   return (
-                    <div key={segment.title} className="p-8">
+                    <div key={segment.titleKey} className="p-8">
                       <div className="flex items-center mb-6">
                         <div className={`w-12 h-12 rounded-lg ${segment.bgColor} flex items-center justify-center mr-4 shadow-sm`}>
                           <segment.icon className={`h-6 w-6 ${segment.color}`} />
                         </div>
                         <h3 className="text-2xl font-semibold text-gray-900">
-                          {segment.title}
+                          {t(segment.titleKey)}
                         </h3>
                       </div>
                       <p className="text-gray-700 mb-8 leading-relaxed">
-                        {segment.details}
+                        {t(segment.detailsKey)}
                       </p>
                       <Button 
                         onClick={() => {
@@ -246,7 +247,7 @@ const ProjectsSection = () => {
                         }}
                         className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
                       >
-                        <span>Faça seu orçamento</span>
+                        <span>{t('projects.facaOrcamento')}</span>
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </Button>
                     </div>

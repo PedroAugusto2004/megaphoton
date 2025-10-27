@@ -1,7 +1,9 @@
 import { AlertTriangle, Shield, CheckCircle, Zap, Thermometer, Wrench } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
+import { useTranslation } from 'react-i18next';
 
 const CleaningSection = () => {
+  const { t } = useTranslation();
   const cleaningBenefits = [
     {
       icon: <CheckCircle className="h-8 w-8 sm:h-5 sm:w-5 text-blue-500" />,
@@ -46,13 +48,13 @@ const CleaningSection = () => {
           <div className="mb-16">
             <div className="flex items-center mb-2">
               <div className="h-px w-12 bg-blue-500 mr-4"></div>
-              <span className="text-blue-500 uppercase tracking-wider text-sm font-medium">Higienização</span>
+              <span className="text-blue-500 uppercase tracking-wider text-sm font-medium">{t('cleaning.title')}</span>
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              <span className="text-black">Higienização</span>
+              <span className="text-black">{t('cleaning.title')}</span>
             </h2>
             <p className="text-2xl text-muted-foreground max-w-6xl mx-auto font-medium">
-              Mantenha a <span className="text-blue-500">eficiência máxima</span> do seu sistema fotovoltaico
+              {t('cleaning.subtitle')} <span className="text-blue-500">{t('cleaning.subtitleBold')}</span> {t('cleaning.subtitleEnd')}
             </p>
           </div>
         </ScrollAnimation>
@@ -73,12 +75,10 @@ const CleaningSection = () => {
             <div className="absolute top-4 left-4 md:top-8 md:left-16 flex items-start md:block">
               <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 md:p-6 w-[65%] max-w-[220px] sm:max-w-[240px] md:w-auto md:max-w-md border border-white/20 shadow-xl">
                 <h3 className="text-sm sm:text-base md:text-2xl font-light text-white mb-1.5 md:mb-3 leading-tight text-left">
-                  Por que a limpeza <span className="text-blue-300 font-normal">profissional</span> é essencial
+                  {t('cleaning.limpezaTitle')} <span className="text-blue-300 font-normal">{t('cleaning.limpezaBold')}</span> {t('cleaning.limpezaEnd')}
                 </h3>
                 <p className="hidden md:block text-white/90 text-[11px] sm:text-xs md:text-sm mb-2 md:mb-4 text-left leading-relaxed">
-                  A acumulação de poeira, poluição e resíduos nos painéis solares pode reduzir 
-                  significativamente a eficiência do sistema. Um estudo da Universidade de Duke (2016) 
-                  demonstrou que painéis não higienizados podem perder até 25% de eficiência anualmente.
+                  {t('cleaning.limpezaDesc')}
                 </p>
                 <div className="space-y-0.5 md:space-y-2">
                   {cleaningBenefits.map((benefit, index) => (
@@ -108,7 +108,7 @@ const CleaningSection = () => {
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
               <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-blue-500" />
               <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900">
-                Riscos da limpeza inadequada
+                {t('cleaning.riscosTitle')}
               </h3>
             </div>
           </ScrollAnimation>
@@ -134,12 +134,10 @@ const CleaningSection = () => {
               <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
                 <div className="flex items-center sm:items-start gap-3 sm:gap-4">
                   <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <h4 className="text-base sm:text-lg font-semibold text-gray-900">Importante:</h4>
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-900">{t('cleaning.importante')}</h4>
                 </div>
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                  A limpeza profissional dos painéis solares deve ser realizada 
-                  por técnicos especializados, utilizando equipamentos e produtos adequados para evitar danos 
-                  ao sistema e garantir a segurança.
+                  {t('cleaning.importanteDesc')}
                 </p>
               </div>
             </div>
