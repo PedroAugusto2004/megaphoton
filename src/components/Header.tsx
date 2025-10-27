@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Instagram, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { createSmoothScrollHandler } from '@/utils/scrollUtils';
 import { useTranslation } from 'react-i18next';
 import { useToast } from '@/hooks/use-toast';
@@ -74,13 +75,21 @@ const Header = () => {
           </div>
           {/* Desktop CTA Button & Language Toggle */}
           <div className="hidden lg:flex items-center gap-3 ml-auto">
-            <button
-              onClick={toggleLanguage}
-              className="p-2 text-white hover:text-primary transition-smooth rounded-full hover:bg-white/10"
-              title={i18n.language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
-            >
-              <Globe className="h-5 w-5" />
-            </button>
+            <TooltipProvider delayDuration={200}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    onClick={toggleLanguage}
+                    className="p-2 text-white hover:text-primary transition-smooth rounded-full hover:bg-white/10"
+                  >
+                    <Globe className="h-5 w-5" />
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="font-medium">{i18n.language === 'pt' ? 'Switch to English' : 'Mudar para Português'}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             <Button 
               variant="outline" 
               size="sm" 
@@ -92,13 +101,21 @@ const Header = () => {
           </div>
           {/* Mobile Language Toggle & Menu Button */}
           <div className="lg:hidden ml-auto flex items-center gap-2">
-            <button
-              onClick={toggleLanguage}
-              className="p-2 text-white hover:text-primary transition-smooth rounded-full hover:bg-white/10"
-              title={i18n.language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
-            >
-              <Globe className="h-6 w-6" />
-            </button>
+            <TooltipProvider delayDuration={200}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    onClick={toggleLanguage}
+                    className="p-2 text-white hover:text-primary transition-smooth rounded-full hover:bg-white/10"
+                  >
+                    <Globe className="h-6 w-6" />
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="font-medium">{i18n.language === 'pt' ? 'Switch to English' : 'Mudar para Português'}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             <button
               className="relative z-[10000] p-2 transition-transform duration-300 hover:scale-110 active:scale-95"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
