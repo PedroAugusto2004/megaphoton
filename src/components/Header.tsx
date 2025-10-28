@@ -169,6 +169,7 @@ export default Header;
 
 // Mobile Fixed Button Component
 export const MobileFixedButton = () => {
+  const { t } = useTranslation();
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -195,7 +196,7 @@ export const MobileFixedButton = () => {
         className="w-full bg-black/50 backdrop-blur-lg border border-white/30 text-white hover:bg-black/60 transition-all duration-300 py-3 text-base font-medium"
         onClick={() => window.open('https://wa.me/5534992320853?text=Olá, quero agendar uma visita', '_blank')}
       >
-        Agende Já
+        {t('header.agendeJa')}
       </Button>
     </div>
   );

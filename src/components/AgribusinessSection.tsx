@@ -129,14 +129,13 @@ const AgribusinessSection = () => {
       <div className="text-center mb-12">
         <div className="flex items-center justify-center mb-4">
           <div className="h-px w-12 bg-green-600 mr-4"></div>
-          <span className="text-green-600 uppercase tracking-wider text-sm font-medium">Irrigação Inteligente</span>
+          <span className="text-green-600 uppercase tracking-wider text-sm font-medium">{t('agribusiness.irrigacaoTitle')}</span>
         </div>
         <h3 className="text-3xl font-bold text-gray-900 mb-4">
-          Sistemas de Irrigação
+          {t('agribusiness.irrigacaoSubtitle')}
         </h3>
         <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          Bombas solares substituem sistemas a diesel, fornecendo água confiável e econômica. 
-          Independência total dos preços de combustíveis.
+          {t('agribusiness.irrigacaoDesc')}
         </p>
       </div>
 
@@ -160,13 +159,10 @@ const AgribusinessSection = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Revolução na Irrigação Rural
+              {t('agribusiness.irrigacaoRevTitle')}
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              A irrigação é uma das maiores demandas energéticas na agricultura. Bombas movidas a energia solar 
-              substituem sistemas a diesel ou da rede elétrica, fornecendo um suprimento de água confiável e 
-              econômico. Os produtores ganham independência das oscilações dos preços de combustíveis e reduzem 
-              o tempo de inatividade causado pela instabilidade da rede.
+              {t('agribusiness.irrigacaoRevDesc')}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -174,27 +170,27 @@ const AgribusinessSection = () => {
               <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="h-6 w-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-3">Economia Garantida</h4>
+              <h4 className="font-bold text-gray-900 mb-3">{t('agribusiness.economiaGarantida')}</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Redução de até 90% nos custos de bombeamento com energia solar gratuita e inesgotável
+                {t('agribusiness.economiaDesc')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Droplets className="h-6 w-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-3">Controle Inteligente</h4>
+              <h4 className="font-bold text-gray-900 mb-3">{t('agribusiness.controleInteligente')}</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Sistemas automatizados com sensores de umidade e programação avançada
+                {t('agribusiness.controleDesc')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-6 w-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-3">Confiabilidade Total</h4>
+              <h4 className="font-bold text-gray-900 mb-3">{t('agribusiness.confiabilidadeTotal')}</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Operação independente da rede elétrica com sistemas de backup inteligentes
+                {t('agribusiness.confiabilidadeDesc')}
               </p>
             </div>
           </div>
@@ -205,14 +201,13 @@ const AgribusinessSection = () => {
       <div className="text-center mb-12">
         <div className="flex items-center justify-center mb-4">
           <div className="h-px w-12 bg-green-600 mr-4"></div>
-          <span className="text-green-600 uppercase tracking-wider text-sm font-medium">Preservação Solar</span>
+          <span className="text-green-600 uppercase tracking-wider text-sm font-medium">{t('agribusiness.preservacaoTitle')}</span>
         </div>
         <h3 className="text-3xl font-bold text-gray-900 mb-4">
-          Armazenamento Refrigerado
+          {t('agribusiness.armazenamentoRefTitle')}
         </h3>
         <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          Câmaras frias solares reduzem perdas pós-colheita e estendem a vida útil dos produtos. 
-          Preservação eficiente sem dependência da rede elétrica.
+          {t('agribusiness.armazenamentoRefDesc')}
         </p>
       </div>
 
@@ -236,13 +231,10 @@ const AgribusinessSection = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Revolução no Armazenamento Rural
+              {t('agribusiness.armazenamentoRevTitle')}
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              As perdas pós-colheita são um desafio crítico no agronegócio, especialmente em regiões remotas 
-              com infraestrutura energética limitada. Câmaras frias e unidades de refrigeração movidas a energia 
-              solar estendem a vida útil de frutas, vegetais, laticínios e produtos cárneos, garantindo qualidade 
-              e acesso a mercados mais amplos.
+              {t('agribusiness.armazenamentoRevDesc')}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -250,27 +242,27 @@ const AgribusinessSection = () => {
               <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Thermometer className="h-6 w-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-3">Controle Preciso</h4>
+              <h4 className="font-bold text-gray-900 mb-3">{t('agribusiness.controlePreciso')}</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Temperatura controlada com precisão para máxima preservação dos produtos
+                {t('agribusiness.controlePrecisoDesc')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="h-6 w-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-3">Redução de Perdas</h4>
+              <h4 className="font-bold text-gray-900 mb-3">{t('agribusiness.reducaoPerdas')}</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Redução de até 70% nas perdas pós-colheita com refrigeração eficiente
+                {t('agribusiness.reducaoPerdasDesc')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-6 w-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-3">Vida Útil Estendida</h4>
+              <h4 className="font-bold text-gray-900 mb-3">{t('agribusiness.vidaUtilEstendida')}</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Produtos mantêm qualidade por períodos muito mais longos
+                {t('agribusiness.vidaUtilDesc')}
               </p>
             </div>
           </div>
@@ -280,14 +272,13 @@ const AgribusinessSection = () => {
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-4">
             <div className="h-px w-12 bg-green-600 mr-4"></div>
-            <span className="text-green-600 uppercase tracking-wider text-sm font-medium">Pecuária Sustentável</span>
+            <span className="text-green-600 uppercase tracking-wider text-sm font-medium">{t('agribusiness.pecuariaTitle')}</span>
           </div>
           <h3 className="text-3xl font-bold text-gray-900 mb-4">
-            Operações Pecuárias
+            {t('agribusiness.operacoesPecTitle')}
           </h3>
           <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Energia solar apoia a pecuária com ventilação, alimentação automatizada e bombas de água. 
-            Ambiente estável para melhor produtividade e bem-estar animal.
+            {t('agribusiness.operacoesPecDesc')}
           </p>
         </div>
 
@@ -310,13 +301,10 @@ const AgribusinessSection = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Revolução na Pecuária Sustentável
+              {t('agribusiness.pecuariaRevTitle')}
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              A energia solar apoia a pecuária alimentando ventilação, sistemas automatizados de alimentação 
-              e bombas de água. Garante um ambiente estável para os animais, melhorando a produtividade e 
-              o bem-estar. Além disso, cercas elétricas movidas a energia solar oferecem segurança eficiente 
-              e sustentável para grandes áreas de pastagem.
+              {t('agribusiness.pecuariaRevDesc')}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -324,27 +312,27 @@ const AgribusinessSection = () => {
               <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Tractor className="h-6 w-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-3">Ambiente Controlado</h4>
+              <h4 className="font-bold text-gray-900 mb-3">{t('agribusiness.ambienteControlado')}</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Ventilação e temperatura controladas para melhor produtividade animal
+                {t('agribusiness.ambienteControladoDesc')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="h-6 w-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-3">Alimentação Automatizada</h4>
+              <h4 className="font-bold text-gray-900 mb-3">{t('agribusiness.alimentacaoAuto')}</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Sistemas automatizados de alimentação com energia solar confiável
+                {t('agribusiness.alimentacaoAutoDesc')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-6 w-6 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-3">Cercas Sustentáveis</h4>
+              <h4 className="font-bold text-gray-900 mb-3">{t('agribusiness.cercasSustentaveis')}</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Cercas elétricas solares para segurança eficiente de pastagens
+                {t('agribusiness.cercasDesc')}
               </p>
             </div>
           </div>
@@ -353,39 +341,38 @@ const AgribusinessSection = () => {
         {/* Strategic Benefits Section */}
         <div className="py-24 text-center">
           <h3 className="text-4xl font-bold text-gray-900 mb-16">
-            Benefícios Estratégicos da Energia Solar no Agronegócio
+            {t('agribusiness.beneficiosTitle')}
           </h3>
           
           <div className="grid md:grid-cols-3 gap-16 mb-24">
             <div>
               <TrendingUp className="h-12 w-12 text-green-600 mx-auto mb-6" />
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Competitividade</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-4">{t('agribusiness.competitividade')}</h4>
               <p className="text-gray-600">
-                Redução significativa de custos operacionais e maior margem de lucro
+                {t('agribusiness.competitividadeDesc')}
               </p>
             </div>
             
             <div>
               <Shield className="h-12 w-12 text-green-600 mx-auto mb-6" />
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Resiliência</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-4">{t('agribusiness.resiliencia')}</h4>
               <p className="text-gray-600">
-                Independência energética e proteção contra volatilidade de preços
+                {t('agribusiness.resilienciaDesc')}
               </p>
             </div>
             
             <div>
               <Leaf className="h-12 w-12 text-green-600 mx-auto mb-6" />
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Sustentabilidade</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-4">{t('agribusiness.sustentabilidade')}</h4>
               <p className="text-gray-600">
-                Práticas ambientalmente responsáveis e certificações verdes
+                {t('agribusiness.sustentabilidadeDesc')}
               </p>
             </div>
           </div>
 
-          <h3 className="text-3xl font-bold text-gray-900 mb-6">O Futuro é Solar</h3>
+          <h3 className="text-3xl font-bold text-gray-900 mb-6">{t('agribusiness.futuroSolar')}</h3>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            A energia solar não é apenas uma tendência - é a evolução natural do agronegócio brasileiro. 
-            Propriedades que adotam energia solar hoje estão se posicionando como líderes de amanhã.
+            {t('agribusiness.futuroDesc')}
           </p>
         </div>
       </div>

@@ -98,7 +98,7 @@ const CleaningSection = () => {
         {/* Mobile Description - Under Image */}
         <div className="md:hidden -mt-16 mb-24 px-6">
           <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
-            A limpeza profissional é <span className="text-blue-600 font-medium">essencial</span> para manter a eficiência máxima do seu sistema fotovoltaico, garantindo <span className="text-blue-600 font-medium">maior durabilidade e desempenho</span>.
+            {t('cleaning.mobileDesc')}
           </p>
         </div>
 

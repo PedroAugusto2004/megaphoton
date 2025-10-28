@@ -95,7 +95,7 @@ const ThermographySection = () => {
         {/* Mobile Description - Under Image */}
         <div className="md:hidden -mt-16 mb-24 px-6">
           <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
-            A inspeção termográfica permite identificar <span className="text-primary font-medium">problemas ocultos</span> antes que se tornem falhas custosas, sendo essencial para prolongar a <span className="text-primary font-medium">vida útil dos equipamentos</span>.
+            {t('thermography.mobileDesc')}
           </p>
         </div>
 

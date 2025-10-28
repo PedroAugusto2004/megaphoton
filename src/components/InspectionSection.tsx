@@ -81,7 +81,7 @@ const InspectionSection = () => {
         {/* Mobile Description - Under Image */}
         <div className="md:hidden -mt-16 mb-24 px-6">
           <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
-            Durante esse processo, são realizadas <span className="text-blue-600 font-medium">verificações detalhadas da parte elétrica</span>, incluindo conexões, cabos e dispositivos de proteção.
+            {t('inspection.mobileDesc')}
           </p>
         </div>
 
@@ -116,10 +116,10 @@ const InspectionSection = () => {
         <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-8 mb-16 border border-blue-100">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-blue-900 mb-4 tracking-wider">
-              T E S T E S
+              {t('inspection.testesTitle')}
             </h3>
             <p className="text-gray-700 leading-relaxed max-w-4xl mx-auto">
-              Durante as inspeções, são realizados diversos testes para verificação de corrente, potência e desempenho do sistema, essenciais para identificar possíveis falhas, garantir o bom funcionamento da usina solar e assegurar sua máxima eficiência energética.
+              {t('inspection.testesDesc2')}
             </p>
           </div>
         </div>
@@ -127,12 +127,12 @@ const InspectionSection = () => {
         {/* Important Section */}
         <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 mb-16">
           <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 tracking-wider">
-            I M P O R T A N T E
+            {t('inspection.importanteTitle')}
           </h3>
           
           <div className="max-w-4xl mx-auto">
             <p className="text-gray-700 leading-relaxed text-center">
-              O constante movimento dos módulos solares provocado pelo vento, aliado à dilatação térmica durante o dia e à contração à noite, pode causar o afrouxamento dos parafusos da estrutura. Por isso, o reaperto periódico desses parafusos é fundamental para garantir a fixação segura dos módulos, prevenindo acidentes e prejuízos.
+              {t('inspection.importanteDesc')}
             </p>
           </div>
         </div>

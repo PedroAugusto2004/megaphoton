@@ -88,7 +88,7 @@ const TechnicalReportSection = () => {
         {/* Mobile Description - Under Image */}
         <div className="md:hidden -mt-16 mb-24 px-6">
           <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
-            Nosso processo de <span className="text-blue-600 font-medium">comissionamento</span> e elaboração de laudos técnicos garante <span className="text-blue-600 font-medium">máxima eficiência e segurança</span> desde o primeiro dia.
+            {t('technical.mobileDesc')}
           </p>
         </div>
 

@@ -87,7 +87,7 @@ const InstallationSection = () => {
         {/* Mobile Description - Under Image */}
         <div className="md:hidden -mt-16 mb-24 px-6">
           <p className="text-center text-base text-slate-700 leading-relaxed font-light max-w-md mx-auto">
-            Cada projeto é executado com <span className="text-emerald-600 font-medium">excelência técnica</span>, desde a seleção de materiais até a instalação final, garantindo <span className="text-emerald-600 font-medium">máximo desempenho e durabilidade</span>.
+            {t('installation.mobileDesc')}
           </p>
         </div>
 

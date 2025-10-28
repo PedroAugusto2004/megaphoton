@@ -185,7 +185,7 @@ const MonitoringSection = () => {
           <div className="md:hidden mb-16 px-6">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-slate-900 mb-2 tracking-tight">
-                Relatórios detalhados
+                {t('monitoring.relatoriosTitle')}
               </h3>
               <div className="w-16 h-0.5 bg-green-500 mx-auto"></div>
             </div>
